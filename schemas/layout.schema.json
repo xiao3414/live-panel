@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://urovo.local/schemas/live-panel/layout.json",
+  "title": "实况面板 Layout",
+  "description": "实况面板看板 Tab 布局：react-grid-layout 兼容 + 探针绑定",
+  "type": "object",
+  "required": ["version", "name", "grid", "widgets"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1,
+      "description": "布局格式版本，升级时递增"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "看板 Tab 显示名，如「默认验收」"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "deviceProfile": {
+      "type": "string",
+      "description": "可选：适用机型或项目标签，如 SQ92P / 通用"
+    },
+    "grid": {
+      "type": "object",
+      "required": ["cols", "rowHeight"],
+      "additionalProperties": false,
+      "properties": {
+        "cols": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 24,
+          "default": 12,
+          "description": "网格列数（react-grid-layout cols）"
+        },
+        "rowHeight": {
+          "type": "integer",
+          "minimum": 40,
+          "maximum": 200,
+          "default": 80,
+          "description": "单行像素高度"
+        },
+        "margin": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": "integer" },
+          "default": [12, 12],
+          "description": "[x, y] 卡片间距"
+        },
+        "compactType": {
+          "type": ["string", "null"],
+          "enum": ["vertical", "horizontal", null],
+          "default": "vertical"
+        }
+      }
+    },
+    "refresh": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "globalMs": {
+          "type": "integer",
+          "minimum": 1000,
+          "default": 3000
+        },
+        "pauseWhenHidden": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "description": "可选：绑定的 SOTI 策略文件，用于 Diff 着色",
+      "additionalProperties": false,
+      "properties": {
+        "fileName": { "type": "string" },
+        "importedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "widgets": {
+      "type": "array",
+      "minItems": 0,
+      "items": { "$ref": "#/$defs/widget" }
+    }
+  },
+  "$defs": {
+    "widget": {
+      "type": "object",
+      "required": ["id", "probeIds", "x", "y", "w", "h"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,63}$",
+          "description": "画布内唯一 widget id"
+        },
+        "probeIds": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 12,
+          "items": {
+            "type": "string",
+            "description": "registry/probes.yaml 中的 probe id"
+          },
+          "description": "单卡单 probe；group 卡可多个"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 64,
+          "description": "覆盖默认标题；空则用 probe item 名"
+        },
+        "x": { "type": "integer", "minimum": 0 },
+        "y": { "type": "integer", "minimum": 0 },
+        "w": { "type": "integer", "minimum": 1, "maximum": 12 },
+        "h": { "type": "integer", "minimum": 1, "maximum": 12 },
+        "minW": { "type": "integer", "minimum": 1 },
+        "minH": { "type": "integer", "minimum": 1 },
+        "static": {
+          "type": "boolean",
+          "default": false,
+          "description": "true 时不可拖拽"
+        },
+        "showDiff": {
+          "type": "boolean",
+          "default": false,
+          "description": "是否显示策略期望值对比（需 policy）"
+        }
+      }
+    }
+  }
+}

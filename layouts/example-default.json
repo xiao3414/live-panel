@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "name": "默认验收",
+  "description": "网络 + 连接 + 基础系统；可自由拖拽后另存",
+  "deviceProfile": "通用",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 80,
+    "margin": [12, 12],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 3000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_wifi",
+      "probeIds": ["wifi.state"],
+      "title": "WiFi",
+      "x": 0,
+      "y": 0,
+      "w": 3,
+      "h": 2,
+      "showDiff": true
+    },
+    {
+      "id": "w_ssid",
+      "probeIds": ["wifi.ssid"],
+      "x": 3,
+      "y": 0,
+      "w": 5,
+      "h": 2
+    },
+    {
+      "id": "w_bt",
+      "probeIds": ["bt.state"],
+      "x": 8,
+      "y": 0,
+      "w": 2,
+      "h": 2,
+      "showDiff": true
+    },
+    {
+      "id": "w_nfc",
+      "probeIds": ["nfc.state"],
+      "x": 10,
+      "y": 0,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "id": "w_group_net",
+      "probeIds": ["group.network_quick"],
+      "title": "网络快捷组合",
+      "x": 0,
+      "y": 2,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "id": "w_airplane",
+      "probeIds": ["network.airplane"],
+      "x": 6,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_gps",
+      "probeIds": ["gps.state"],
+      "x": 9,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_rotate",
+      "probeIds": ["display.auto_rotate"],
+      "x": 0,
+      "y": 5,
+      "w": 3,
+      "h": 2,
+      "showDiff": true
+    },
+    {
+      "id": "w_brightness",
+      "probeIds": ["display.brightness_mode"],
+      "x": 3,
+      "y": 5,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_diff",
+      "probeIds": ["meta.policy.diff_placeholder"],
+      "title": "策略对账",
+      "x": 6,
+      "y": 5,
+      "w": 6,
+      "h": 2,
+      "showDiff": true
+    }
+  ]
+}

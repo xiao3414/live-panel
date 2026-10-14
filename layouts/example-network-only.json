@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "name": "WiFi 专项",
+  "deviceProfile": "通用",
+  "grid": { "cols": 12, "rowHeight": 80, "margin": [12, 12], "compactType": "vertical" },
+  "refresh": { "globalMs": 3000, "pauseWhenHidden": true },
+  "widgets": [
+    { "id": "n1", "probeIds": ["wifi.state"], "x": 0, "y": 0, "w": 3, "h": 2, "showDiff": true },
+    { "id": "n2", "probeIds": ["wifi.ssid"], "x": 3, "y": 0, "w": 5, "h": 2 },
+    { "id": "n3", "probeIds": ["wifi.wakeup"], "x": 0, "y": 2, "w": 4, "h": 2 },
+    { "id": "n4", "probeIds": ["wifi.scanning"], "x": 4, "y": 2, "w": 4, "h": 2 },
+    { "id": "n5", "probeIds": ["wifi.country"], "x": 8, "y": 2, "w": 4, "h": 2 },
+    { "id": "n6", "probeIds": ["network.private_dns"], "x": 0, "y": 4, "w": 6, "h": 2 }
+  ]
+}

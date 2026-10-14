@@ -1,0 +1,18 @@
+# secrets / local policy exports
+policies/
+*.env
+.env*
+*.pem
+*.key
+
+# build (future Tauri)
+node_modules/
+dist/
+target/
+src-tauri/target/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

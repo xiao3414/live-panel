@@ -1,0 +1,24 @@
+{
+  "appId": "com.urovo.livepanel",
+  "productName": "实况面板",
+  "productNameEn": "Live Panel",
+  "window": {
+    "title": "实况面板",
+    "width": 1280,
+    "height": 800,
+    "minWidth": 960,
+    "minHeight": 600
+  },
+  "adb": {
+    "path": "adb",
+    "deviceSerial": ""
+  },
+  "refresh": {
+    "globalMs": 3000
+  },
+  "paths": {
+    "registry": "registry/probes.yaml",
+    "layoutsDir": "layouts",
+    "policiesDir": "policies"
+  }
+}

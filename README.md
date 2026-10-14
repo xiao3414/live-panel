@@ -1,0 +1,40 @@
+# 实况面板（Live Panel）
+
+独立桌面看板：可视化查看已连接设备的 OEM 配置生效态；探针与布局可扩展。
+
+> 产品标识见 `docs/BRANDING.md`
+
+## 目录说明
+
+见 `docs/PROJECT_STRUCTURE.md`。
+
+## 配置文件
+
+| 文件 | 作用 |
+|------|------|
+| `registry/probes.yaml` | 探针注册表（25 条样例，可增删） |
+| `schemas/layout.schema.json` | 看板布局 JSON Schema |
+| `layouts/example-default.json` | 示例布局 |
+
+## 工具名参考
+
+见 `docs/NAMING.md`。
+
+## 知识库位置
+
+`C:\Users\urovo\Desktop\测试知识库\10_工具开发\实况面板\`（本目录为**原件**）
+
+说明文档：`01_项目说明/实况面板_项目知识.md`
+
+## GitHub
+
+```bash
+cd 10_工具开发/实况面板
+git remote -v
+git push -u origin main
+```
+
+## 后续
+
+- 壳：Tauri 2 + React + react-grid-layout
+- 运行时：Rust/sidecar 调用 ADB 执行 `probe.runner`

@@ -1,0 +1,402 @@
+# 实况面板（Live Panel）— 探针注册表（样例 25 条）
+# version: 与 OEMConfig APK / master_2.0 生成批次对齐时可递增
+version: 1
+meta:
+  oemConfigApk: "Urovo_OEMConfig_2.0.0.261009_1744.apk"
+  updated: "2026-10-14"
+
+probes:
+  # ── Network / WiFi ──
+  - id: wifi.state
+    module: "Network Configuration / WiFi"
+    item: WiFi State
+    display:
+      type: toggle
+    labels:
+      "1": 启用
+      "0": 禁用
+      on: 启用
+      off: 禁用
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: wifi_on
+    sotiKey: wifiState
+    risk: safe
+    verifyPath: "设置 → 网络和互联网 → 互联网 → 使用 Wi‑Fi"
+    refreshMs: 3000
+
+  - id: wifi.ssid
+    module: "Network Configuration / WiFi / WiFi Networks （WiFi网络）"
+    item: SSID
+    display:
+      type: text
+    probe:
+      kind: adb.shell
+      cmd: "dumpsys wifi | grep -m1 'SSID:'"
+      parse: regex
+      pattern: 'SSID: "?([^"]+)"?'
+    sotiKey: wlanSSID
+    risk: safe
+    verifyPath: "设置 → Wi‑Fi → 当前连接网络名称"
+    refreshMs: 5000
+
+  - id: wifi.wakeup
+    module: "Network Configuration / WiFi / WiFi Preference （WiFi偏好）"
+    item: Network Monitored Notification
+    display:
+      type: toggle
+    labels:
+      "1": 自动开启 Wi‑Fi（开）
+      "0": 关
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: wifi_wakeup_enabled
+    sotiKey: wifiWakeupEnabled
+    risk: safe
+    verifyPath: "设置 → 网络和互联网 → 网络偏好设置 → 自动开启 Wi‑Fi"
+    refreshMs: 5000
+
+  - id: wifi.scanning
+    module: "Network Configuration / WiFi / WiFi Advanced Option （WiFi高级选项）"
+    item: WLAN Scanning
+    display:
+      type: toggle
+    labels:
+      "1": 开
+      "0": 关
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: wifi_scan_always_enabled
+    sotiKey: wifiScanningEnabled
+    risk: safe
+    verifyPath: "设置 → 位置信息 → 位置信息服务 → WLAN 扫描"
+    refreshMs: 5000
+
+  - id: wifi.notification
+    module: "Network Configuration / WiFi / WiFi Preference （WiFi偏好）"
+    item: Network Available Notification
+    display:
+      type: toggle
+    labels:
+      "1": 开
+      "0": 关
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: wifi_networks_available_notification_on
+    sotiKey: wifiNotificationEnabled
+    risk: safe
+    verifyPath: "设置 → 网络和互联网 → 网络偏好设置 → 附近有公共网络时通知"
+    refreshMs: 5000
+
+  - id: wifi.country
+    module: "Network Configuration / WiFi / WiFi Advanced Option （WiFi高级选项）"
+    item: WiFi Country Code
+    display:
+      type: text
+    probe:
+      kind: usdk
+      api: getWifiCountryCode
+      fallback:
+        kind: adb.shell
+        cmd: "getprop wifi.country.code"
+    sotiKey: wifiCountryCode
+    risk: warn
+    verifyPath: "开发者选项 / OEM 专用 Wi‑Fi 国家码（视机型）"
+    refreshMs: 10000
+
+  - id: network.airplane
+    module: "Network Configuration / Wireless General"
+    item: Airplane Mode
+    display:
+      type: toggle
+    labels:
+      "1": 飞行模式开
+      "0": 关
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: airplane_mode_on
+    risk: safe
+    verifyPath: "设置 → 网络和互联网 → 飞行模式"
+    refreshMs: 3000
+
+  - id: network.private_dns
+    module: "Network Configuration / Private DNS （私人DNS）"
+    item: Private DNS mode
+    display:
+      type: enum
+    labels:
+      off: 关
+      opportunistic: 自动
+      hostname: 指定主机
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: private_dns_mode
+    risk: safe
+    verifyPath: "设置 → 网络和互联网 → 私人 DNS"
+    refreshMs: 5000
+
+  # ── Bluetooth / NFC / GPS ──
+  - id: bt.state
+    module: "Network Configuration / Bluetooth"
+    item: Bluetooth
+    display:
+      type: toggle
+    labels:
+      "1": 开
+      "0": 关
+    probe:
+      kind: adb.shell
+      cmd: "settings get global bluetooth_on"
+    sotiKey: BTEnable
+    risk: safe
+    verifyPath: "设置 → 已连接的设备 → 连接偏好设置 → 蓝牙"
+    refreshMs: 3000
+
+  - id: nfc.state
+    module: "Network Configuration / NFC"
+    item: NFC
+    display:
+      type: toggle
+    labels:
+      "1": 开
+      "0": 关
+    probe:
+      kind: adb.shell
+      cmd: "dumpsys nfc | grep -m1 'mState="
+      parse: contains
+      map:
+        "ON": 开
+        "OFF": 关
+    sotiKey: NFCEnable
+    risk: safe
+    verifyPath: "设置 → 已连接的设备 → 连接偏好设置 → NFC"
+    refreshMs: 5000
+
+  - id: gps.state
+    module: "Network Configuration / GPS"
+    item: GPS
+    display:
+      type: toggle
+    labels:
+      "1": 开
+      "0": 关
+    probe:
+      kind: adb.settings
+      namespace: secure
+      key: location_mode
+    sotiKey: GPSEnable
+    risk: safe
+    verifyPath: "设置 → 位置信息"
+    refreshMs: 5000
+
+  - id: ethernet.proxy
+    module: "Network Configuration / Ethernet Settings"
+    item: Proxy Mode
+    display:
+      type: enum
+    labels:
+      none: 无
+      static: 静态
+      pac: PAC
+    probe:
+      kind: static
+      note: "扩展坞以太网代理需专用 dumpsys / 设置页核对（runner 待实现）"
+    risk: warn
+    verifyPath: "设置 → 扩展坞 / 以太网 → 代理"
+    refreshMs: 10000
+    enabled: true
+
+  # ── System / Display ──
+  - id: display.brightness_mode
+    module: "System Configuration / Display （显示）"
+    item: Auto Brightness
+    display:
+      type: toggle
+    labels:
+      "1": 自动亮度开
+      "0": 关
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: screen_brightness_mode
+    risk: safe
+    verifyPath: "设置 → 显示 → 亮度级别 → 自动调节亮度"
+    refreshMs: 5000
+
+  - id: display.auto_rotate
+    module: "System Configuration / Display （显示）"
+    item: Auto Rotate
+    display:
+      type: toggle
+    labels:
+      "1": 开
+      "0": 关
+    probe:
+      kind: usdk
+      api: getAutoRotationEnabled
+      fallback:
+        kind: adb.settings
+        namespace: system
+        key: accelerometer_rotation
+    risk: warn
+    verifyPath: "设置 → 显示 → 自动旋转屏幕（实体键机型可能隐藏）"
+    refreshMs: 5000
+
+  - id: display.timeout
+    module: "System Configuration / Display （显示）"
+    item: Display Timeout
+    display:
+      type: text
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: screen_off_timeout
+    risk: safe
+    verifyPath: "设置 → 显示 → 屏幕超时"
+    refreshMs: 10000
+
+  - id: system.time_auto
+    module: "System Configuration / Date & Time （日期和时间）"
+    item: Time Model
+    display:
+      type: enum
+    labels:
+      "1": 自动日期和时间
+      "0": 手动
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: auto_time
+    risk: safe
+    verifyPath: "设置 → 系统 → 日期和时间 → 自动设置时间"
+    refreshMs: 10000
+
+  - id: system.timezone_auto
+    module: "System Configuration / Date & Time （日期和时间）"
+    item: Time Zone Mode
+    display:
+      type: enum
+    labels:
+      "1": 自动时区
+      "0": 手动
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: auto_time_zone
+    risk: safe
+    verifyPath: "设置 → 系统 → 日期和时间 → 自动设置时区"
+    refreshMs: 10000
+
+  # ── Security / Device ──
+  - id: security.adb
+    module: "Security&Restriction / Security （安全与限制）"
+    item: ADB Enable
+    display:
+      type: toggle
+    labels:
+      "1": USB 调试开
+      "0": 关
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: adb_enabled
+    risk: safe
+    verifyPath: "设置 → 系统 → 开发者选项 → USB 调试"
+    refreshMs: 5000
+
+  - id: device.hostname
+    module: "Network Configuration / WiFi / WiFi Advanced Option （WiFi高级选项）"
+    item: Device host name
+    display:
+      type: text
+    probe:
+      kind: adb.shell
+      cmd: "getprop net.hostname"
+    risk: safe
+    verifyPath: "设置 → 关于设备 / 网络主机名"
+    refreshMs: 10000
+
+  - id: device.model
+    module: "System Configuration / System UI"
+    item: Device model name
+    display:
+      type: text
+    probe:
+      kind: adb.shell
+      cmd: "getprop ro.product.model"
+    risk: safe
+    verifyPath: "设置 → 关于设备 → 型号"
+    refreshMs: 30000
+
+  # ── Maintenance / 组合占位 ──
+  - id: maintenance.local_ota.service
+    module: "Device Maintenance / Local Network OTA （本地网络OTA）"
+    item: Service
+    display:
+      type: enum
+    labels:
+      On: 开
+      Off: 关
+    probe:
+      kind: static
+      note: "LocalNetworkOTA 服务状态需专用包查询（runner 待实现）"
+    sotiKey: localNetworkOtaService
+    risk: warn
+    verifyPath: "LocalNetworkOTA 应用 / logcat"
+    refreshMs: 10000
+
+  - id: meta.oem.last_apply
+    module: "Device Maintenance"
+    item: OEMConfig 最近应用
+    display:
+      type: text
+    probe:
+      kind: adb.shell
+      cmd: "logcat -d -t 50 | grep -i OEMConfig | tail -1"
+    risk: safe
+    verifyPath: "logcat 过滤 OEMConfig / Urovo OEMConfig"
+    refreshMs: 8000
+
+  - id: meta.policy.diff_placeholder
+    module: "Profile Configuration"
+    item: 策略对账（Diff）
+    display:
+      type: diff
+    probe:
+      kind: static
+      note: "导入 SOTI JSON 后，由 UI 绑定 sotiKey 与 probe 结果比对"
+    risk: safe
+    enabled: true
+
+  - id: meta.risk.na_hint
+    module: "Security&Restriction / Security （安全与限制）"
+    item: 不支持项提示
+    display:
+      type: risk
+    probe:
+      kind: static
+      note: "Registry 中 risk=block 的 probe 汇总展示"
+    risk: block
+    verifyPath: "见《机型能力矩阵》/ USDK NA 列表"
+    enabled: true
+
+  - id: group.network_quick
+    module: "Network Configuration"
+    item: 网络快捷组合
+    display:
+      type: group
+    probe:
+      kind: static
+      members:
+        - wifi.state
+        - bt.state
+        - nfc.state
+        - network.airplane
+    risk: safe
+    enabled: true
