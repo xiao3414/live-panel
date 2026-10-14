@@ -10,9 +10,18 @@
 
 ## 2. 绑定并推送（PowerShell）
 
+`origin` **已存在**时不要用 `remote add`，用 `set-url`：
+
 ```powershell
 cd "C:\Users\urovo\Desktop\测试知识库\10_工具开发\实况面板"
-git remote add origin https://github.com/<你的用户名>/<仓库名>.git
+git remote set-url origin https://github.com/xiao3414/live-panel.git
+git push -u origin main
+```
+
+若尚未配置过 remote（少见）：
+
+```powershell
+git remote add origin https://github.com/xiao3414/live-panel.git
 git push -u origin main
 ```
 

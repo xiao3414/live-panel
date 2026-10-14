@@ -28,11 +28,16 @@
 
 ## GitHub
 
-```bash
-cd 10_工具开发/实况面板
-git remote -v
+**仓库**：https://github.com/xiao3414/live-panel
+
+本地已绑定 `origin` 且分支为 `main`，在工程目录执行：
+
+```powershell
+cd "C:\Users\urovo\Desktop\测试知识库\10_工具开发\实况面板"
 git push -u origin main
 ```
+
+（勿重复 `git remote add`；若需改地址：`git remote set-url origin https://github.com/xiao3414/live-panel.git`）
 
 ## 后续
 
