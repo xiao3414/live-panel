@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Security&Restriction · 设备实况",
+  "oemModule": "Security&Restriction",
+  "description": "ADB/Settings 直读（自动刷新）；框架完整目录见「框架目录」",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 72,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 15000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_live_sec_adb",
+      "probeIds": [
+        "sec.adb"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sec_unknown_sources",
+      "probeIds": [
+        "sec.unknown_sources"
+      ],
+      "x": 3,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sec_show_password",
+      "probeIds": [
+        "sec.show_password"
+      ],
+      "x": 6,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sec_lockscreen_disabled",
+      "probeIds": [
+        "sec.lockscreen_disabled"
+      ],
+      "x": 9,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sec_lock_type",
+      "probeIds": [
+        "sec.lock_type"
+      ],
+      "x": 0,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sec_trust_agents",
+      "probeIds": [
+        "sec.trust_agents"
+      ],
+      "x": 3,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sec_location_mode",
+      "probeIds": [
+        "sec.location_mode"
+      ],
+      "x": 6,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    }
+  ]
+}

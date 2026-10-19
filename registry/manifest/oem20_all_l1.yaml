@@ -1,0 +1,39 @@
+# OEM 2.0 全框架覆盖（自动生成摘要）
+source: tools/generate_oem20_full_registry.py
+l1Modules:
+  - l1: Network Configuration
+    frameworkItems: 108
+    layoutId: oem20-network-framework
+    liveLayoutId: oem20-network-configuration
+    registryModule: oem20_network_catalog.yaml
+    liveProbesModule: network.yaml
+  - l1: System Configuration
+    frameworkItems: 78
+    layoutId: oem20-system-configuration
+    registryModule: oem20_system_configuration.yaml
+  - l1: Application Management
+    frameworkItems: 3
+    layoutId: oem20-application-management
+    registryModule: oem20_application_management.yaml
+  - l1: Package Configuration
+    frameworkItems: 2
+    layoutId: oem20-package-configuration
+    registryModule: oem20_package_configuration.yaml
+  - l1: Security&Restriction
+    frameworkItems: 21
+    layoutId: oem20-securityandrestriction
+    registryModule: oem20_securityandrestriction.yaml
+  - l1: Data Capture & Peripherals
+    frameworkItems: 74
+    layoutId: oem20-data-capture-and-peripherals
+    registryModule: oem20_data_capture_and_peripherals.yaml
+  - l1: Device Maintenance
+    frameworkItems: 13
+    layoutId: oem20-device-maintenance
+    registryModule: oem20_device_maintenance.yaml
+  - l1: Profile Configuration
+    frameworkItems: 7
+    layoutId: oem20-profile-configuration
+    registryModule: oem20_profile_configuration.yaml
+totalFrameworkItems: 306
+liveProbesNote: network.yaml 等手写探针与 catalog 并存

@@ -1,0 +1,529 @@
+# OEM 2.0 八大 L1 设备实况直读（自动生成，勿手改；源: tools/generate_l1_live_reads.py）
+module: OEM20 Live Reads
+probes:
+- id: sys.display.brightness_mode
+  l1: System Configuration
+  module: System Configuration / Display
+  item: Auto Brightness
+  display:
+    type: toggle
+  probe:
+    kind: adb.settings
+    namespace: system
+    key: screen_brightness_mode
+  labels:
+    '1': 自动
+    '0': 关
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.display.brightness
+  l1: System Configuration
+  module: System Configuration / Display
+  item: Backlight level
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: system
+    key: screen_brightness
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.display.timeout
+  l1: System Configuration
+  module: System Configuration / Display
+  item: Display Timeout
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: system
+    key: screen_off_timeout
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.display.auto_rotate
+  l1: System Configuration
+  module: System Configuration / Display
+  item: Auto Rotate
+  display:
+    type: toggle
+  probe:
+    kind: adb.settings
+    namespace: system
+    key: accelerometer_rotation
+  labels:
+    '1': 开
+    '0': 关
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.display.font_scale
+  l1: System Configuration
+  module: System Configuration / Display
+  item: Display Font Size
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: system
+    key: font_scale
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.display.stay_awake
+  l1: System Configuration
+  module: System Configuration / Display
+  item: Stay Awake (plugged)
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: stay_on_while_plugged_in
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.time.auto
+  l1: System Configuration
+  module: System Configuration / Date & Time
+  item: Time Model
+  display:
+    type: toggle
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: auto_time
+  labels:
+    '1': 自动
+    '0': 手动
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.time.tz_auto
+  l1: System Configuration
+  module: System Configuration / Date & Time
+  item: Time Zone Mode
+  display:
+    type: toggle
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: auto_time_zone
+  labels:
+    '1': 自动
+    '0': 手动
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.time.format
+  l1: System Configuration
+  module: System Configuration / Date & Time
+  item: Time Format 12/24
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: system
+    key: time_12_24
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.time.timezone
+  l1: System Configuration
+  module: System Configuration / Date & Time
+  item: Manual Time Zone
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: getprop persist.sys.timezone
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.locale
+  l1: System Configuration
+  module: System Configuration / Locale
+  item: System locale
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: system
+    key: system_locales
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.volume.media
+  l1: System Configuration
+  module: System Configuration / Sound
+  item: Media volume
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: system
+    key: volume_music
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.volume.ring
+  l1: System Configuration
+  module: System Configuration / Sound
+  item: Ring volume
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: system
+    key: volume_ring
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.dev_options
+  l1: System Configuration
+  module: System Configuration / Developer
+  item: Developer options enabled
+  display:
+    type: toggle
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: development_settings_enabled
+  labels:
+    '1': 开
+    '0': 关
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.usb.debugging
+  l1: System Configuration
+  module: System Configuration / Developer
+  item: USB debugging
+  display:
+    type: toggle
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: adb_enabled
+  labels:
+    '1': 开
+    '0': 关
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.model
+  l1: System Configuration
+  module: System Configuration / System UI
+  item: Device model
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: getprop ro.product.model
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.android_release
+  l1: System Configuration
+  module: System Configuration / System UI
+  item: Android version
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: getprop ro.build.version.release
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: sys.build_id
+  l1: System Configuration
+  module: System Configuration / System UI
+  item: Build ID
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: getprop ro.build.display.id
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: app.pkg_count
+  l1: Application Management
+  module: Application Management / Install APP
+  item: Installed packages (count)
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: pm list packages | wc -l
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: app.user_count
+  l1: Application Management
+  module: Application Management / Install APP
+  item: User packages (count)
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: pm list packages -3 | wc -l
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: app.oemconfig
+  l1: Application Management
+  module: Application Management / Install APP
+  item: OEMConfig package path
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: pm path com.urovo.oemconfig 2>/dev/null || pm path com.urovo.oemconfig2 2>/dev/null || echo not_found
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: app.launcher
+  l1: Application Management
+  module: Application Management / Application
+  item: Default launcher
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: cmd package resolve-activity -a android.intent.action.MAIN -c android.intent.category.HOME | grep name | head -1
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: pkg.verifier
+  l1: Package Configuration
+  module: Package Configuration / Package
+  item: Package verifier
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: package_verifier_enable
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: pkg.verify_adb
+  l1: Package Configuration
+  module: Package Configuration / Package
+  item: Verify ADB installs
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: verifier_verify_adb_installs
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: pkg.install_location
+  l1: Package Configuration
+  module: Package Configuration / Package
+  item: Install location
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: default_install_location
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: dcp.usb
+  l1: Data Capture & Peripherals
+  module: Data Capture & Peripherals / Peripherals
+  item: USB configuration
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: getprop sys.usb.config
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: dcp.usb.state
+  l1: Data Capture & Peripherals
+  module: Data Capture & Peripherals / Peripherals
+  item: USB state
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: getprop sys.usb.state
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: dcp.scan_pkgs
+  l1: Data Capture & Peripherals
+  module: Data Capture & Peripherals / Data Capture
+  item: Scan-related packages
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: pm list packages | grep -Ei 'scan|wedge|rfid|urovo|decoder' | head -8
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: dcp.camera_disabled
+  l1: Data Capture & Peripherals
+  module: Data Capture & Peripherals / Peripherals
+  item: Camera disabled policy
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: secure
+    key: camera_disabled
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: dcp.nfc
+  l1: Data Capture & Peripherals
+  module: Data Capture & Peripherals / NFC
+  item: NFC adapter state
+  display:
+    type: toggle
+  probe:
+    kind: adb.shell
+    cmd: dumpsys nfc | grep -m1 mState
+  labels:
+    'ON': 开
+    'OFF': 关
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: dcp.bt
+  l1: Data Capture & Peripherals
+  module: Data Capture & Peripherals / Bluetooth
+  item: Bluetooth on
+  display:
+    type: toggle
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: bluetooth_on
+  labels:
+    '1': 开
+    '0': 关
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: maint.uptime
+  l1: Device Maintenance
+  module: Device Maintenance / Maintenance
+  item: System uptime
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: uptime
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: maint.boot
+  l1: Device Maintenance
+  module: Device Maintenance / Maintenance
+  item: Boot completed
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: getprop sys.boot_completed
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: maint.oem_log
+  l1: Device Maintenance
+  module: Device Maintenance / Maintenance
+  item: OEMConfig log (last)
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: logcat -d -t 100 | grep -i OEMConfig | tail -1
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: maint.battery_level
+  l1: Device Maintenance
+  module: Device Maintenance / Maintenance
+  item: Battery level
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: dumpsys battery | grep level | head -1
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: maint.free_storage
+  l1: Device Maintenance
+  module: Device Maintenance / Maintenance
+  item: Data partition free
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: df -h /data | tail -1
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: prof.boot
+  l1: Profile Configuration
+  module: Profile Configuration / Profile
+  item: Boot completed
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: getprop sys.boot_completed
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: prof.provisioned
+  l1: Profile Configuration
+  module: Profile Configuration / Profile
+  item: Device provisioned
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: device_provisioned
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: prof.setup_complete
+  l1: Profile Configuration
+  module: Profile Configuration / Profile
+  item: User setup complete
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: secure
+    key: user_setup_complete
+  write: false
+  risk: safe
+  refreshMs: 8000
+- id: prof.oem_unlock
+  l1: Profile Configuration
+  module: Profile Configuration / Profile
+  item: OEM unlock allowed
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: oem_unlock_allowed
+  write: false
+  risk: safe
+  refreshMs: 8000

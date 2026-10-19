@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "组合面板 · Network · Wireless General",
+  "oemModule": "Network Configuration",
+  "description": "可组合开关块；默认空",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": null
+  },
+  "refresh": {
+    "globalMs": 30000,
+    "pauseWhenHidden": true
+  },
+  "widgets": []
+}

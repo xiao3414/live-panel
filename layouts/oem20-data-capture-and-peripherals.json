@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Data Capture & Peripherals",
+  "oemModule": "Data Capture & Peripherals",
+  "description": "框架 L2 目录占位概览（22 块）；细项探针逐批接入",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 60000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_catalog_data_capture_and_peripherals_x_x",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.x_x"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_basic_data_format_x",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.basic_data_format_x"
+      ],
+      "x": 4,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_basic_data_format_x",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.basic_data_format_x"
+      ],
+      "x": 8,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_basic_data_format_prefix",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.basic_data_format_prefix"
+      ],
+      "x": 0,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_basic_data_format_replace",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.basic_data_format_replace"
+      ],
+      "x": 4,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_basic_data_format_suffix",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.basic_data_format_suffix"
+      ],
+      "x": 8,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_continuous_scanning_set_x",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.continuous_scanning_set_x"
+      ],
+      "x": 0,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_ocr_scan_x",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.ocr_scan_x"
+      ],
+      "x": 4,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_output_mode_x",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.output_mode_x"
+      ],
+      "x": 8,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_output_mode_keyboard_output",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.output_mode_keyboard_output"
+      ],
+      "x": 0,
+      "y": 9,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_output_mode_parse_url_and_o",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.output_mode_parse_url_and_o"
+      ],
+      "x": 4,
+      "y": 9,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_output_mode_tcp_output",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.output_mode_tcp_output"
+      ],
+      "x": 8,
+      "y": 9,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_reader_parameters_x",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.reader_parameters_x"
+      ],
+      "x": 0,
+      "y": 12,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_reader_parameters_full_ligh",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.reader_parameters_full_ligh"
+      ],
+      "x": 4,
+      "y": 12,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_reader_parameters_other_set",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.reader_parameters_other_set"
+      ],
+      "x": 8,
+      "y": 12,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_reader_parameters_rgb_senso",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.reader_parameters_rgb_senso"
+      ],
+      "x": 0,
+      "y": 15,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_reader_parameters_viewfinde",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.reader_parameters_viewfinde"
+      ],
+      "x": 4,
+      "y": 15,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_scanner_selection_x",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.scanner_selection_x"
+      ],
+      "x": 8,
+      "y": 15,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_scanner_selection_rear_came",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.scanner_selection_rear_came"
+      ],
+      "x": 0,
+      "y": 18,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_scanner_selection_scan_engi",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.scanner_selection_scan_engi"
+      ],
+      "x": 4,
+      "y": 18,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_udi_data_format_x",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.udi_data_format_x"
+      ],
+      "x": 8,
+      "y": 18,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_data_capture_and_peripherals_x_x",
+      "probeIds": [
+        "catalog.data_capture_and_peripherals.x_x"
+      ],
+      "x": 0,
+      "y": 21,
+      "w": 4,
+      "h": 3
+    }
+  ]
+}

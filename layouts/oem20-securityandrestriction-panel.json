@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Security&Restriction · 配置面板",
+  "oemModule": "Security&Restriction",
+  "description": "21 项 OEM 安全与限制：USDK 桥读/写",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 12000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    { "id": "w_sec_01", "probeIds": ["sec.allow_factory_reset"], "title": "Allow factory reset", "x": 0, "y": 0, "w": 4, "h": 2 },
+    { "id": "w_sec_02", "probeIds": ["sec.google_play_protect"], "title": "Google Play Protect", "x": 4, "y": 0, "w": 4, "h": 2 },
+    { "id": "w_sec_03", "probeIds": ["sec.screen_lock"], "title": "Screen Lock", "x": 8, "y": 0, "w": 4, "h": 2 },
+    { "id": "w_sec_04", "probeIds": ["sec.screen_lock_set"], "title": "Screen Lock Set", "x": 0, "y": 2, "w": 4, "h": 2 },
+    { "id": "w_sec_05", "probeIds": ["sec.screen_lock_password"], "title": "Screen Lock Password", "x": 4, "y": 2, "w": 4, "h": 2 },
+    { "id": "w_sec_06", "probeIds": ["sec.screen_lock_timeout"], "title": "Screen Lock Timeout", "x": 8, "y": 2, "w": 4, "h": 2 },
+    { "id": "w_sec_07", "probeIds": ["sec.unknown_source"], "title": "Unknown Source APP", "x": 0, "y": 4, "w": 4, "h": 2 },
+    { "id": "w_sec_08", "probeIds": ["sec.verify_apps_usb"], "title": "Verify APPs over USB", "x": 4, "y": 4, "w": 4, "h": 2 },
+    { "id": "w_sec_09", "probeIds": ["sec.scan_key_pass"], "title": "Pass Scan Key Code", "x": 8, "y": 4, "w": 4, "h": 2 },
+    { "id": "w_sec_10", "probeIds": ["sec.disallow_screenshot"], "title": "Disallow Screenshot", "x": 0, "y": 6, "w": 4, "h": 2 },
+    { "id": "w_sec_11", "probeIds": ["sec.screen_pinning"], "title": "Screen Pinning", "x": 4, "y": 6, "w": 4, "h": 2 },
+    { "id": "w_sec_12", "probeIds": ["sec.volume_key"], "title": "Volume Key", "x": 8, "y": 6, "w": 4, "h": 2 },
+    { "id": "w_sec_13", "probeIds": ["sec.camera_access"], "title": "Camera Access", "x": 0, "y": 8, "w": 4, "h": 2 },
+    { "id": "w_sec_14", "probeIds": ["sec.microphone_access"], "title": "Microphone access", "x": 4, "y": 8, "w": 4, "h": 2 },
+    { "id": "w_sec_15", "probeIds": ["sec.clipboard_access"], "title": "Show Clipboard Access", "x": 8, "y": 8, "w": 4, "h": 2 },
+    { "id": "w_sec_16", "probeIds": ["sec.show_passwords"], "title": "Show passwords", "x": 0, "y": 10, "w": 4, "h": 2 },
+    { "id": "w_sec_17", "probeIds": ["sec.location_access"], "title": "Location Access", "x": 4, "y": 10, "w": 4, "h": 2 },
+    { "id": "w_sec_18", "probeIds": ["sec.external_sd"], "title": "External SD Card", "x": 8, "y": 10, "w": 4, "h": 2 },
+    { "id": "w_sec_19", "probeIds": ["sec.usb"], "title": "USB", "x": 0, "y": 12, "w": 4, "h": 2 },
+    { "id": "w_sec_20", "probeIds": ["sec.usb_mode"], "title": "USB Mode", "x": 4, "y": 12, "w": 4, "h": 2 },
+    { "id": "w_sec_21", "probeIds": ["sec.adb"], "title": "ADB", "x": 8, "y": 12, "w": 4, "h": 2 }
+  ]
+}

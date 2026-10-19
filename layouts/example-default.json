@@ -10,7 +10,7 @@
     "compactType": "vertical"
   },
   "refresh": {
-    "globalMs": 3000,
+    "globalMs": 30000,
     "pauseWhenHidden": true
   },
   "widgets": [
@@ -50,18 +50,9 @@
       "h": 2
     },
     {
-      "id": "w_group_net",
-      "probeIds": ["group.network_quick"],
-      "title": "网络快捷组合",
-      "x": 0,
-      "y": 2,
-      "w": 6,
-      "h": 3
-    },
-    {
       "id": "w_airplane",
       "probeIds": ["network.airplane"],
-      "x": 6,
+      "x": 0,
       "y": 2,
       "w": 3,
       "h": 2

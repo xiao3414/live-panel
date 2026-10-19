@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Package Configuration",
+  "oemModule": "Package Configuration",
+  "description": "框架 L2 目录占位概览（2 块）；细项探针逐批接入",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 60000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_catalog_package_configuration_x_action",
+      "probeIds": [
+        "catalog.package_configuration.x_action"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_package_configuration_x_package_name",
+      "probeIds": [
+        "catalog.package_configuration.x_package_name"
+      ],
+      "x": 4,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    }
+  ]
+}

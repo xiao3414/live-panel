@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network · SIM Configuration",
+  "oemModule": "Network Configuration",
+  "description": "与 OEM 托管「SIM Configuration」同级；含直读 + 框架 catalog",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 15000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_sim_mobile",
+      "probeIds": ["sim.mobile_data"],
+      "title": "Mobile data",
+      "oemPath": "Network Configuration › SIM Configuration",
+      "x": 0,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_sim_roam",
+      "probeIds": ["sim.data_roaming"],
+      "title": "Data roaming",
+      "oemPath": "Network Configuration › SIM Configuration",
+      "x": 3,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_sim_subs",
+      "probeIds": ["sim.subscriptions"],
+      "title": "Default SIM services",
+      "oemPath": "Network Configuration › SIM Configuration",
+      "x": 6,
+      "y": 0,
+      "w": 6,
+      "h": 2
+    },
+    {
+      "id": "w_cat_sim1",
+      "probeIds": ["catalog.network_configuration.sim1_x"],
+      "x": 0,
+      "y": 2,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_cat_sim2",
+      "probeIds": ["catalog.network_configuration.sim2_x"],
+      "x": 4,
+      "y": 2,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_cat_esim",
+      "probeIds": ["catalog.network_configuration.esim_x"],
+      "x": 8,
+      "y": 2,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_cat_sim1_apn",
+      "probeIds": ["catalog.network_configuration.sim1_add_apn"],
+      "x": 0,
+      "y": 5,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "id": "w_cat_sim2_apn",
+      "probeIds": ["catalog.network_configuration.sim2_add_apn"],
+      "x": 6,
+      "y": 5,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "id": "w_cat_del_apn",
+      "probeIds": ["catalog.network_configuration.delete_apn_x"],
+      "x": 0,
+      "y": 8,
+      "w": 4,
+      "h": 2
+    },
+    {
+      "id": "w_cat_esim_prof",
+      "probeIds": ["catalog.network_configuration.esim_add_esim_profiles"],
+      "x": 4,
+      "y": 8,
+      "w": 8,
+      "h": 3
+    }
+  ]
+}

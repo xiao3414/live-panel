@@ -14,10 +14,11 @@
     "deviceSerial": ""
   },
   "refresh": {
-    "globalMs": 3000
+    "globalMs": 30000
   },
+  "oemProject": "oemconfig",
   "paths": {
-    "registry": "registry/probes.yaml",
+    "registry": "registry/index.yaml",
     "layoutsDir": "layouts",
     "policiesDir": "policies"
   }

@@ -1,0 +1,36 @@
+# OEM 2.0 L1: Package Configuration（框架占位 catalog，自动生成）
+module: Package Configuration
+frameworkRef: 03_接口与配置映射/OEMConfig_2.0_产品框架/Package Configuration.md
+probes:
+- id: catalog.package_configuration.x_action
+  module: Package Configuration / Action
+  item: Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Package Configuration / Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:18.Package Configuration / 第x行：3
+         选项: 删除原总控制开关
+  risk: safe
+  enabled: true
+  l1: Package Configuration
+- id: catalog.package_configuration.x_package_name
+  module: Package Configuration / Package Name
+  item: Package Name（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Package Configuration / Package Name
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:18.Package Configuration / 第x行：3
+         选项: BOX形式同原V1.3.43
+  risk: safe
+  enabled: true
+  l1: Package Configuration

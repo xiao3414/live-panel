@@ -1,0 +1,201 @@
+# OEM 2.0 L1: Device Maintenance（框架占位 catalog，自动生成）
+module: Device Maintenance
+frameworkRef: 03_接口与配置映射/OEMConfig_2.0_产品框架/Device Maintenance.md
+probes:
+- id: catalog.device_maintenance.x_action
+  module: Device Maintenance / Action
+  item: Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：26.Local Network OTA / 第x行：3
+         选项: Local Network OTA由原一级菜单调整为二级菜单，并删除原总控制
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_auto_install_after_download
+  module: Device Maintenance / Auto Install After Download
+  item: Auto Install After Download（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Auto Install After Download
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：26.Local Network OTA / 第x行：8
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_event_log
+  module: Device Maintenance / Event log
+  item: Event log（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Event log
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：22.Log / 第x行：8
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_kernel_log
+  module: Device Maintenance / Kernel log
+  item: Kernel log（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Kernel log
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：22.Log / 第x行：6
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_log_configuration_action
+  module: Device Maintenance / Log Configuration Action
+  item: Log Configuration Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Log Configuration Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：22.Log / 第x行：3
+         选项: Log由原一级菜单调整为二级菜单，并删除原总控制
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_log_state
+  module: Device Maintenance / Log state
+  item: Log state（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Log state
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：22.Log / 第x行：4
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_main_log
+  module: Device Maintenance / Main log
+  item: Main log（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Main log
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：22.Log / 第x行：5
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_os_package_path
+  module: Device Maintenance / OS Package Path
+  item: OS Package Path（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / OS Package Path
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：26.Local Network OTA / 第x行：6
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_power_action
+  module: Device Maintenance / Power Action
+  item: Power Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Power Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:10.Power / 第x行：3
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_radio_log
+  module: Device Maintenance / Radio log
+  item: Radio log（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Radio log
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：22.Log / 第x行：7
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_role
+  module: Device Maintenance / Role
+  item: Role（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Role
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：26.Local Network OTA / 第x行：5
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_server_port
+  module: Device Maintenance / Server Port
+  item: Server Port（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Server Port
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：26.Local Network OTA / 第x行：7
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: catalog.device_maintenance.x_service
+  module: Device Maintenance / Service
+  item: Service（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Device Maintenance / Service
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet：26.Local Network OTA / 第x行：4
+  risk: safe
+  enabled: true
+  l1: Device Maintenance

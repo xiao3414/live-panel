@@ -1,0 +1,57 @@
+plugins {
+    id "com.android.application"
+}
+
+def urovoKeystore = file("urovo.keystore")
+
+android {
+    namespace "com.urovo.livepanel.usdkbridge"
+    compileSdk 34
+    buildFeatures {
+        buildConfig true
+    }
+
+    signingConfigs {
+        urovo {
+            if (urovoKeystore.exists()) {
+                storeFile urovoKeystore
+                storePassword System.getenv("UROVO_KEYSTORE_PASS") ?: "urovo123456"
+                keyAlias "urovo"
+                keyPassword System.getenv("UROVO_KEY_PASS") ?: "urovo123456"
+            }
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.urovo.livepanel.usdkbridge"
+        minSdk 26
+        targetSdk 34
+        versionCode 18
+        versionName "1.0"
+        buildConfigField "boolean", "USDK_OEM_SIGN", urovoKeystore.exists() ? "true" : "false"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        debug {
+            if (urovoKeystore.exists()) {
+                signingConfig signingConfigs.urovo
+            }
+        }
+    }
+}
+
+dependencies {
+    if (file("libs/usdk-compile-stubs.jar").exists()) {
+        compileOnly files("libs/usdk-compile-stubs.jar")
+    }
+    // 与 SDKAuto 同路径 USDK；勿再 implementation stubs（会覆盖真 API 导致写回 OK 但无效果）
+    def usdkJar = file("libs/DeviceManagerNew.jar")
+    if (usdkJar.exists()) {
+        implementation files(usdkJar)
+    }
+}

@@ -1,0 +1,1177 @@
+# OEM 2.0 L1: System Configuration（框架占位 catalog，自动生成）
+module: System Configuration
+frameworkRef: 03_接口与配置映射/OEMConfig_2.0_产品框架/System Configuration.md
+probes:
+- id: catalog.system_configuration.disable_input_method_back
+  module: System Configuration / Disable Input Method / Back
+  item: Back（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Disable Input Method / Back
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:16.Enterprise Feature Settings  / 第x行：5
+         选项: 新增二级菜单System UI
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.disable_input_method_disable_input_
+  module: System Configuration / Disable Input Method / Disable Input Method Action
+  item: Disable Input Method Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Disable Input Method / Disable Input Method Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:11.General UI / 第x行：5
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.disable_input_method_home
+  module: System Configuration / Disable Input Method / Home
+  item: Home（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Disable Input Method / Home
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:16.Enterprise Feature Settings  / 第x行：6
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.disable_input_method_menu
+  module: System Configuration / Disable Input Method / Menu
+  item: Menu（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Disable Input Method / Menu
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:16.Enterprise Feature Settings  / 第x行：7
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.disable_input_method_side_bar_posit
+  module: System Configuration / Disable Input Method / Side Bar Position（DT630)
+  item: Side Bar Position（DT630)（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Disable Input Method / Side Bar Position（DT630)
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:16.Enterprise Feature Settings  / 第x行：46
+         选项: 在原来基础上新增（DT630），去掉原目录Side Application Bar(DT630)
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.disable_input_method_side_bar_statu
+  module: System Configuration / Disable Input Method / Side Bar Status（DT630)
+  item: Side Bar Status（DT630)（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Disable Input Method / Side Bar Status（DT630)
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:16.Enterprise Feature Settings  / 第x行：45
+         选项: 在原来基础上新增（DT630），去掉原目录Side Application Bar(DT630)
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_accessibility_acti
+  module: System Configuration / External Display / Accessibility Action
+  item: Accessibility Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Accessibility Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:25.Accessibility / 第x行：3
+         选项: 由原一级菜单accessibility转为二级菜单Touch Mode
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_display_target
+  module: System Configuration / External Display / Display Target
+  item: Display Target（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Display Target
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：19
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_do_not_disturb
+  module: System Configuration / External Display / Do Not Disturb
+  item: Do Not Disturb（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Do Not Disturb
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. 新增
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_enable_notificatio
+  module: System Configuration / External Display / Enable Notification LED
+  item: Enable Notification LED（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Enable Notification LED
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. 新增
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_glove_mode
+  module: System Configuration / External Display / Glove Mode
+  item: Glove Mode（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Glove Mode
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:25.Accessibility / 第x行：4
+         选项: 由原一级菜单accessibility转为二级菜单Touch Mode；对应设置项glove mode调整位置
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_ime_current_keyboa
+  module: System Configuration / External Display / IME Current Keyboard
+  item: IME Current Keyboard（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / IME Current Keyboard
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:11.General UI / 第x行：7
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_input_method
+  module: System Configuration / External Display / Input Method
+  item: Input Method（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Input Method
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:16.Enterprise Feature Settings / 第x行：9
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_lock_screen_notifi
+  module: System Configuration / External Display / Lock Screen Notification
+  item: Lock Screen Notification（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Lock Screen Notification
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:6.Security / 第x行：12
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_mode_selection
+  module: System Configuration / External Display / Mode Selection
+  item: Mode Selection（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Mode Selection
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：18
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_notification_dots_
+  module: System Configuration / External Display / Notification Dots on App Icon
+  item: Notification Dots on App Icon（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Notification Dots on App Icon
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. 新增
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_pointer_speed
+  module: System Configuration / External Display / Pointer Speed
+  item: Pointer Speed（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Pointer Speed
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:11.General UI / 第x行：9
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_secondary_screen_o
+  module: System Configuration / External Display / Secondary Screen Orientation
+  item: Secondary Screen Orientation（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Secondary Screen Orientation
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：20
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_spell_checker
+  module: System Configuration / External Display / Spell Checker
+  item: Spell Checker（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / Spell Checker
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:11.General UI / 第x行：8
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.external_display_system_language
+  module: System Configuration / External Display / System Language
+  item: System Language（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / External Display / System Language
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:11.General UI / 第x行：4
+         选项: 新增language&input二级菜单
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.gestures_battery_configuration_acti
+  module: System Configuration / Gestures / Battery Configuration Action
+  item: Battery Configuration Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Gestures / Battery Configuration Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:24.Battery / 第x行：3
+         选项: Battery由原一级菜单调整为二级菜单，更名为Power Management并删除原总控制
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.gestures_presshold_power_button
+  module: System Configuration / Gestures / Press&Hold Power Button
+  item: Press&Hold Power Button（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Gestures / Press&Hold Power Button
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:11.General UI / 第x行：12
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.gestures_quickly_open_the_camera
+  module: System Configuration / Gestures / Quickly Open the Camera
+  item: Quickly Open the Camera（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Gestures / Quickly Open the Camera
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:11.General UI / 第x行：10
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.gestures_system_navigation
+  module: System Configuration / Gestures / System Navigation
+  item: System Navigation（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Gestures / System Navigation
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:11.General UI / 第x行：11
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.gestures_three_finger_screenshots
+  module: System Configuration / Gestures / Three Finger Screenshots
+  item: Three Finger Screenshots（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Gestures / Three Finger Screenshots
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:16.Enterprise Feature Settings  / 第x行：15
+         选项: 新增三级菜单Gestures
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.ime_activities_permanetly_prohibit
+  module: System Configuration / IME Activities / Permanetly Prohibit
+  item: Permanetly Prohibit（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / IME Activities / Permanetly Prohibit
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:16.Enterprise Feature Settings / 第x行：10
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.ime_activities_physical_button
+  module: System Configuration / IME Activities / Physical Button
+  item: Physical Button（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / IME Activities / Physical Button
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:16.Enterprise Feature Settings / 第x行：12
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.ime_activities_suspension_button
+  module: System Configuration / IME Activities / Suspension Button
+  item: Suspension Button（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / IME Activities / Suspension Button
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:16.Enterprise Feature Settings / 第x行：11
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.screen_saver_choose_a_screen_saver
+  module: System Configuration / Screen Saver / Choose A Screen Saver
+  item: Choose A Screen Saver（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Screen Saver / Choose A Screen Saver
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：17
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.screen_saver_use_screen_saver
+  module: System Configuration / Screen Saver / Use Screen Saver
+  item: Use Screen Saver（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Screen Saver / Use Screen Saver
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：15
+         选项: 增加三级菜单screen saver
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.screen_saver_when_to_start
+  module: System Configuration / Screen Saver / When to Start
+  item: When to Start（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Screen Saver / When to Start
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：16
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.screen_wake-up_left_scan
+  module: System Configuration / Screen wake-up / Left scan
+  item: Left scan（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Screen wake-up / Left scan
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet 14.Programmable Keys / 第x行：7
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.screen_wake-up_right_scan
+  module: System Configuration / Screen wake-up / Right scan
+  item: Right scan（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Screen wake-up / Right scan
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet 14.Programmable Keys / 第x行：8
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.screen_wake-up_talkptt
+  module: System Configuration / Screen wake-up / TALK(PTT)
+  item: TALK(PTT)（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Screen wake-up / TALK(PTT)
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet 14.Programmable Keys / 第x行：9
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.smart_charging_settings_battery_inf
+  module: System Configuration / Smart Charging Settings / Battery info battery tip
+  item: Battery info battery tip（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Smart Charging Settings / Battery info battery tip
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:24.Battery / 第x行：15
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.smart_charging_settings_battery_inf
+  module: System Configuration / Smart Charging Settings / Battery info cycle threshold
+  item: Battery info cycle threshold（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Smart Charging Settings / Battery info cycle threshold
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:24.Battery / 第x行：12
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.smart_charging_settings_battery_inf
+  module: System Configuration / Smart Charging Settings / Battery info health threshold
+  item: Battery info health threshold（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Smart Charging Settings / Battery info health threshold
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:24.Battery / 第x行：11
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.smart_charging_settings_battery_inf
+  module: System Configuration / Smart Charging Settings / Battery info monitor service
+  item: Battery info monitor service（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Smart Charging Settings / Battery info monitor service
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:24.Battery / 第x行：14
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.smart_charging_settings_battery_inf
+  module: System Configuration / Smart Charging Settings / Battery info temperature threshold
+  item: Battery info temperature threshold（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Smart Charging Settings / Battery info temperature threshold
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:24.Battery / 第x行：13
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.smart_charging_settings_charging_re
+  module: System Configuration / Smart Charging Settings / Charging Restriction Percentage
+  item: Charging Restriction Percentage（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Smart Charging Settings / Charging Restriction Percentage
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:24.Battery / 第x行：10
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.smart_charging_settings_smart_charg
+  module: System Configuration / Smart Charging Settings / Smart Charging
+  item: Smart Charging（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Smart Charging Settings / Smart Charging
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:24.Battery / 第x行：9
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_alarm_volume
+  module: System Configuration / Alarm Volume
+  item: Alarm Volume（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Alarm Volume
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：4
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_auto_brightness
+  module: System Configuration / Auto Brightness
+  item: Auto Brightness（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Auto Brightness
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：8
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_auto_rotate
+  module: System Configuration / Auto Rotate
+  item: Auto Rotate（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Auto Rotate
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：9
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_call_volume
+  module: System Configuration / Call Volume
+  item: Call Volume（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Call Volume
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：7
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_charging_sound_and_vibration
+  module: System Configuration / Charging Sound and Vibration
+  item: Charging Sound and Vibration（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Charging Sound and Vibration
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：13
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_clock_action
+  module: System Configuration / Clock Action
+  item: Clock Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Clock Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:3.Clock / 第x行：3
+         选项: Clock由原一级菜单调整为二级菜单，更名为Date&Time并删除原总控制
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_dial_pad_tones
+  module: System Configuration / Dial Pad Tones
+  item: Dial Pad Tones（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Dial Pad Tones
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：9
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_display_action
+  module: System Configuration / Display Action
+  item: Display Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Display Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：3
+         选项: Display由原一级菜单调整为二级菜单，并删除原总控制
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_display_font_size
+  module: System Configuration / Display Font Size
+  item: Display Font Size（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Display Font Size
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：6
+         选项: Display Font Size调整位置
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_display_orientation_suggestion
+  module: System Configuration / Display Orientation Suggestion
+  item: Display Orientation Suggestion（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Display Orientation Suggestion
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：11
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_display_timeout
+  module: System Configuration / Display Timeout
+  item: Display Timeout（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Display Timeout
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：4
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_home_screen_wallpaper
+  module: System Configuration / Home Screen Wallpaper
+  item: Home Screen Wallpaper（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Home Screen Wallpaper
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：12
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_list_of_packages
+  module: System Configuration / List of packages
+  item: List of packages（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / List of packages
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:21.Microphone and audio recording / 第x行：6
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_lock_screen_wallpaper
+  module: System Configuration / Lock Screen Wallpaper
+  item: Lock Screen Wallpaper（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Lock Screen Wallpaper
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：13
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_lock_at_full_volume
+  module: System Configuration / Lock at Full Volume
+  item: Lock at Full Volume（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Lock at Full Volume
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：15
+         选项: Lock at Full Volume调整位置
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_lock_the_volume
+  module: System Configuration / Lock the Volume
+  item: Lock the Volume（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Lock the Volume
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：14
+         选项: Lock the Volume调整位置
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_manaul_time
+  module: System Configuration / Manaul Time
+  item: Manaul Time（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Manaul Time
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:3.Clock / 第x行：6
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_manual_date
+  module: System Configuration / Manual Date
+  item: Manual Date（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Manual Date
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:3.Clock / 第x行：5
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_manual_ntp_server
+  module: System Configuration / Manual NTP Server
+  item: Manual NTP Server（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Manual NTP Server
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:3.Clock / 第x行：10
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_manual_time_zone
+  module: System Configuration / Manual Time Zone
+  item: Manual Time Zone（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Manual Time Zone
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:3.Clock / 第x行：8
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_media_volume
+  module: System Configuration / Media Volume
+  item: Media Volume（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Media Volume
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：5
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_microphone_and_audio_recording
+  module: System Configuration / Microphone and audio recording
+  item: Microphone and audio recording（2 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Microphone and audio recording
+      共 2 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:21.Microphone and audio recording / 第x行：3
+         选项: Microphone&audio recording由原一级菜单调整为二级菜单，并删除原总控制
+      2. sheet:21.Microphone and audio recording / 第x行：4
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_microphone_and_audio_recording_in
+  module: System Configuration / Microphone and audio recording in the call
+  item: Microphone and audio recording in the call（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Microphone and audio recording in the call
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:21.Microphone and audio recording / 第x行：5
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_notification_sound
+  module: System Configuration / Notification Sound
+  item: Notification Sound（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Notification Sound
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：8
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_proximity_sensor
+  module: System Configuration / Proximity sensor
+  item: Proximity sensor（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Proximity sensor
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:21.Microphone and audio recording / 第x行：7
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_ring_volume
+  module: System Configuration / Ring Volume
+  item: Ring Volume（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Ring Volume
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：6
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_screen_locking_sound
+  module: System Configuration / Screen Locking Sound
+  item: Screen Locking Sound（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Screen Locking Sound
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：10
+         选项: Screen Locking Sound调整位置
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_screen_orientation
+  module: System Configuration / Screen Orientation
+  item: Screen Orientation（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Screen Orientation
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：10
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_sound_set_action
+  module: System Configuration / Sound Set Action
+  item: Sound Set Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Sound Set Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：3
+         选项: Sound由原一级菜单调整为二级菜单，并删除原总控制
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_stay_awake
+  module: System Configuration / Stay Awake
+  item: Stay Awake（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Stay Awake
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:5.Display / 第x行：5
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_time_format
+  module: System Configuration / Time Format
+  item: Time Format（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Time Format
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:3.Clock / 第x行：9
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_time_mode
+  module: System Configuration / Time Mode
+  item: Time Mode（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Time Mode
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:3.Clock / 第x行：4
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_time_zone_mode
+  module: System Configuration / Time Zone Mode
+  item: Time Zone Mode（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Time Zone Mode
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:3.Clock / 第x行：7
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_time_server_sync_interval
+  module: System Configuration / Time server sync interval
+  item: Time server sync interval（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Time server sync interval
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:3.Clock / 第x行：11
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_touch_sound
+  module: System Configuration / Touch Sound
+  item: Touch Sound（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Touch Sound
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：11
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: catalog.system_configuration.x_touch_vibration
+  module: System Configuration / Touch Vibration
+  item: Touch Vibration（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · System Configuration / Touch Vibration
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:4.Sound / 第x行：12
+  risk: safe
+  enabled: true
+  l1: System Configuration

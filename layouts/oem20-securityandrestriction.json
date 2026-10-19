@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Security&Restriction",
+  "oemModule": "Security&Restriction",
+  "description": "框架 L2 目录占位概览（1 块）；细项探针逐批接入",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 60000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_catalog_securityandrestriction_security_x",
+      "probeIds": [
+        "catalog.securityandrestriction.security_x"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    }
+  ]
+}

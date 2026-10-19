@@ -13,12 +13,13 @@
 | `risk` | | `safe` / `warn` / `block`（NA、勿推） |
 | `verifyPath` | | 设备上人工核对路径提示 |
 | `enabled` | | 默认 `true`；false 则不在组件库展示 |
+| `write` | | 可选：UI 写回设备；`false` 禁止。省略时 `toggle` + `adb.settings` 自动可写 |
 
 ## probe.kind
 
 | kind | 说明 |
 |------|------|
-| `adb.settings` | `settings get global/secure/system <key>` |
+| `adb.settings` | `settings get global/secure/system <key>`（部分 OEM 与 UI 不一致，如 DT630 WiFi 需用 `cmd wifi status`） |
 | `adb.shell` | 自定义 shell，用 `{cmd}` |
 | `adb.dumpsys` | 解析 dumpsys 片段（runner 内实现） |
 | `usdk` | 调用 USDK get API（二期） |

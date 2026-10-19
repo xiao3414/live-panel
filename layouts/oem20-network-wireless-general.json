@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network · Wireless General",
+  "oemModule": "Network Configuration",
+  "description": "框架 L2：飞行模式 / 蓝牙 / NFC / GPS（与 WiFi 表单开发分离）",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 30000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_airplane",
+      "probeIds": ["network.airplane"],
+      "title": "Airplane Mode",
+      "x": 0,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_bt",
+      "probeIds": ["bt.state"],
+      "title": "Bluetooth",
+      "x": 3,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_nfc",
+      "probeIds": ["nfc.state"],
+      "title": "NFC",
+      "x": 6,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_gps",
+      "probeIds": ["gps.state"],
+      "title": "GPS",
+      "x": 9,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Package Configuration · 设备实况",
+  "oemModule": "Package Configuration",
+  "description": "ADB/Settings 直读（自动刷新）；框架完整目录见「框架目录」",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 72,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 15000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_live_pkg_verifier",
+      "probeIds": [
+        "pkg.verifier"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_pkg_verify_adb",
+      "probeIds": [
+        "pkg.verify_adb"
+      ],
+      "x": 3,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_pkg_install_location",
+      "probeIds": [
+        "pkg.install_location"
+      ],
+      "x": 6,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    }
+  ]
+}

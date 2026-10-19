@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network · DNS & Ethernet",
+  "oemModule": "Network Configuration",
+  "description": "Private DNS · Ethernet（非 WLAN）",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": null
+  },
+  "refresh": {
+    "globalMs": 30000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_private_dns",
+      "probeIds": ["network.private_dns"],
+      "title": "Private DNS",
+      "oemPath": "Network Configuration",
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 2
+    },
+    {
+      "id": "w_eth",
+      "probeIds": ["ethernet.proxy"],
+      "title": "Ethernet Settings",
+      "oemPath": "Network Configuration",
+      "x": 4,
+      "y": 0,
+      "w": 4,
+      "h": 2
+    }
+  ]
+}

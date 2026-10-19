@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network · NFC",
+  "oemModule": "Network Configuration",
+  "description": "与 OEM 托管「NFC」同级（NFC Adapter）",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": null
+  },
+  "refresh": {
+    "globalMs": 10000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_nfc",
+      "probeIds": ["nfc.state"],
+      "title": "NFC Adapter",
+      "oemPath": "Network Configuration › NFC",
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 2
+    }
+  ]
+}

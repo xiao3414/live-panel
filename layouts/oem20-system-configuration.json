@@ -1,0 +1,791 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · System Configuration",
+  "oemModule": "System Configuration",
+  "description": "框架 L2 目录占位概览（77 块）；细项探针逐批接入",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 60000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_catalog_system_configuration_disable_input_method_back",
+      "probeIds": [
+        "catalog.system_configuration.disable_input_method_back"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_disable_input_method_disable_input_",
+      "probeIds": [
+        "catalog.system_configuration.disable_input_method_disable_input_"
+      ],
+      "x": 4,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_disable_input_method_home",
+      "probeIds": [
+        "catalog.system_configuration.disable_input_method_home"
+      ],
+      "x": 8,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_disable_input_method_menu",
+      "probeIds": [
+        "catalog.system_configuration.disable_input_method_menu"
+      ],
+      "x": 0,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_disable_input_method_side_bar_posit",
+      "probeIds": [
+        "catalog.system_configuration.disable_input_method_side_bar_posit"
+      ],
+      "x": 4,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_disable_input_method_side_bar_statu",
+      "probeIds": [
+        "catalog.system_configuration.disable_input_method_side_bar_statu"
+      ],
+      "x": 8,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_accessibility_acti",
+      "probeIds": [
+        "catalog.system_configuration.external_display_accessibility_acti"
+      ],
+      "x": 0,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_display_target",
+      "probeIds": [
+        "catalog.system_configuration.external_display_display_target"
+      ],
+      "x": 4,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_do_not_disturb",
+      "probeIds": [
+        "catalog.system_configuration.external_display_do_not_disturb"
+      ],
+      "x": 8,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_enable_notificatio",
+      "probeIds": [
+        "catalog.system_configuration.external_display_enable_notificatio"
+      ],
+      "x": 0,
+      "y": 9,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_glove_mode",
+      "probeIds": [
+        "catalog.system_configuration.external_display_glove_mode"
+      ],
+      "x": 4,
+      "y": 9,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_ime_current_keyboa",
+      "probeIds": [
+        "catalog.system_configuration.external_display_ime_current_keyboa"
+      ],
+      "x": 8,
+      "y": 9,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_input_method",
+      "probeIds": [
+        "catalog.system_configuration.external_display_input_method"
+      ],
+      "x": 0,
+      "y": 12,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_lock_screen_notifi",
+      "probeIds": [
+        "catalog.system_configuration.external_display_lock_screen_notifi"
+      ],
+      "x": 4,
+      "y": 12,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_mode_selection",
+      "probeIds": [
+        "catalog.system_configuration.external_display_mode_selection"
+      ],
+      "x": 8,
+      "y": 12,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_notification_dots_",
+      "probeIds": [
+        "catalog.system_configuration.external_display_notification_dots_"
+      ],
+      "x": 0,
+      "y": 15,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_pointer_speed",
+      "probeIds": [
+        "catalog.system_configuration.external_display_pointer_speed"
+      ],
+      "x": 4,
+      "y": 15,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_secondary_screen_o",
+      "probeIds": [
+        "catalog.system_configuration.external_display_secondary_screen_o"
+      ],
+      "x": 8,
+      "y": 15,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_spell_checker",
+      "probeIds": [
+        "catalog.system_configuration.external_display_spell_checker"
+      ],
+      "x": 0,
+      "y": 18,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_external_display_system_language",
+      "probeIds": [
+        "catalog.system_configuration.external_display_system_language"
+      ],
+      "x": 4,
+      "y": 18,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_gestures_battery_configuration_acti",
+      "probeIds": [
+        "catalog.system_configuration.gestures_battery_configuration_acti"
+      ],
+      "x": 8,
+      "y": 18,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_gestures_presshold_power_button",
+      "probeIds": [
+        "catalog.system_configuration.gestures_presshold_power_button"
+      ],
+      "x": 0,
+      "y": 21,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_gestures_quickly_open_the_camera",
+      "probeIds": [
+        "catalog.system_configuration.gestures_quickly_open_the_camera"
+      ],
+      "x": 4,
+      "y": 21,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_gestures_system_navigation",
+      "probeIds": [
+        "catalog.system_configuration.gestures_system_navigation"
+      ],
+      "x": 8,
+      "y": 21,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_gestures_three_finger_screenshots",
+      "probeIds": [
+        "catalog.system_configuration.gestures_three_finger_screenshots"
+      ],
+      "x": 0,
+      "y": 24,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_ime_activities_permanetly_prohibit",
+      "probeIds": [
+        "catalog.system_configuration.ime_activities_permanetly_prohibit"
+      ],
+      "x": 4,
+      "y": 24,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_ime_activities_physical_button",
+      "probeIds": [
+        "catalog.system_configuration.ime_activities_physical_button"
+      ],
+      "x": 8,
+      "y": 24,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_ime_activities_suspension_button",
+      "probeIds": [
+        "catalog.system_configuration.ime_activities_suspension_button"
+      ],
+      "x": 0,
+      "y": 27,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_screen_saver_choose_a_screen_saver",
+      "probeIds": [
+        "catalog.system_configuration.screen_saver_choose_a_screen_saver"
+      ],
+      "x": 4,
+      "y": 27,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_screen_saver_use_screen_saver",
+      "probeIds": [
+        "catalog.system_configuration.screen_saver_use_screen_saver"
+      ],
+      "x": 8,
+      "y": 27,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_screen_saver_when_to_start",
+      "probeIds": [
+        "catalog.system_configuration.screen_saver_when_to_start"
+      ],
+      "x": 0,
+      "y": 30,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_screen_wake-up_left_scan",
+      "probeIds": [
+        "catalog.system_configuration.screen_wake-up_left_scan"
+      ],
+      "x": 4,
+      "y": 30,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_screen_wake-up_right_scan",
+      "probeIds": [
+        "catalog.system_configuration.screen_wake-up_right_scan"
+      ],
+      "x": 8,
+      "y": 30,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_screen_wake-up_talkptt",
+      "probeIds": [
+        "catalog.system_configuration.screen_wake-up_talkptt"
+      ],
+      "x": 0,
+      "y": 33,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_smart_charging_settings_battery_inf",
+      "probeIds": [
+        "catalog.system_configuration.smart_charging_settings_battery_inf"
+      ],
+      "x": 4,
+      "y": 33,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_smart_charging_settings_battery_inf",
+      "probeIds": [
+        "catalog.system_configuration.smart_charging_settings_battery_inf"
+      ],
+      "x": 8,
+      "y": 33,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_smart_charging_settings_battery_inf",
+      "probeIds": [
+        "catalog.system_configuration.smart_charging_settings_battery_inf"
+      ],
+      "x": 0,
+      "y": 36,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_smart_charging_settings_battery_inf",
+      "probeIds": [
+        "catalog.system_configuration.smart_charging_settings_battery_inf"
+      ],
+      "x": 4,
+      "y": 36,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_smart_charging_settings_battery_inf",
+      "probeIds": [
+        "catalog.system_configuration.smart_charging_settings_battery_inf"
+      ],
+      "x": 8,
+      "y": 36,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_smart_charging_settings_charging_re",
+      "probeIds": [
+        "catalog.system_configuration.smart_charging_settings_charging_re"
+      ],
+      "x": 0,
+      "y": 39,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_smart_charging_settings_smart_charg",
+      "probeIds": [
+        "catalog.system_configuration.smart_charging_settings_smart_charg"
+      ],
+      "x": 4,
+      "y": 39,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_alarm_volume",
+      "probeIds": [
+        "catalog.system_configuration.x_alarm_volume"
+      ],
+      "x": 8,
+      "y": 39,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_auto_brightness",
+      "probeIds": [
+        "catalog.system_configuration.x_auto_brightness"
+      ],
+      "x": 0,
+      "y": 42,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_auto_rotate",
+      "probeIds": [
+        "catalog.system_configuration.x_auto_rotate"
+      ],
+      "x": 4,
+      "y": 42,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_call_volume",
+      "probeIds": [
+        "catalog.system_configuration.x_call_volume"
+      ],
+      "x": 8,
+      "y": 42,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_charging_sound_and_vibration",
+      "probeIds": [
+        "catalog.system_configuration.x_charging_sound_and_vibration"
+      ],
+      "x": 0,
+      "y": 45,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_clock_action",
+      "probeIds": [
+        "catalog.system_configuration.x_clock_action"
+      ],
+      "x": 4,
+      "y": 45,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_dial_pad_tones",
+      "probeIds": [
+        "catalog.system_configuration.x_dial_pad_tones"
+      ],
+      "x": 8,
+      "y": 45,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_display_action",
+      "probeIds": [
+        "catalog.system_configuration.x_display_action"
+      ],
+      "x": 0,
+      "y": 48,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_display_font_size",
+      "probeIds": [
+        "catalog.system_configuration.x_display_font_size"
+      ],
+      "x": 4,
+      "y": 48,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_display_orientation_suggestion",
+      "probeIds": [
+        "catalog.system_configuration.x_display_orientation_suggestion"
+      ],
+      "x": 8,
+      "y": 48,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_display_timeout",
+      "probeIds": [
+        "catalog.system_configuration.x_display_timeout"
+      ],
+      "x": 0,
+      "y": 51,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_home_screen_wallpaper",
+      "probeIds": [
+        "catalog.system_configuration.x_home_screen_wallpaper"
+      ],
+      "x": 4,
+      "y": 51,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_list_of_packages",
+      "probeIds": [
+        "catalog.system_configuration.x_list_of_packages"
+      ],
+      "x": 8,
+      "y": 51,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_lock_screen_wallpaper",
+      "probeIds": [
+        "catalog.system_configuration.x_lock_screen_wallpaper"
+      ],
+      "x": 0,
+      "y": 54,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_lock_at_full_volume",
+      "probeIds": [
+        "catalog.system_configuration.x_lock_at_full_volume"
+      ],
+      "x": 4,
+      "y": 54,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_lock_the_volume",
+      "probeIds": [
+        "catalog.system_configuration.x_lock_the_volume"
+      ],
+      "x": 8,
+      "y": 54,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_manaul_time",
+      "probeIds": [
+        "catalog.system_configuration.x_manaul_time"
+      ],
+      "x": 0,
+      "y": 57,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_manual_date",
+      "probeIds": [
+        "catalog.system_configuration.x_manual_date"
+      ],
+      "x": 4,
+      "y": 57,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_manual_ntp_server",
+      "probeIds": [
+        "catalog.system_configuration.x_manual_ntp_server"
+      ],
+      "x": 8,
+      "y": 57,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_manual_time_zone",
+      "probeIds": [
+        "catalog.system_configuration.x_manual_time_zone"
+      ],
+      "x": 0,
+      "y": 60,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_media_volume",
+      "probeIds": [
+        "catalog.system_configuration.x_media_volume"
+      ],
+      "x": 4,
+      "y": 60,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_microphone_and_audio_recording",
+      "probeIds": [
+        "catalog.system_configuration.x_microphone_and_audio_recording"
+      ],
+      "x": 8,
+      "y": 60,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_microphone_and_audio_recording_in",
+      "probeIds": [
+        "catalog.system_configuration.x_microphone_and_audio_recording_in"
+      ],
+      "x": 0,
+      "y": 63,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_notification_sound",
+      "probeIds": [
+        "catalog.system_configuration.x_notification_sound"
+      ],
+      "x": 4,
+      "y": 63,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_proximity_sensor",
+      "probeIds": [
+        "catalog.system_configuration.x_proximity_sensor"
+      ],
+      "x": 8,
+      "y": 63,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_ring_volume",
+      "probeIds": [
+        "catalog.system_configuration.x_ring_volume"
+      ],
+      "x": 0,
+      "y": 66,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_screen_locking_sound",
+      "probeIds": [
+        "catalog.system_configuration.x_screen_locking_sound"
+      ],
+      "x": 4,
+      "y": 66,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_screen_orientation",
+      "probeIds": [
+        "catalog.system_configuration.x_screen_orientation"
+      ],
+      "x": 8,
+      "y": 66,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_sound_set_action",
+      "probeIds": [
+        "catalog.system_configuration.x_sound_set_action"
+      ],
+      "x": 0,
+      "y": 69,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_stay_awake",
+      "probeIds": [
+        "catalog.system_configuration.x_stay_awake"
+      ],
+      "x": 4,
+      "y": 69,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_time_format",
+      "probeIds": [
+        "catalog.system_configuration.x_time_format"
+      ],
+      "x": 8,
+      "y": 69,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_time_mode",
+      "probeIds": [
+        "catalog.system_configuration.x_time_mode"
+      ],
+      "x": 0,
+      "y": 72,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_time_zone_mode",
+      "probeIds": [
+        "catalog.system_configuration.x_time_zone_mode"
+      ],
+      "x": 4,
+      "y": 72,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_time_server_sync_interval",
+      "probeIds": [
+        "catalog.system_configuration.x_time_server_sync_interval"
+      ],
+      "x": 8,
+      "y": 72,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_touch_sound",
+      "probeIds": [
+        "catalog.system_configuration.x_touch_sound"
+      ],
+      "x": 0,
+      "y": 75,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_system_configuration_x_touch_vibration",
+      "probeIds": [
+        "catalog.system_configuration.x_touch_vibration"
+      ],
+      "x": 4,
+      "y": 75,
+      "w": 4,
+      "h": 3
+    }
+  ]
+}

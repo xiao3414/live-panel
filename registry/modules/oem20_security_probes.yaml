@@ -1,0 +1,476 @@
+# OEM 2.0 Security&Restriction — 21 项（USDK 桥 securityGet/securitySet）
+module: Security&Restriction
+probes:
+  - id: sec.allow_factory_reset
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Allow factory reset
+    display:
+      type: toggle
+    labels:
+      '1': 允许
+      '0': 禁止
+    probe:
+      kind: security.bridge
+      feature: allow_factory_reset
+    write:
+      kind: security.bridge
+      feature: allow_factory_reset
+    readAfterWrite:
+      kind: security.bridge
+      feature: allow_factory_reset
+    sotiKey: allowFactoryReset
+    risk: warn
+    refreshMs: 8000
+  - id: sec.google_play_protect
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Google Play Protect
+    display:
+      type: toggle
+    labels:
+      '1': 开
+      '0': 关
+    probe:
+      kind: security.bridge
+      feature: google_play_protect
+    write:
+      kind: security.bridge
+      feature: google_play_protect
+    readAfterWrite:
+      kind: security.bridge
+      feature: google_play_protect
+    risk: safe
+    refreshMs: 8000
+  - id: sec.screen_lock
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Screen Lock
+    display:
+      type: toggle
+    labels:
+      '1': 开
+      '0': 关
+    probe:
+      kind: security.bridge
+      feature: screen_lock
+      fallback:
+        kind: adb.shell
+        cmd: settings get secure lockscreen.disabled
+        parse: contains
+        map:
+          '0': '1'
+          '1': '0'
+    write:
+      kind: security.bridge
+      feature: screen_lock
+    readAfterWrite:
+      kind: security.bridge
+      feature: screen_lock
+    risk: safe
+    refreshMs: 8000
+  - id: sec.screen_lock_set
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Screen Lock Set
+    display:
+      type: enum
+    labels:
+      none: 无
+      slide: 滑动
+      pattern: 图案
+      pin: PIN
+    probe:
+      kind: security.bridge
+      feature: screen_lock_set
+      fallback:
+        kind: adb.settings
+        namespace: secure
+        key: lockscreen.password_type
+    write:
+      kind: security.bridge
+      feature: screen_lock_set
+    readAfterWrite:
+      kind: security.bridge
+      feature: screen_lock_set
+    risk: warn
+    verifyPath: 设置 → 安全 → 屏幕锁定方式（图案/PIN 会使用测试默认值，请先改 sec.screen_lock_password）
+    refreshMs: 10000
+  - id: sec.screen_lock_password
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Screen Lock Password
+    display:
+      type: text
+    labels:
+      set: 已设置
+      '': 未设置
+    probe:
+      kind: security.bridge
+      feature: screen_lock_password
+    write:
+      kind: security.bridge
+      feature: screen_lock_password
+    readAfterWrite:
+      kind: security.bridge
+      feature: screen_lock_password
+    risk: warn
+    refreshMs: 10000
+  - id: sec.screen_lock_timeout
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Screen Lock Timeout
+    display:
+      type: enum
+    labels:
+      '0': 立即
+      '5000': 5 秒
+      '15000': 15 秒
+      '30000': 30 秒
+      '60000': 1 分钟
+      '120000': 2 分钟
+      '300000': 5 分钟
+      '600000': 10 分钟
+      '1800000': 30 分钟
+    probe:
+      kind: security.bridge
+      feature: screen_lock_timeout
+    write:
+      kind: security.bridge
+      feature: screen_lock_timeout
+    readAfterWrite:
+      kind: security.bridge
+      feature: screen_lock_timeout
+    risk: safe
+    refreshMs: 8000
+  - id: sec.unknown_source
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Unknown Source APP
+    display:
+      type: toggle
+    labels:
+      '1': 允许
+      '0': 禁止
+    probe:
+      kind: security.bridge
+      feature: unknown_source
+      fallback:
+        kind: adb.settings
+        namespace: secure
+        key: install_non_market_apps
+    write:
+      kind: security.bridge
+      feature: unknown_source
+    readAfterWrite:
+      kind: security.bridge
+      feature: unknown_source
+    risk: warn
+    refreshMs: 8000
+  - id: sec.verify_apps_usb
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Verify APPs over USB
+    display:
+      type: toggle
+    labels:
+      '1': 开
+      '0': 关
+    probe:
+      kind: security.bridge
+      feature: verify_apps_usb
+      fallback:
+        kind: adb.settings
+        namespace: global
+        key: verifier_verify_adb_installs
+    write:
+      kind: security.bridge
+      feature: verify_apps_usb
+    readAfterWrite:
+      kind: security.bridge
+      feature: verify_apps_usb
+    risk: safe
+    refreshMs: 8000
+  - id: sec.scan_key_pass
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Pass Scan Key Code to Application
+    display:
+      type: toggle
+    labels:
+      '1': 开
+      '0': 关
+    probe:
+      kind: security.bridge
+      feature: scan_key_pass
+    write:
+      kind: security.bridge
+      feature: scan_key_pass
+    readAfterWrite:
+      kind: security.bridge
+      feature: scan_key_pass
+    risk: safe
+    refreshMs: 8000
+  - id: sec.disallow_screenshot
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Disallow Screenshot
+    display:
+      type: toggle
+    labels:
+      '1': 禁止截图
+      '0': 允许
+    probe:
+      kind: security.bridge
+      feature: disallow_screenshot
+    write:
+      kind: security.bridge
+      feature: disallow_screenshot
+    readAfterWrite:
+      kind: security.bridge
+      feature: disallow_screenshot
+    risk: safe
+    refreshMs: 8000
+  - id: sec.screen_pinning
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Screen Pinning
+    display:
+      type: toggle
+    labels:
+      '1': 开
+      '0': 关
+    probe:
+      kind: security.bridge
+      feature: screen_pinning
+    write:
+      kind: security.bridge
+      feature: screen_pinning
+    readAfterWrite:
+      kind: security.bridge
+      feature: screen_pinning
+    risk: safe
+    refreshMs: 8000
+  - id: sec.volume_key
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Volume Key
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: security.bridge
+      feature: volume_key
+    write:
+      kind: security.bridge
+      feature: volume_key
+    readAfterWrite:
+      kind: security.bridge
+      feature: volume_key
+    risk: safe
+    refreshMs: 8000
+  - id: sec.camera_access
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Camera Access
+    display:
+      type: toggle
+    labels:
+      '1': 允许
+      '0': 禁止
+    probe:
+      kind: security.bridge
+      feature: camera_access
+    write:
+      kind: security.bridge
+      feature: camera_access
+    readAfterWrite:
+      kind: security.bridge
+      feature: camera_access
+    risk: safe
+    refreshMs: 8000
+  - id: sec.microphone_access
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Microphone access
+    display:
+      type: toggle
+    labels:
+      '1': 允许
+      '0': 禁止
+    probe:
+      kind: security.bridge
+      feature: microphone_access
+    write:
+      kind: security.bridge
+      feature: microphone_access
+    readAfterWrite:
+      kind: security.bridge
+      feature: microphone_access
+    risk: safe
+    refreshMs: 8000
+  - id: sec.clipboard_access
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: 允许复制粘贴 / 剪贴板访问
+    display:
+      type: toggle
+    labels:
+      '1': 允许
+      '0': 禁止
+    probe:
+      kind: security.bridge
+      feature: clipboard_access
+    write:
+      kind: security.bridge
+      feature: clipboard_access
+    readAfterWrite:
+      kind: security.bridge
+      feature: clipboard_access
+    verifyPath: 需 Urovo 签名桥接（与 SDKAuto 同 keystore）方可写回；设置 › 安全 › 剪贴板
+    risk: safe
+    refreshMs: 8000
+  - id: sec.show_passwords
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Show passwords
+    display:
+      type: toggle
+    labels:
+      '1': 显示
+      '0': 隐藏
+    probe:
+      kind: security.bridge
+      feature: show_passwords
+    write:
+      kind: security.bridge
+      feature: show_passwords
+    readAfterWrite:
+      kind: security.bridge
+      feature: show_passwords
+    risk: safe
+    refreshMs: 8000
+  - id: sec.location_access
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: Location Access
+    display:
+      type: toggle
+    labels:
+      '1': 开
+      '0': 关
+    probe:
+      kind: security.bridge
+      feature: location_access
+      fallback:
+        kind: adb.settings
+        namespace: secure
+        key: location_mode
+    write:
+      kind: security.bridge
+      feature: location_access
+    readAfterWrite:
+      kind: security.bridge
+      feature: location_access
+    risk: safe
+    refreshMs: 8000
+  - id: sec.external_sd
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: External SD Card
+    display:
+      type: toggle
+    labels:
+      '1': 可用
+      '0': 禁用
+    probe:
+      kind: security.bridge
+      feature: external_sd
+    write:
+      kind: security.bridge
+      feature: external_sd
+    readAfterWrite:
+      kind: security.bridge
+      feature: external_sd
+    risk: safe
+    refreshMs: 10000
+  - id: sec.usb
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: USB
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: security.bridge
+      feature: usb
+    write:
+      kind: security.bridge
+      feature: usb
+    readAfterWrite:
+      kind: security.bridge
+      feature: usb
+    risk: warn
+    refreshMs: 8000
+  - id: sec.usb_mode
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: USB Mode
+    display:
+      type: enum
+    labels:
+      '0': 无数据传输
+      '1': 文件传输
+      '2': PTP
+      '3': MIDI
+    probe:
+      kind: security.bridge
+      feature: usb_mode
+      fallback:
+        kind: adb.shell
+        cmd: getprop sys.usb.config
+        parse: contains
+        map:
+          mtp,adb: '1'
+          midi: '3'
+          ptp: '2'
+          mtp: '1'
+          charging: '0'
+          adb: '0'
+    write:
+      kind: security.bridge
+      feature: usb_mode
+    readAfterWrite:
+      kind: security.bridge
+      feature: usb_mode
+    risk: warn
+    refreshMs: 10000
+  - id: sec.adb
+    l1: Security&Restriction
+    module: Security&Restriction / Security
+    item: ADB
+    display:
+      type: toggle
+    labels:
+      '1': 开
+      '0': 关
+    probe:
+      kind: security.bridge
+      feature: adb
+      fallback:
+        kind: adb.settings
+        namespace: global
+        key: adb_enabled
+    write:
+      kind: security.bridge
+      feature: adb
+    readAfterWrite:
+      kind: security.bridge
+      feature: adb
+    risk: warn
+    verifyPath: 设置 → 开发者选项 → USB 调试
+    refreshMs: 5000

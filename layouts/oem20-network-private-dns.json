@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network · Private DNS",
+  "oemModule": "Network Configuration",
+  "description": "与 OEM 托管「Private DNS」同级",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": null
+  },
+  "refresh": {
+    "globalMs": 15000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_dns_mode",
+      "probeIds": ["network.private_dns"],
+      "title": "Private DNS Mode",
+      "oemPath": "Network Configuration › Private DNS",
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 2
+    },
+    {
+      "id": "w_dns_host",
+      "probeIds": ["network.private_dns_hostname"],
+      "title": "Provider Hostname",
+      "oemPath": "Network Configuration › Private DNS",
+      "x": 4,
+      "y": 0,
+      "w": 4,
+      "h": 2
+    },
+    {
+      "id": "w_dev_hostname",
+      "probeIds": ["device.hostname"],
+      "title": "Device Host Name",
+      "oemPath": "Network Configuration › Private DNS",
+      "x": 8,
+      "y": 0,
+      "w": 4,
+      "h": 2
+    }
+  ]
+}

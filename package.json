@@ -1,0 +1,74 @@
+{
+  "name": "live-panel",
+  "version": "0.1.1",
+  "description": "实况面板 — OEM 设备配置可视化看板",
+  "private": true,
+  "type": "module",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.node.json && vite build && tsc -p tsconfig.electron.json && npm run copy:preload",
+    "preview": "vite preview",
+    "start": "npm run electron:dev",
+    "copy:preload": "node scripts/copy-preload.cjs",
+    "copy:bridge": "node scripts/copy-bridge-apk.cjs",
+    "build:bridge": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-device-bridge.ps1",
+    "verify:bridge": "node scripts/verify-bridge-security.mjs",
+    "verify:write": "node scripts/verify-security-write.mjs",
+    "verify:reconcile": "node scripts/verify-security-reconcile.mjs",
+    "verify:clipboard": "node scripts/verify-clipboard-write.mjs",
+    "verify:usb-mode": "node scripts/verify-usb-mode-read.mjs",
+    "verify:mdm": "node scripts/verify-mdm-policy-logic.mjs",
+    "verify:security": "npm run verify:bridge && npm run verify:write && npm run verify:reconcile && npm run verify:clipboard && npm run verify:usb-mode && npm run verify:mdm",
+    "compare:oem": "node scripts/compare-oem-config.mjs",
+    "electron:dev": "tsc -p tsconfig.electron.json && npm run copy:preload && concurrently -k \"tsc -p tsconfig.electron.json --watch --preserveWatchOutput\" \"vite\" \"wait-on http://127.0.0.1:5173 && cross-env VITE_DEV_SERVER_URL=http://127.0.0.1:5173 electron .\"",
+    "electron:build": "npm run build && npm run copy:preload && npm run copy:bridge && electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.urovo.livepanel",
+    "productName": "实况面板",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "registry/**/*",
+      "layouts/**/*",
+      "config/**/*",
+      "schemas/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/device-usdk-bridge.apk",
+        "to": "device-usdk-bridge.apk"
+      }
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "artifactName": "LivePanel-${version}-portable.exe"
+    }
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-grid-layout": "^1.5.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-grid-layout": "^1.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "wait-on": "^8.0.1"
+  }
+}

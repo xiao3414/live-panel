@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network Configuration",
+  "oemModule": "Network Configuration",
+  "description": "Network Configuration › WLAN（四表单并列）+ DNS / Ethernet",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": null
+  },
+  "refresh": {
+    "globalMs": 30000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_sec_wlan",
+      "probeIds": ["meta.layout_section.wlan"],
+      "title": "WLAN",
+      "x": 0,
+      "y": 0,
+      "w": 12,
+      "h": 1,
+      "ui": { "pinned": true }
+    },
+    {
+      "id": "w_wifi_general",
+      "probeIds": ["wifi.general_settings"],
+      "title": "WiFi General Settings",
+      "oemPath": "Network Configuration › WLAN",
+      "x": 0,
+      "y": 1,
+      "w": 6,
+      "h": 8
+    },
+    {
+      "id": "w_wifi_advanced",
+      "probeIds": ["wifi.advanced_settings"],
+      "title": "WiFi Advanced Settings",
+      "oemPath": "Network Configuration › WLAN",
+      "x": 6,
+      "y": 1,
+      "w": 6,
+      "h": 8
+    },
+    {
+      "id": "w_wifi_preference",
+      "probeIds": ["wifi.preference_settings"],
+      "title": "WiFi Preference",
+      "oemPath": "Network Configuration › WLAN",
+      "x": 0,
+      "y": 9,
+      "w": 6,
+      "h": 8
+    },
+    {
+      "id": "w_wifi_whitelist",
+      "probeIds": ["wifi.whitelist_settings"],
+      "title": "WiFi Whitelist",
+      "oemPath": "Network Configuration › WLAN",
+      "x": 6,
+      "y": 9,
+      "w": 6,
+      "h": 8
+    },
+    {
+      "id": "w_sec_other",
+      "probeIds": ["meta.layout_section.network_other"],
+      "title": "其他",
+      "x": 0,
+      "y": 17,
+      "w": 12,
+      "h": 1,
+      "ui": { "pinned": true }
+    },
+    {
+      "id": "w_private_dns",
+      "probeIds": ["network.private_dns"],
+      "title": "Private DNS",
+      "oemPath": "Network Configuration",
+      "x": 0,
+      "y": 18,
+      "w": 4,
+      "h": 2
+    },
+    {
+      "id": "w_eth",
+      "probeIds": ["ethernet.proxy"],
+      "title": "Ethernet Settings",
+      "oemPath": "Network Configuration",
+      "x": 4,
+      "y": 18,
+      "w": 4,
+      "h": 2
+    }
+  ]
+}

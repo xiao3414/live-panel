@@ -1,0 +1,201 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · System Configuration · 设备实况",
+  "oemModule": "System Configuration",
+  "description": "ADB/Settings 直读（自动刷新）；框架完整目录见「框架目录」",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 72,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 15000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_live_sys_display_brightness_mode",
+      "probeIds": [
+        "sys.display.brightness_mode"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_display_brightness",
+      "probeIds": [
+        "sys.display.brightness"
+      ],
+      "x": 3,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_display_timeout",
+      "probeIds": [
+        "sys.display.timeout"
+      ],
+      "x": 6,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_display_auto_rotate",
+      "probeIds": [
+        "sys.display.auto_rotate"
+      ],
+      "x": 9,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_display_font_scale",
+      "probeIds": [
+        "sys.display.font_scale"
+      ],
+      "x": 0,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_display_stay_awake",
+      "probeIds": [
+        "sys.display.stay_awake"
+      ],
+      "x": 3,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_time_auto",
+      "probeIds": [
+        "sys.time.auto"
+      ],
+      "x": 6,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_time_tz_auto",
+      "probeIds": [
+        "sys.time.tz_auto"
+      ],
+      "x": 9,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_time_format",
+      "probeIds": [
+        "sys.time.format"
+      ],
+      "x": 0,
+      "y": 4,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_time_timezone",
+      "probeIds": [
+        "sys.time.timezone"
+      ],
+      "x": 3,
+      "y": 4,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_locale",
+      "probeIds": [
+        "sys.locale"
+      ],
+      "x": 6,
+      "y": 4,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_volume_media",
+      "probeIds": [
+        "sys.volume.media"
+      ],
+      "x": 9,
+      "y": 4,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_volume_ring",
+      "probeIds": [
+        "sys.volume.ring"
+      ],
+      "x": 0,
+      "y": 6,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_dev_options",
+      "probeIds": [
+        "sys.dev_options"
+      ],
+      "x": 3,
+      "y": 6,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_usb_debugging",
+      "probeIds": [
+        "sys.usb.debugging"
+      ],
+      "x": 6,
+      "y": 6,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_model",
+      "probeIds": [
+        "sys.model"
+      ],
+      "x": 9,
+      "y": 6,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_android_release",
+      "probeIds": [
+        "sys.android_release"
+      ],
+      "x": 0,
+      "y": 8,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_sys_build_id",
+      "probeIds": [
+        "sys.build_id"
+      ],
+      "x": 3,
+      "y": 8,
+      "w": 3,
+      "h": 2
+    }
+  ]
+}

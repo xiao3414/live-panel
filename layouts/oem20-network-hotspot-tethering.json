@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network · Hotspot & Tethering",
+  "oemModule": "Network Configuration",
+  "description": "与 OEM 托管「Hotspot & Tethering」同级",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": null
+  },
+  "refresh": {
+    "globalMs": 15000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_hotspot",
+      "probeIds": ["network.hotspot"],
+      "title": "Wi‑Fi Hotspot",
+      "oemPath": "Network Configuration › Hotspot & Tethering",
+      "x": 0,
+      "y": 0,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "id": "w_usb_tether",
+      "probeIds": ["network.tether_usb"],
+      "title": "USB tethering",
+      "oemPath": "Network Configuration › Hotspot & Tethering",
+      "x": 6,
+      "y": 0,
+      "w": 6,
+      "h": 3
+    }
+  ]
+}

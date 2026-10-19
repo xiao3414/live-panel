@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network Configuration · 设备实况",
+  "oemModule": "Network Configuration",
+  "description": "ADB/Settings 直读（自动刷新）；框架完整目录见「框架目录」",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 72,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 15000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_live_wifi_state",
+      "probeIds": [
+        "wifi.state"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_wifi_ssid",
+      "probeIds": [
+        "wifi.ssid"
+      ],
+      "x": 3,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_wifi_scanning",
+      "probeIds": [
+        "wifi.scanning"
+      ],
+      "x": 6,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_wifi_notification",
+      "probeIds": [
+        "wifi.notification"
+      ],
+      "x": 9,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_wifi_wakeup",
+      "probeIds": [
+        "wifi.wakeup"
+      ],
+      "x": 0,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_wifi_country",
+      "probeIds": [
+        "wifi.country"
+      ],
+      "x": 3,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_network_airplane",
+      "probeIds": [
+        "network.airplane"
+      ],
+      "x": 6,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_network_private_dns",
+      "probeIds": [
+        "network.private_dns"
+      ],
+      "x": 9,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_bt_state",
+      "probeIds": [
+        "bt.state"
+      ],
+      "x": 0,
+      "y": 4,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_nfc_state",
+      "probeIds": [
+        "nfc.state"
+      ],
+      "x": 3,
+      "y": 4,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_gps_state",
+      "probeIds": [
+        "gps.state"
+      ],
+      "x": 6,
+      "y": 4,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_device_hostname",
+      "probeIds": [
+        "device.hostname"
+      ],
+      "x": 9,
+      "y": 4,
+      "w": 3,
+      "h": 2
+    }
+  ]
+}

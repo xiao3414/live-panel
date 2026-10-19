@@ -1,0 +1,60 @@
+# OEM 2.0 L1: Security&Restriction（框架占位 catalog，自动生成）
+module: Security&Restriction
+frameworkRef: 03_接口与配置映射/OEMConfig_2.0_产品框架/Security_Restriction.md
+probes:
+- id: catalog.securityandrestriction.security_x
+  module: Security&Restriction / Security
+  item: Security（21 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Security&Restriction / Security
+      共 21 项（实况面板占位，待接 ADB/USDK）
+      
+      1. No change/Enable/Disable
+         选项: sheet: 6.Security；第x行：10
+      2. No change/Enable/Disable
+         选项: sheet:16.Enterprise Feature Settings；第x行：27
+      3. No change/None/Slide/Pattern/PIN
+         选项: sheet: 6.Security；第x行：5
+      4. Input field
+         选项: sheet: 6.Security；第x行：6
+      5. No change/Immediately/5 seconds/15 seconds/30 seconds/1 minute/2 minutes/5 minut
+         选项: sheet: 6.Security；第x行：7
+      6. No change/Enable/Disable
+         选项: sheet: 6.Security；第x行：4
+      7. No change/Enable/Disable
+         选项: sheet:17.App；第x行：7
+      8. No change/Enable/Disable
+         选项: sheet:17.App；第x行：8
+      9. No change/Enable/Disable
+         选项: sheet:16.Enterprise Feature Settings；第x行：13
+      10. No change/Enable/Disable
+         选项: sheet:16.Enterprise Feature Settings；第x行：16
+      11. No change/Enable/Disable
+         选项: sheet:16.Enterprise Feature Settings；第x行：17
+      12. No change/Enable/Disable
+         选项: sheet:16.Enterprise Feature Settings；第x行：26
+      13. No change/Enable/Disable
+         选项: sheet:16.Enterprise Feature Settings；第x行：20
+      14. No change/Enable/Disable
+         选项: sheet: 6.Security；第x行：8
+      15. No change/Enable/Disable
+         选项: sheet:16.Enterprise Feature Settings；第x行：30
+      16. No change/Enable/Disable
+         选项: sheet: 6.Security；第x行：9
+      17. No change/Enable/Disable
+         选项: sheet:12.Wireless General；第x行：4
+      18. No change/Enable/Disable
+         选项: sheet:16.Enterprise Feature Settings；第x行：28
+      19. No change/Enable/Disable
+         选项: sheet:16.Enterprise Feature Settings；第x行：23
+      20. No change/ / File Transfer/ / MIDI/ / PTP/ / No Data Transfer
+         选项: sheet:16.Enterprise Feature Settings；第x行：24
+      21. No change/Enable/Disable
+         选项: sheet:16.Enterprise Feature Settings；第x行：25
+  risk: safe
+  enabled: true
+  l1: Security&Restriction

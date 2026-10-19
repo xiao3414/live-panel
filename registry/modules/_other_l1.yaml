@@ -1,0 +1,36 @@
+module: _other
+note: 元数据 / 占位；可读探针已迁至 l1_device_reads.yaml 与各 L1 catalog
+probes:
+- id: maintenance.local_ota.service
+  l1: Device Maintenance
+  module: Device Maintenance / Local Network OTA
+  item: Service
+  display:
+    type: enum
+  probe:
+    kind: static
+    note: LocalNetworkOTA 服务状态需专用包查询（runner 待实现）
+  risk: warn
+  refreshMs: 10000
+- id: meta.policy.diff_placeholder
+  l1: Profile Configuration
+  module: Profile Configuration
+  item: 策略对账（Diff）
+  display:
+    type: diff
+  probe:
+    kind: static
+    note: 导入 SOTI JSON 后，由 UI 绑定 sotiKey 与 probe 结果比对
+  risk: safe
+  enabled: true
+- id: meta.risk.na_hint
+  l1: Security&Restriction
+  module: Security&Restriction / Security
+  item: 不支持项提示
+  display:
+    type: risk
+  probe:
+    kind: static
+    note: Registry 中 risk=block 的 probe 汇总展示
+  risk: block
+  enabled: true

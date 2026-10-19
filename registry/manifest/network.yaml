@@ -1,0 +1,79 @@
+# Network Configuration — 框架覆盖清单（对照 OEM 2.0 产品框架 111 条）
+l1: Network Configuration
+frameworkSource:
+  xlsx: "C:\\Users\\urovo\\Desktop\\Urovo OEMConfig 2.0框架.xlsx"
+  kbMd: "03_接口与配置映射/OEMConfig_2.0_产品框架/Network Configuration.md"
+  kbXlsx: "03_接口与配置映射/OEMConfig_2.0_产品框架/Urovo_OEMConfig_2.0框架_产品.xlsx"
+
+summary:
+  frameworkItems: 111
+  probesLive: 18
+  probesStaticPlaceholder: 1
+  coverageNote: "WLAN 四表单在 oem20-network-configuration；Captive/Whitelist 需 USDK 桥接"
+
+defaultLayouts:
+  wifiDevelopment: oem20-network-configuration
+  wirelessGeneral: oem20-network-wireless-general
+  frameworkCatalog: oem20-network-framework
+
+l2Buckets:
+  - id: wifi_core
+    title: WiFi（State / Networks / Advanced / Preference / Whitelist）
+    frameworkItemsApprox: 55
+    probeIds:
+      - wifi.general_settings
+      - wifi.advanced_settings
+      - wifi.preference_settings
+      - wifi.whitelist_settings
+      - wifi.state
+      - wifi.ssid
+      - wifi.wakeup
+      - wifi.notification
+      - wifi.scanning
+      - wifi.country
+    status: partial
+    defaultOnPanel:
+      - wifi.general_settings
+      - wifi.advanced_settings
+      - wifi.preference_settings
+      - wifi.whitelist_settings
+    oemAlignment:
+      wifiPreference:
+        - "Captive Portal → USDK get/setCaptivePortalMode (0/1/2)"
+        - "Network Available Notification → settings wifi_networks_available_notification_on 或 USDK"
+        - "Network Monitored Notification → settings wifi_wakeup_enabled 或 USDK setWifiWakeupEnabled"
+      wifiWhitelist:
+        - "Configuration Action None/Insert/Clear → setWifiWhiteList mode 0 action 0|1|2"
+        - "SSID1～SSID5 → Insert 时逐个 action=1"
+  - id: sim_esim
+    title: SIM / SIM1 / SIM2 / eSIM
+    frameworkItemsApprox: 68
+    probeIds: []
+    status: planned
+  - id: private_dns
+    title: Private DNS
+    frameworkItemsApprox: 6
+    probeIds:
+      - network.private_dns
+    status: partial
+  - id: nfc_bt_gps_airplane
+    title: NFC / Bluetooth / GPS / Airplane Mode
+    frameworkItemsApprox: 4
+    probeIds:
+      - nfc.state
+      - bt.state
+      - gps.state
+      - network.airplane
+    status: partial
+    layoutId: oem20-network-wireless-general
+  - id: ethernet_hotspot
+    title: Ethernet / Hotspot&Tethering
+    frameworkItemsApprox: 5
+    probeIds:
+      - ethernet.proxy
+    status: planned
+
+nextBatch:
+  - "SIM1 Mobile Data / Data Roaming（settings 或 telephony cmd）"
+  - "Private DNS hostname 文本探针"
+  - "Hotspot enabled（tethering dumpsys）"

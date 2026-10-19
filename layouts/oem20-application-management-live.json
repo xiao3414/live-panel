@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Application Management · 设备实况",
+  "oemModule": "Application Management",
+  "description": "ADB/Settings 直读（自动刷新）；框架完整目录见「框架目录」",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 72,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 15000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_live_app_pkg_count",
+      "probeIds": [
+        "app.pkg_count"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_app_user_count",
+      "probeIds": [
+        "app.user_count"
+      ],
+      "x": 3,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_app_oemconfig",
+      "probeIds": [
+        "app.oemconfig"
+      ],
+      "x": 6,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_app_launcher",
+      "probeIds": [
+        "app.launcher"
+      ],
+      "x": 9,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    }
+  ]
+}

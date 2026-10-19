@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Data Capture & Peripherals · 设备实况",
+  "oemModule": "Data Capture & Peripherals",
+  "description": "ADB/Settings 直读（自动刷新）；框架完整目录见「框架目录」",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 72,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 15000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_live_dcp_usb",
+      "probeIds": [
+        "dcp.usb"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_dcp_usb_state",
+      "probeIds": [
+        "dcp.usb.state"
+      ],
+      "x": 3,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_dcp_scan_pkgs",
+      "probeIds": [
+        "dcp.scan_pkgs"
+      ],
+      "x": 6,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_dcp_camera_disabled",
+      "probeIds": [
+        "dcp.camera_disabled"
+      ],
+      "x": 9,
+      "y": 0,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_dcp_nfc",
+      "probeIds": [
+        "dcp.nfc"
+      ],
+      "x": 0,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "w_live_dcp_bt",
+      "probeIds": [
+        "dcp.bt"
+      ],
+      "x": 3,
+      "y": 2,
+      "w": 3,
+      "h": 2
+    }
+  ]
+}

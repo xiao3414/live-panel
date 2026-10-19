@@ -1,0 +1,387 @@
+# OEM 2.0 Network — 框架 L2 catalog（自动生成）
+module: Network Configuration
+probes:
+- id: catalog.network_configuration.delete_apn_x
+  module: Network Configuration / Delete APN
+  item: Delete APN（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration / Delete APN
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Delete APN Names
+         选项: Input field
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: catalog.network_configuration.sim1_x
+  module: Network Configuration / SIM1
+  item: SIM1（5 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration / SIM1
+      共 5 项（实况面板占位，待接 ADB/USDK）
+      
+      1. SIM Enable/Disable
+         选项: No change/Enable/Disable
+      2. Mobile Data
+         选项: No change/Enable/Disable
+      3. Data Roaming
+         选项: No change/Enable/Disable
+      4. VoLTE
+         选项: No change/Enable/Disable
+      5. Preferred Network Type
+         选项: No change/5G/4G/3G/2G
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: catalog.network_configuration.sim1_add_apn
+  module: Network Configuration / SIM1 / Add APN
+  item: Add APN（18 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration / SIM1 / Add APN
+      共 18 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Input field
+         选项: sheet:2.SIM Configuration；第x行：13
+      2. Input field
+         选项: sheet:2.SIM Configuration；第x行：14
+      3. Input field
+         选项: sheet:2.SIM Configuration；第x行：15
+      4. Input field
+         选项: sheet:2.SIM Configuration；第x行：16
+      5. Input field
+         选项: sheet:2.SIM Configuration；第x行：17
+      6. Input field
+         选项: sheet:2.SIM Configuration；第x行：18
+      7. Input field
+         选项: sheet:2.SIM Configuration；第x行：19
+      8. Input field
+         选项: sheet:2.SIM Configuration；第x行：20
+      9. Input field
+         选项: sheet:2.SIM Configuration；第x行：21
+      10. Input field
+         选项: sheet:2.SIM Configuration；第x行：22
+      11. Input field
+         选项: sheet:2.SIM Configuration；第x行：23
+      12. Input field
+         选项: sheet:2.SIM Configuration；第x行：24
+      13. No change/PAP/CHAP/   PAP/CHAP
+         选项: sheet:2.SIM Configuration；第x行：25
+      14. Input field
+         选项: sheet:2.SIM Configuration；第x行：26
+      15. No change/IPv4/IPv6/    IPv4/IPv6
+         选项: sheet:2.SIM Configuration；第x行：27
+      16. No change/IPv4/IPv6/    IPv4/IPv6
+         选项: sheet:2.SIM Configuration；第x行：28
+      17. Input field
+         选项: sheet:2.SIM Configuration；第x行：29
+      18. No change/Enable/Disable
+         选项: sheet:2.SIM Configuration；第x行：30
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: catalog.network_configuration.sim2_x
+  module: Network Configuration / SIM2
+  item: SIM2（5 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration / SIM2
+      共 5 项（实况面板占位，待接 ADB/USDK）
+      
+      1. SIM Enable/Disable
+         选项: No change/Enable/Disable
+      2. Mobile Data
+         选项: No change/Enable/Disable
+      3. Data Roaming
+         选项: No change/Enable/Disable
+      4. VoLTE
+         选项: No change/Enable/Disable
+      5. Preferred Network Type
+         选项: No change/5G/4G/3G/2G
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: catalog.network_configuration.sim2_add_apn
+  module: Network Configuration / SIM2 / Add APN
+  item: Add APN（18 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration / SIM2 / Add APN
+      共 18 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Input field
+         选项: sheet:2.SIM Configuration；第x行：36
+      2. Input field
+         选项: sheet:2.SIM Configuration；第x行：37
+      3. Input field
+         选项: sheet:2.SIM Configuration；第x行：38
+      4. Input field
+         选项: sheet:2.SIM Configuration；第x行：39
+      5. Input field
+         选项: sheet:2.SIM Configuration；第x行：40
+      6. Input field
+         选项: sheet:2.SIM Configuration；第x行：41
+      7. Input field
+         选项: sheet:2.SIM Configuration；第x行：42
+      8. Input field
+         选项: sheet:2.SIM Configuration；第x行：43
+      9. Input field
+         选项: sheet:2.SIM Configuration；第x行：44
+      10. Input field
+         选项: sheet:2.SIM Configuration；第x行：45
+      11. Input field
+         选项: sheet:2.SIM Configuration；第x行：46
+      12. Input field
+         选项: sheet:2.SIM Configuration；第x行：47
+      13. No change/PAP/CHAP/   PAP/CHAP
+         选项: sheet:2.SIM Configuration；第x行：48
+      14. Input field
+         选项: sheet:2.SIM Configuration；第x行：49
+      15. No change/IPv4/IPv6/    IPv4/IPv6
+         选项: sheet:2.SIM Configuration；第x行：50
+      16. No change/IPv4/IPv6/    IPv4/IPv6
+         选项: sheet:2.SIM Configuration；第x行：51
+      17. Input field
+         选项: sheet:2.SIM Configuration；第x行：52
+      18. No change/Enable/Disable
+         选项: sheet:2.SIM Configuration；第x行：53
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: catalog.network_configuration.wifi_advanced_option_x
+  module: Network Configuration / WiFi Advanced Option
+  item: WiFi Advanced Option（10 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration / WiFi Advanced Option
+      共 10 项（实况面板占位，待接 ADB/USDK）
+      
+      1. WiFi Advanced Action
+         选项: No Change/Configure
+      2. Power Save Mode
+         选项: 开关
+      3. Roaming Threshold
+         选项: 输入框
+      4. Roaming Difference
+         选项: 输入框
+      5. WiFi Country Code
+         选项: 下拉选国家
+      6. 5GHz Priority Mode
+         选项: No/ON/OFF
+      7. Wifi Band Selection
+         选项: 2.4G; 5G； 6G； / 2.4G+5G；2.4G+6G；5G+6G; 5G+5G
+      8. 2.4GHz WiFi Channel Selection
+         选项: 输入框
+      9. 5GHz WiFi Channel Selection
+         选项: 输入框
+      10. 6GHz WiFi Channel Selection
+         选项: 输入框
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: catalog.network_configuration.wifi_networks_x
+  module: Network Configuration / WiFi Networks
+  item: WiFi Networks（16 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration / WiFi Networks
+      共 16 项（实况面板占位，待接 ADB/USDK）
+      
+      1. SSID
+         选项: 输入框
+      2. Password
+         选项: 输入框
+      3. Security Mode
+         选项: No change/WEP/ / WPA/WPA2_Personal / WPA3_Personal
+      4. Hidden SSID
+         选项: 开关
+      5. IP Assignment
+         选项: None/DHCP/Static IP
+      6. Static IP Address
+         选项: 输入框
+      7. Static IP Mode-Gateway
+         选项: 输入框
+      8. Static IP Mode-Prefix Length
+         选项: 输入框
+      9. Static IP Mode-DNS Server1
+         选项: 输入框
+      10. Static IP Mode-DNS Server2
+         选项: 输入框
+      11. Proxy Mode
+         选项: None/PAC/STATIC
+      12. Proxy-PAC Mode-PAC file URL
+         选项: 输入框
+      13. Proxy-Static Mode-Host URL
+         选项: 输入框
+      14. Proxy-Static Mode-Port
+         选项: 输入框
+      15. Proxy-Static Mode-Excusive List
+         选项: 输入框
+      16. WiFi Random MAC Address
+         选项: None/Allow/Disallow
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: catalog.network_configuration.wifi_preference_x
+  module: Network Configuration / WiFi Preference
+  item: WiFi Preference（3 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration / WiFi Preference
+      共 3 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Captive Portal
+         选项: Disable detection/Pop up reminder/Automatically disconnect this hotspot and no l
+      2. Network Available Notification
+         选项: No change/Enable/Disable
+      3. Network Monitored Notification
+         选项: No change/Enable/Disable
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: catalog.network_configuration.wifi_whtelist_x
+  module: Network Configuration / WiFi Whtelist
+  item: WiFi Whtelist（11 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration / WiFi Whtelist
+      共 11 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Configuration Action
+         选项: None/Insert WiFi White List/Clear Whitelist
+      2. SSID1
+         选项: 输入框
+      3. SSID2
+         选项: 输入框
+      4. SSID3
+         选项: 输入框
+      5. SSID4
+         选项: 输入框
+      6. SSID5
+         选项: 输入框
+      7. Action
+         选项: No change/Configure
+      8. Default Data SIM
+         选项: No change/SIM1/SIM2
+      9. Default Voice SIM
+         选项: No change/SIM1/SIM2
+      10. Default SMS SIM
+         选项: No change/SIM1/SIM2
+      11. Emergency Call Button
+         选项: No change/Show/Hide
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: catalog.network_configuration.esim_x
+  module: Network Configuration / eSIM
+  item: eSIM（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration / eSIM
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. eSIM State
+         选项: No change/Enable/Disable
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: catalog.network_configuration.esim_add_esim_profiles
+  module: Network Configuration / eSIM / Add eSIM Profiles
+  item: Add eSIM Profiles（18 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration / eSIM / Add eSIM Profiles
+      共 18 项（实况面板占位，待接 ADB/USDK）
+      
+      1. 输入框
+         选项: sheet:2.SIM Configuration；第x行：56
+      2. Activation Code/SM-DP
+         选项: sheet:2.SIM Configuration；第x行：57
+      3. 输入框
+         选项: sheet:2.SIM Configuration；第x行：58
+      4. 输入框
+         选项: sheet:2.SIM Configuration；第x行：59
+      5. 输入框
+         选项: sheet:2.SIM Configuration；第x行：60
+      6. None/Enable Profile/Disable Profile/Delete Profile/Change Nickname
+         选项: sheet:2.SIM Configuration；第x行：61
+      7. None/Erase All/Erase Test Profile/Erase Operation Profile/Erase SM-DP Address
+         选项: sheet:2.SIM Configuration；第x行：62
+      8. No change/Enable/Disable
+         选项: sheet: 6.Security；第x行：11
+      9. 输入框
+         选项: sheet:1.WLAN；第x行：29
+      10. 输入框
+         选项: sheet:1.WLAN；第x行：30
+      11. 输入框
+         选项: sheet:1.WLAN；第x行：31
+      12. No change/Configure
+         选项: sheet:9.NFC；第x行：3
+      13. No change/Enable/Disable
+         选项: sheet:9.NFC；第x行：4
+      14. No change/Configure
+         选项: sheet:23.Net；第x行：3
+      15. No change/Enable/Disable
+         选项: sheet:23.Net；第x行：4
+      16. No change/Enable/Disable
+         选项: Sheet:16.Enterprise Feature Settings；第x行：21
+      17. No change/Enable/Disable
+         选项: Sheet:16.Enterprise Feature Settings；第x行：22
+      18. No change/Enable/Disable
+         选项: Sheet:16.Enterprise Feature Settings；第x行：29
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: catalog.network_configuration.x_x
+  module: Network Configuration
+  item: Network Configuration（2 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Network Configuration
+      共 2 项（实况面板占位，待接 ADB/USDK）
+      
+      1. WLAN Action
+         选项: No Change / Configure
+      2. WiFi State
+         选项: No change/Enable/Disable
+  risk: safe
+  enabled: true
+  l1: Network Configuration

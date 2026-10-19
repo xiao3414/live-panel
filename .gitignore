@@ -5,11 +5,20 @@ policies/
 *.pem
 *.key
 
-# build (future Tauri)
+# build
 node_modules/
 dist/
+dist-electron/
+release/
 target/
 src-tauri/target/
+device-usdk-bridge/**/build/
+device-usdk-bridge/.gradle/
+device-usdk-bridge/local.properties
+tools/oem20_apk_inspect/unzipped/
+*.tsbuildinfo
+dist/
+dist-electron/
 
 # OS / IDE
 .DS_Store

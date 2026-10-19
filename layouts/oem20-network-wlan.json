@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network · WLAN",
+  "oemModule": "Network Configuration",
+  "description": "仅 WLAN 中间层：General / Advanced / Preference / Whitelist",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": null
+  },
+  "refresh": {
+    "globalMs": 30000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_wifi_general",
+      "probeIds": ["wifi.general_settings"],
+      "title": "WiFi General Settings",
+      "oemPath": "Network Configuration › WLAN",
+      "x": 0,
+      "y": 0,
+      "w": 6,
+      "h": 8
+    },
+    {
+      "id": "w_wifi_advanced",
+      "probeIds": ["wifi.advanced_settings"],
+      "title": "WiFi Advanced Settings",
+      "oemPath": "Network Configuration › WLAN",
+      "x": 6,
+      "y": 0,
+      "w": 6,
+      "h": 8
+    },
+    {
+      "id": "w_wifi_preference",
+      "probeIds": ["wifi.preference_settings"],
+      "title": "WiFi Preference",
+      "oemPath": "Network Configuration › WLAN",
+      "x": 0,
+      "y": 8,
+      "w": 6,
+      "h": 8
+    },
+    {
+      "id": "w_wifi_whitelist",
+      "probeIds": ["wifi.whitelist_settings"],
+      "title": "WiFi Whitelist",
+      "oemPath": "Network Configuration › WLAN",
+      "x": 6,
+      "y": 8,
+      "w": 6,
+      "h": 8
+    }
+  ]
+}

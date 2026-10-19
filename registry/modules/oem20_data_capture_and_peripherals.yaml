@@ -1,0 +1,460 @@
+# OEM 2.0 L1: Data Capture & Peripherals（框架占位 catalog，自动生成）
+module: Data Capture & Peripherals
+frameworkRef: 03_接口与配置映射/OEMConfig_2.0_产品框架/Data Capture _ Peripherals.md
+probes:
+- id: catalog.data_capture_and_peripherals.x_x
+  module: Data Capture & Peripherals / /
+  item: /（3 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / /
+      共 3 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Bottom Host Mode
+         选项: No change/Enable/Disable
+      2. Back Host Mode
+         选项: No change/Enable/Disable
+      3. Ethernet
+         选项: No change/Enable/Disable
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.basic_data_format_x
+  module: Data Capture & Peripherals / Basic Data Format
+  item: Basic Data Format（3 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Basic Data Format
+      共 3 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Application Identifier
+         选项: No change/Enable/Disable
+      2. Application ID Separator
+         选项: Input field
+      3. Special Characters GS CodeSet
+         选项: No change/Enable/Disable
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.basic_data_format_x
+  module: Data Capture & Peripherals / Basic Data Format / /
+  item: /（3 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Basic Data Format / /
+      共 3 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Input field
+         选项: sheet:15.Scan；第x行：66
+      2. No change/Enable/Disable
+         选项: sheet:15.Scan；第x行：69
+      3. No change/ / No control char processing / Delete non printing control character/
+         选项: sheet:15.Scan；第x行：70
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.basic_data_format_prefix
+  module: Data Capture & Peripherals / Basic Data Format / Prefix
+  item: Prefix（2 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Basic Data Format / Prefix
+      共 2 项（实况面板占位，待接 ADB/USDK）
+      
+      1. 多选：None/[BS]/[LF]/[CR]/[HT]
+         选项: sheet:15.Scan；第x行：62
+      2. Input field
+         选项: sheet:15.Scan；第x行：63
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.basic_data_format_replace
+  module: Data Capture & Peripherals / Basic Data Format / Replace
+  item: Replace（6 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Basic Data Format / Replace
+      共 6 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Input field
+         选项: sheet:15.Scan；第x行：67
+      2. Input field
+         选项: sheet:15.Scan；第x行：68
+      3. No change/Enable/Disable
+         选项: 新增
+      4. No change/None/To upper case/To lower case
+         选项: 新增
+      5. No change/Enable/Disable
+         选项: 新增
+      6. No change/Enable/Disable
+         选项: 新增
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.basic_data_format_suffix
+  module: Data Capture & Peripherals / Basic Data Format / Suffix
+  item: Suffix（2 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Basic Data Format / Suffix
+      共 2 项（实况面板占位，待接 ADB/USDK）
+      
+      1. 多选：None/[BS]/[LF]/[CR]/[HT]
+         选项: sheet:15.Scan；第x行：64
+      2. Input field
+         选项: sheet:15.Scan；第x行：65
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.continuous_scanning_set_x
+  module: Data Capture & Peripherals / Continuous  scanning set
+  item: Continuous  scanning set（5 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Continuous  scanning set
+      共 5 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Continuous Scanning Mode
+         选项: No change/ / Repeatable decoding/  / Continous non repeating decoding/  / No dup
+      2. Continous Scanning Timeout
+         选项: Input field
+      3. Continous Scanning Time Interval
+         选项: Input field
+      4. Decode Multiple Times
+         选项: Input field
+      5. Decode Fixed Number
+         选项: No change/Enable/Disable
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.ocr_scan_x
+  module: Data Capture & Peripherals / OCR Scan / /
+  item: /（3 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / OCR Scan / /
+      共 3 项（实况面板占位，待接 ADB/USDK）
+      
+      1. No change/Off/Normal Video/Inverse/Both
+         选项: sheet:15.Scan；第x行：108
+      2. No change/ / User Defined/ / Passort/ / ISBN/ / Price Field/ / MicrE-13 B
+         选项: sheet:15.Scan；第x行：109
+      3. Input field
+         选项: sheet:15.Scan；第x行：113
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.output_mode_x
+  module: Data Capture & Peripherals / Output Mode / /
+  item: /（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Output Mode / /
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. No change/Intent Output/Keyboard Output/Intent and Keyboard Output
+         选项: sheet:15.Scan；第x行：15
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.output_mode_keyboard_output
+  module: Data Capture & Peripherals / Output Mode / KeyBoard Output Mode
+  item: KeyBoard Output Mode（4 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Output Mode / KeyBoard Output Mode
+      共 4 项（实况面板占位，待接 ADB/USDK）
+      
+      1. No change/Text Box Optimization/Input Method Software/Only Physical Keyboard / N
+         选项: sheet:15.Scan；第x行：16
+      2. No change/Short/Sharp / No change/None/Short/Sharp
+         选项: sheet:15.Scan；第x行：17
+      3. No change/Enable/Disable
+         选项: sheet:15.Scan；第x行：18
+      4. Input field
+         选项: 新增
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.output_mode_parse_url_and_o
+  module: Data Capture & Peripherals / Output Mode / Parse URL and Open
+  item: Parse URL and Open（7 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Output Mode / Parse URL and Open
+      共 7 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Input field
+         选项: sheet:15.Scan；第x行：20
+      2. Input field
+         选项: sheet:15.Scan；第x行：21
+      3. Input field
+         选项: sheet:15.Scan；第x行：22
+      4. No change/None/Short/Sharp
+         选项: sheet:15.Scan；第x行：23
+      5. No change/Enable/Disable
+         选项: sheet:15.Scan；第x行：24
+      6. No change/Enable/Disable
+         选项: sheet:15.Scan；第x行：27
+      7. No change/Enable/Disable
+         选项: 新增
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.output_mode_tcp_output
+  module: Data Capture & Peripherals / Output Mode / TCP Output
+  item: TCP Output（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Output Mode / TCP Output
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. No change/Enable/Disable
+         选项: 新增
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.reader_parameters_x
+  module: Data Capture & Peripherals / Reader parameters / /
+  item: /（3 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Reader parameters / /
+      共 3 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Input field
+         选项: sheet:15.Scan；第x行：31
+      2. Input field
+         选项: 新增
+      3. Input field
+         选项: sheet:15.Scan；第x行：32
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.reader_parameters_full_ligh
+  module: Data Capture & Peripherals / Reader parameters / Full Light
+  item: Full Light（6 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Reader parameters / Full Light
+      共 6 项（实况面板占位，待接 ADB/USDK）
+      
+      1. No change/ / Disable/ / Only aiming  light/ / Only floodlight/ / Alternating ope
+         选项: sheet:15.Scan；第x行：40
+      2. Input field
+         选项: sheet:15.Scan；第x行：41
+      3. No change/Auto/Able
+         选项: sheet:15.Scan；第x行：42
+      4. Input field
+         选项: sheet:15.Scan；第x行：43
+      5. Input field
+         选项: sheet:15.Scan；第x行：44
+      6. Input field
+         选项: sheet:15.Scan；第x行：45
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.reader_parameters_other_set
+  module: Data Capture & Peripherals / Reader parameters / Other Settings
+  item: Other Settings（4 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Reader parameters / Other Settings
+      共 4 项（实况面板占位，待接 ADB/USDK）
+      
+      1. No change/Enable/Disable
+         选项: 新增
+      2. No change/None/ / low contrast linear symbols/ / low contrast 125/ / low contras
+         选项: 新增
+      3. Input field
+         选项: 新增
+      4. No change/Enable/Disable
+         选项: 新增
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.reader_parameters_rgb_senso
+  module: Data Capture & Peripherals / Reader parameters / RGB Sensor Decoding
+  item: RGB Sensor Decoding（2 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Reader parameters / RGB Sensor Decoding
+      共 2 项（实况面板占位，待接 ADB/USDK）
+      
+      1. No change/Enable/Disable
+         选项: 新增
+      2. No change/ / None/ / Gamma Correct/ / Contrast Equalizaiton/ / Gamma and Contras
+         选项: 新增
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.reader_parameters_viewfinde
+  module: Data Capture & Peripherals / Reader parameters / Viewfinder Decode
+  item: Viewfinder Decode（6 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Reader parameters / Viewfinder Decode
+      共 6 项（实况面板占位，待接 ADB/USDK）
+      
+      1. No change/Enable/Disable
+         选项: sheet:15.Scan；第x行：46
+      2. No change/ / Off/ / Around Aimer/ / Field of View/ / Picklist Mode
+         选项: sheet:15.Scan；第x行：47
+      3. Input field
+         选项: sheet:15.Scan；第x行：48
+      4. Input field
+         选项: sheet:15.Scan；第x行：49
+      5. Input field
+         选项: sheet:15.Scan；第x行：50
+      6. Input field
+         选项: sheet:15.Scan；第x行：51
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.scanner_selection_x
+  module: Data Capture & Peripherals / Scanner Selection
+  item: Scanner Selection（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Scanner Selection
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Internal Selection
+         选项: No change/ Scan engine/ Rear camera
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.scanner_selection_rear_came
+  module: Data Capture & Peripherals / Scanner Selection / Rear Camera
+  item: Rear Camera（4 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Scanner Selection / Rear Camera
+      共 4 项（实况面板占位，待接 ADB/USDK）
+      
+      1. No change/Enable/Disable
+         选项: 新增
+      2. No change/ Full Screen/ Expanded/ Regular
+         选项: 新增
+      3. No change/Enable/Disable
+         选项: 新增
+      4. No change/ / Short press to trigger decoding or timeout stop/ / Short press to t
+         选项: sheet:15.Scan；第x行：6
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.scanner_selection_scan_engi
+  module: Data Capture & Peripherals / Scanner Selection / Scan Engine
+  item: Scan Engine（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / Scanner Selection / Scan Engine
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. No change/Enable/Disable
+         选项: 新增
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.udi_data_format_x
+  module: Data Capture & Peripherals / UDI Data Format
+  item: UDI Data Format（4 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals / UDI Data Format
+      共 4 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Token Format
+         选项: No change/String/XML/JSON
+      2. Token Separator
+         选项: No change/ / None/ / Carriage Return/ / Line Feed/ / Tab /  / No change/ / Enter
+      3. UDI Date
+         选项: No change/Enable/Disable
+      4. Allow all UDI Lable IDs
+         选项: No change/Enable/Disable
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: catalog.data_capture_and_peripherals.x_x
+  module: Data Capture & Peripherals
+  item: Data Capture & Peripherals（3 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Data Capture & Peripherals
+      共 3 项（实况面板占位，待接 ADB/USDK）
+      
+      1. Scan Action
+         选项: No change/Configure
+      2. Scan Switch
+         选项: No change/Enable/Disable
+      3. Scan Floating Button
+         选项: No change/Enable/Disable
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals

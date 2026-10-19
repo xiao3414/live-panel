@@ -1,0 +1,131 @@
+# OEM 2.0 八大 L1 总览
+module: OEMConfig 2.0 Overview
+probes:
+- id: overview.network_configuration
+  module: OEMConfig 2.0 / Network Configuration
+  item: Network Configuration（框架 108 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      # Network Configuration
+      L2 目录块: 12
+      
+      在布局下拉选择对应 L1 查看各 L2 配置项清单。
+      已实现 ADB 读写的项会逐步从 catalog 拆为独立探针。
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: overview.system_configuration
+  module: OEMConfig 2.0 / System Configuration
+  item: System Configuration（框架 78 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      # System Configuration
+      L2 目录块: 77
+      
+      在布局下拉选择对应 L1 查看各 L2 配置项清单。
+      已实现 ADB 读写的项会逐步从 catalog 拆为独立探针。
+  risk: safe
+  enabled: true
+  l1: System Configuration
+- id: overview.application_management
+  module: OEMConfig 2.0 / Application Management
+  item: Application Management（框架 3 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      # Application Management
+      L2 目录块: 3
+      
+      在布局下拉选择对应 L1 查看各 L2 配置项清单。
+      已实现 ADB 读写的项会逐步从 catalog 拆为独立探针。
+  risk: safe
+  enabled: true
+  l1: Application Management
+- id: overview.package_configuration
+  module: OEMConfig 2.0 / Package Configuration
+  item: Package Configuration（框架 2 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      # Package Configuration
+      L2 目录块: 2
+      
+      在布局下拉选择对应 L1 查看各 L2 配置项清单。
+      已实现 ADB 读写的项会逐步从 catalog 拆为独立探针。
+  risk: safe
+  enabled: true
+  l1: Package Configuration
+- id: overview.securityandrestriction
+  module: OEMConfig 2.0 / Security&Restriction
+  item: Security&Restriction（框架 21 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      # Security&Restriction
+      L2 目录块: 1
+      
+      在布局下拉选择对应 L1 查看各 L2 配置项清单。
+      已实现 ADB 读写的项会逐步从 catalog 拆为独立探针。
+  risk: safe
+  enabled: true
+  l1: Security&Restriction
+- id: overview.data_capture_and_peripherals
+  module: OEMConfig 2.0 / Data Capture & Peripherals
+  item: Data Capture & Peripherals（框架 74 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      # Data Capture & Peripherals
+      L2 目录块: 22
+      
+      在布局下拉选择对应 L1 查看各 L2 配置项清单。
+      已实现 ADB 读写的项会逐步从 catalog 拆为独立探针。
+  risk: safe
+  enabled: true
+  l1: Data Capture & Peripherals
+- id: overview.device_maintenance
+  module: OEMConfig 2.0 / Device Maintenance
+  item: Device Maintenance（框架 13 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      # Device Maintenance
+      L2 目录块: 13
+      
+      在布局下拉选择对应 L1 查看各 L2 配置项清单。
+      已实现 ADB 读写的项会逐步从 catalog 拆为独立探针。
+  risk: safe
+  enabled: true
+  l1: Device Maintenance
+- id: overview.profile_configuration
+  module: OEMConfig 2.0 / Profile Configuration
+  item: Profile Configuration（框架 7 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      # Profile Configuration
+      L2 目录块: 7
+      
+      在布局下拉选择对应 L1 查看各 L2 配置项清单。
+      已实现 ADB 读写的项会逐步从 catalog 拆为独立探针。
+  risk: safe
+  enabled: true
+  l1: Profile Configuration

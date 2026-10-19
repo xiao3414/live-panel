@@ -1,5 +1,6 @@
+# 【遗留整表】新开发请改 registry/index.yaml + registry/modules/*.yaml
+# 可用 tools/split_registry_modules.py 从本文件重新生成 modules
 # 实况面板（Live Panel）— 探针注册表（样例 25 条）
-# version: 与 OEMConfig APK / master_2.0 生成批次对齐时可递增
 version: 1
 meta:
   oemConfigApk: "Urovo_OEMConfig_2.0.0.261009_1744.apk"
@@ -15,12 +16,28 @@ probes:
     labels:
       "1": 启用
       "0": 禁用
-      on: 启用
-      off: 禁用
     probe:
-      kind: adb.settings
-      namespace: global
-      key: wifi_on
+      kind: adb.shell
+      cmd: "cmd wifi status"
+      parse: contains
+      map:
+        "Wifi is disabled": "0"
+        "Wi-Fi is disabled": "0"
+        "Wifi is enabled": "1"
+        "Wi-Fi is enabled": "1"
+    write:
+      kind: adb.shell
+      onCmd: "cmd wifi set-wifi-enabled enabled"
+      offCmd: "cmd wifi set-wifi-enabled disabled"
+    readAfterWrite:
+      kind: adb.shell
+      cmd: "cmd wifi status"
+      parse: contains
+      map:
+        "Wifi is disabled": "0"
+        "Wi-Fi is disabled": "0"
+        "Wifi is enabled": "1"
+        "Wi-Fi is enabled": "1"
     sotiKey: wifiState
     risk: safe
     verifyPath: "设置 → 网络和互联网 → 互联网 → 使用 Wi‑Fi"
@@ -153,6 +170,17 @@ probes:
     probe:
       kind: adb.shell
       cmd: "settings get global bluetooth_on"
+    write:
+      kind: adb.settings
+      namespace: global
+      key: bluetooth_on
+      values:
+        on: "1"
+        off: "0"
+    readAfterWrite:
+      kind: adb.settings
+      namespace: global
+      key: bluetooth_on
     sotiKey: BTEnable
     risk: safe
     verifyPath: "设置 → 已连接的设备 → 连接偏好设置 → 蓝牙"
@@ -168,11 +196,15 @@ probes:
       "0": 关
     probe:
       kind: adb.shell
-      cmd: "dumpsys nfc | grep -m1 'mState="
+      cmd: "dumpsys nfc | grep -m1 mState"
       parse: contains
       map:
         "ON": 开
         "OFF": 关
+    write:
+      kind: adb.shell
+      onCmd: "svc nfc enable"
+      offCmd: "svc nfc disable"
     sotiKey: NFCEnable
     risk: safe
     verifyPath: "设置 → 已连接的设备 → 连接偏好设置 → NFC"
@@ -388,15 +420,16 @@ probes:
 
   - id: group.network_quick
     module: "Network Configuration"
-    item: 网络快捷组合
+    item: 网络快捷组合（演示用，已退役）
     display:
       type: group
     probe:
       kind: static
+      note: "早期可行性演示；正式面板请用 oem20-network-wireless-general"
       members:
         - wifi.state
         - bt.state
         - nfc.state
         - network.airplane
     risk: safe
-    enabled: true
+    enabled: false

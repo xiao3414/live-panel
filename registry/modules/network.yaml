@@ -1,0 +1,460 @@
+# OEM 2.0 L1: Network Configuration
+module: Network Configuration
+frameworkRef: 03_接口与配置映射/OEMConfig_2.0_产品框架/Network Configuration.md
+probes:
+- id: meta.layout_section.wlan
+  module: Network Configuration / WLAN
+  item: WLAN
+  display:
+    type: layout_section
+  probe:
+    kind: static
+    sectionL1: Network Configuration
+    sectionTitle: WLAN
+    sectionHint: WiFi State · General · Advanced · Preference · Whitelist
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: meta.layout_section.network_other
+  module: Network Configuration
+  item: 其他网络项
+  display:
+    type: layout_section
+  probe:
+    kind: static
+    sectionL1: Network Configuration
+    sectionTitle: Private DNS · Ethernet
+  risk: safe
+  enabled: true
+  l1: Network Configuration
+- id: wifi.state
+  module: Network Configuration / WiFi
+  item: WiFi State
+  display:
+    type: toggle
+  labels:
+    '1': 启用
+    '0': 禁用
+  probe:
+    kind: adb.shell
+    cmd: cmd wifi status
+    parse: contains
+    map:
+      Wifi is disabled: '0'
+      Wi-Fi is disabled: '0'
+      Wifi is enabled: '1'
+      Wi-Fi is enabled: '1'
+  write:
+    kind: adb.shell
+    onCmd: cmd wifi set-wifi-enabled enabled
+    offCmd: cmd wifi set-wifi-enabled disabled
+  readAfterWrite:
+    kind: adb.shell
+    cmd: cmd wifi status
+    parse: contains
+    map:
+      Wifi is disabled: '0'
+      Wi-Fi is disabled: '0'
+      Wifi is enabled: '1'
+      Wi-Fi is enabled: '1'
+  sotiKey: wifiState
+  risk: safe
+  verifyPath: 设置 → 网络和互联网 → 互联网 → 使用 Wi‑Fi
+  refreshMs: 3000
+  l1: Network Configuration
+- id: wifi.ssid
+  module: Network Configuration / WiFi / WiFi Networks （WiFi网络）
+  item: SSID
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: dumpsys wifi | grep -m1 'SSID:'
+    parse: regex
+    pattern: 'SSID: "?([^"]+)"?'
+  sotiKey: wlanSSID
+  risk: safe
+  verifyPath: 设置 → Wi‑Fi → 当前连接网络名称
+  refreshMs: 5000
+  l1: Network Configuration
+- id: wifi.advanced_settings
+  module: Network Configuration / WiFi / WiFi Advanced Option （WiFi高级选项）
+  item: WiFi Advanced Settings
+  display:
+    type: wifi_advanced_settings_form
+  probe:
+    kind: static
+    note: "IPC wifi:readAdvanced / wifi:applyAdvanced；USDK getIni/putIni 经 device-usdk-bridge"
+  sotiKey: wlanAdvancedAction
+  risk: warn
+  verifyPath: WiFi 诊断专家模式 / OEM WiFi Advanced Option；SOTI Action=Configure
+  enabled: true
+  l1: Network Configuration
+- id: wifi.general_settings
+  module: Network Configuration / WiFi / WiFi Networks （WiFi网络）
+  item: WiFi General Settings
+  display:
+    type: wifi_general_settings_form
+  probe:
+    kind: static
+    note: "IPC wifi:readGeneral / wifi:applyGeneral；connect/forget/proxy/MAC"
+  sotiKey: wlanAction
+  risk: warn
+  verifyPath: 设置 → Wi‑Fi → 当前网络；与 SOTI 托管配置 WiFi General Settings 对照
+  enabled: true
+  l1: Network Configuration
+- id: wifi.preference_settings
+  module: Network Configuration / WiFi / WiFi Preference （WiFi偏好）
+  item: WiFi Preference
+  display:
+    type: wifi_preference_settings_form
+  probe:
+    kind: static
+    note: "IPC wifi:readPreference / wifi:applyPreference；Captive Portal + 两项通知"
+  sotiKey: wifiPreference
+  risk: warn
+  verifyPath: 设置 → 网络和互联网 → 网络偏好设置；Captive Portal 与 OEM WiFi Preference 对照
+  enabled: true
+  l1: Network Configuration
+- id: wifi.whitelist_settings
+  module: Network Configuration / WiFi / WiFi Whtelist （WiFi白名单）
+  item: WiFi Whitelist
+  display:
+    type: wifi_whitelist_settings_form
+  probe:
+    kind: static
+    note: "IPC wifi:readWhitelist / wifi:applyWhitelist；USDK setWifiWhiteList"
+  sotiKey: wifiWhitelistAction
+  risk: warn
+  verifyPath: OEM WiFi Whitelist；USDK DeviceManager.getWifiWhiteList
+  enabled: true
+  l1: Network Configuration
+- id: wifi.wakeup
+  module: Network Configuration / WiFi / WiFi Preference （WiFi偏好）
+  item: Network Monitored Notification
+  display:
+    type: toggle
+  labels:
+    '1': 开
+    '0': 关
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: wifi_wakeup_enabled
+  sotiKey: wifiWakeupEnabled
+  risk: safe
+  verifyPath: 设置 → 网络和互联网 → 网络偏好设置 → 自动开启 Wi‑Fi
+  refreshMs: 5000
+  l1: Network Configuration
+- id: wifi.scanning
+  module: Network Configuration / WiFi / WiFi Advanced Option （WiFi高级选项）
+  item: WLAN Scanning
+  display:
+    type: toggle
+  labels:
+    '1': 开
+    '0': 关
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: wifi_scan_always_enabled
+  sotiKey: wifiScanningEnabled
+  risk: safe
+  verifyPath: 设置 → 位置信息 → 位置信息服务 → WLAN 扫描
+  refreshMs: 5000
+  l1: Network Configuration
+- id: wifi.notification
+  module: Network Configuration / WiFi / WiFi Preference （WiFi偏好）
+  item: Network Available Notification
+  display:
+    type: toggle
+  labels:
+    '1': 开
+    '0': 关
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: wifi_networks_available_notification_on
+  sotiKey: wifiNotificationEnabled
+  risk: safe
+  verifyPath: 设置 → 网络和互联网 → 网络偏好设置 → 附近有公共网络时通知
+  refreshMs: 5000
+  l1: Network Configuration
+- id: wifi.country
+  module: Network Configuration / WiFi / WiFi Advanced Option （WiFi高级选项）
+  item: WiFi Country Code
+  display:
+    type: text
+  probe:
+    kind: usdk
+    api: getWifiCountryCode
+    fallback:
+      kind: adb.shell
+      cmd: getprop wifi.country.code
+  sotiKey: wifiCountryCode
+  risk: warn
+  verifyPath: 开发者选项 / OEM 专用 Wi‑Fi 国家码（视机型）
+  refreshMs: 10000
+  l1: Network Configuration
+- id: network.airplane
+  module: Network Configuration / Wireless General
+  item: Airplane Mode
+  display:
+    type: toggle
+  labels:
+    '1': 飞行模式开
+    '0': 关
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: airplane_mode_on
+  risk: safe
+  verifyPath: 设置 → 网络和互联网 → 飞行模式
+  refreshMs: 3000
+  l1: Network Configuration
+- id: network.private_dns
+  module: Network Configuration / Private DNS
+  item: Private DNS Mode
+  display:
+    type: enum
+  labels:
+    false: 关
+    opportunistic: 自动
+    hostname: 指定主机
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: private_dns_mode
+  risk: safe
+  verifyPath: 设置 → 网络和互联网 → 私人 DNS
+  refreshMs: 5000
+  l1: Network Configuration
+- id: network.private_dns_hostname
+  module: Network Configuration / Private DNS
+  item: Private DNS Provider Hostname
+  display:
+    type: text
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: private_dns_specifier
+  write: false
+  risk: safe
+  verifyPath: 设置 → 私人 DNS → 主机名
+  refreshMs: 8000
+  l1: Network Configuration
+- id: network.hotspot
+  module: Network Configuration / Hotspot & Tethering
+  item: Wi-Fi Hotspot (softap)
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: dumpsys wifi | grep -i 'SoftAp' | head -3
+  write: false
+  risk: safe
+  verifyPath: 设置 → 网络和互联网 → 热点和网络共享
+  refreshMs: 10000
+  l1: Network Configuration
+- id: network.tether_usb
+  module: Network Configuration / Hotspot & Tethering
+  item: USB tethering
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: dumpsys connectivity | grep -i tether | head -5
+  write: false
+  risk: safe
+  refreshMs: 10000
+  l1: Network Configuration
+- id: sim.mobile_data
+  module: Network Configuration / SIM Configuration
+  item: Mobile data (global)
+  display:
+    type: toggle
+  labels:
+    '1': 开
+    '0': 关
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: mobile_data
+  write: false
+  risk: safe
+  verifyPath: 设置 → 网络和互联网 → SIM 卡 → 移动数据
+  refreshMs: 8000
+  l1: Network Configuration
+- id: sim.data_roaming
+  module: Network Configuration / SIM Configuration
+  item: Data roaming
+  display:
+    type: toggle
+  labels:
+    '1': 开
+    '0': 关
+  probe:
+    kind: adb.settings
+    namespace: global
+    key: data_roaming
+  write: false
+  risk: safe
+  refreshMs: 8000
+  l1: Network Configuration
+- id: sim.subscriptions
+  module: Network Configuration / SIM Configuration
+  item: SIM subscriptions summary
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: dumpsys telephony.registry | grep -E 'mDataService|mVoiceService|mSmsService' | head -6
+  write: false
+  risk: safe
+  refreshMs: 15000
+  l1: Network Configuration
+- id: ethernet.enable
+  module: Network Configuration / Ethernet
+  item: Ethernet
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: ip link show eth0 2>/dev/null || ip link show | grep -E 'eth|usb' | head -3
+  write: false
+  risk: safe
+  verifyPath: 设置 → 扩展坞 / 以太网
+  refreshMs: 10000
+  l1: Network Configuration
+- id: bt.state
+  module: Network Configuration / Bluetooth
+  item: Bluetooth
+  display:
+    type: toggle
+  labels:
+    '1': 开
+    '0': 关
+  probe:
+    kind: adb.shell
+    cmd: settings get global bluetooth_on
+  write:
+    kind: adb.settings
+    namespace: global
+    key: bluetooth_on
+    values:
+      on: '1'
+      off: '0'
+  readAfterWrite:
+    kind: adb.settings
+    namespace: global
+    key: bluetooth_on
+  sotiKey: BTEnable
+  risk: safe
+  verifyPath: 设置 → 已连接的设备 → 连接偏好设置 → 蓝牙
+  refreshMs: 3000
+  l1: Network Configuration
+- id: nfc.state
+  module: Network Configuration / NFC
+  item: NFC Adapter
+  display:
+    type: toggle
+  labels:
+    '1': 开
+    '0': 关
+  probe:
+    kind: adb.shell
+    cmd: dumpsys nfc | grep -E 'mState|state=|Nfc enabled' | head -1
+    parse: contains
+    map:
+      STATE_ON: '1'
+      'mState=ON': '1'
+      'state=ON': '1'
+      'Nfc enabled: true': '1'
+      STATE_OFF: '0'
+      'mState=OFF': '0'
+      'state=OFF': '0'
+      'Nfc enabled: false': '0'
+  write:
+    kind: adb.shell
+    onCmd: svc nfc enable
+    offCmd: svc nfc disable
+  readAfterWrite:
+    kind: adb.shell
+    cmd: dumpsys nfc | grep -E 'mState|state=|Nfc enabled' | head -1
+    parse: contains
+    map:
+      STATE_ON: '1'
+      'mState=ON': '1'
+      'state=ON': '1'
+      'Nfc enabled: true': '1'
+      STATE_OFF: '0'
+      'mState=OFF': '0'
+      'state=OFF': '0'
+      'Nfc enabled: false': '0'
+  sotiKey: NFCEnable
+  risk: safe
+  verifyPath: 设置 → 已连接的设备 → 连接偏好设置 → NFC
+  refreshMs: 5000
+  l1: Network Configuration
+- id: gps.state
+  module: Network Configuration / GPS
+  item: GPS
+  display:
+    type: toggle
+  labels:
+    '1': 开
+    '0': 关
+  probe:
+    kind: adb.settings
+    namespace: secure
+    key: location_mode
+  sotiKey: GPSEnable
+  risk: safe
+  verifyPath: 设置 → 位置信息
+  refreshMs: 5000
+  l1: Network Configuration
+- id: ethernet.proxy
+  module: Network Configuration / Ethernet Settings
+  item: Proxy Mode
+  display:
+    type: enum
+  labels:
+    none: 无
+    static: 静态
+    pac: PAC
+  probe:
+    kind: static
+    note: 扩展坞以太网代理需专用 dumpsys / 设置页核对（runner 待实现）
+  risk: warn
+  verifyPath: 设置 → 扩展坞 / 以太网 → 代理
+  refreshMs: 10000
+  enabled: true
+  l1: Network Configuration
+- id: device.hostname
+  module: Network Configuration / WiFi / WiFi Advanced Option （WiFi高级选项）
+  item: Device host name
+  display:
+    type: text
+  probe:
+    kind: adb.shell
+    cmd: getprop net.hostname
+  risk: safe
+  verifyPath: 设置 → 关于设备 / 网络主机名
+  refreshMs: 10000
+  l1: Network Configuration
+- id: group.network_quick
+  module: Network Configuration
+  item: 网络快捷组合（演示用，已退役）
+  display:
+    type: group
+  probe:
+    kind: static
+    note: "早期可行性演示；正式面板请用 oem20-network-wireless-general 布局或模块库"
+    members:
+    - wifi.state
+    - bt.state
+    - nfc.state
+    - network.airplane
+  risk: safe
+  enabled: false
+  l1: Network Configuration

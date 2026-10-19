@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Device Maintenance",
+  "oemModule": "Device Maintenance",
+  "description": "框架 L2 目录占位概览（13 块）；细项探针逐批接入",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 60000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_catalog_device_maintenance_x_action",
+      "probeIds": [
+        "catalog.device_maintenance.x_action"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_auto_install_after_download",
+      "probeIds": [
+        "catalog.device_maintenance.x_auto_install_after_download"
+      ],
+      "x": 4,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_event_log",
+      "probeIds": [
+        "catalog.device_maintenance.x_event_log"
+      ],
+      "x": 8,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_kernel_log",
+      "probeIds": [
+        "catalog.device_maintenance.x_kernel_log"
+      ],
+      "x": 0,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_log_configuration_action",
+      "probeIds": [
+        "catalog.device_maintenance.x_log_configuration_action"
+      ],
+      "x": 4,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_log_state",
+      "probeIds": [
+        "catalog.device_maintenance.x_log_state"
+      ],
+      "x": 8,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_main_log",
+      "probeIds": [
+        "catalog.device_maintenance.x_main_log"
+      ],
+      "x": 0,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_os_package_path",
+      "probeIds": [
+        "catalog.device_maintenance.x_os_package_path"
+      ],
+      "x": 4,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_power_action",
+      "probeIds": [
+        "catalog.device_maintenance.x_power_action"
+      ],
+      "x": 8,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_radio_log",
+      "probeIds": [
+        "catalog.device_maintenance.x_radio_log"
+      ],
+      "x": 0,
+      "y": 9,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_role",
+      "probeIds": [
+        "catalog.device_maintenance.x_role"
+      ],
+      "x": 4,
+      "y": 9,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_server_port",
+      "probeIds": [
+        "catalog.device_maintenance.x_server_port"
+      ],
+      "x": 8,
+      "y": 9,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_device_maintenance_x_service",
+      "probeIds": [
+        "catalog.device_maintenance.x_service"
+      ],
+      "x": 0,
+      "y": 12,
+      "w": 4,
+      "h": 3
+    }
+  ]
+}

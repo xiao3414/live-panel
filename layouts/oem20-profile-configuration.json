@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Profile Configuration",
+  "oemModule": "Profile Configuration",
+  "description": "框架 L2 目录占位概览（7 块）；细项探针逐批接入",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 60000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_catalog_profile_configuration_ftp_or_smb_configuration_anonymous",
+      "probeIds": [
+        "catalog.profile_configuration.ftp_or_smb_configuration_anonymous"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_profile_configuration_ftp_or_smb_configuration_configura",
+      "probeIds": [
+        "catalog.profile_configuration.ftp_or_smb_configuration_configura"
+      ],
+      "x": 4,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_profile_configuration_ftp_or_smb_configuration_pwd",
+      "probeIds": [
+        "catalog.profile_configuration.ftp_or_smb_configuration_pwd"
+      ],
+      "x": 8,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_profile_configuration_ftp_or_smb_configuration_port",
+      "probeIds": [
+        "catalog.profile_configuration.ftp_or_smb_configuration_port"
+      ],
+      "x": 0,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_profile_configuration_ftp_or_smb_configuration_username",
+      "probeIds": [
+        "catalog.profile_configuration.ftp_or_smb_configuration_username"
+      ],
+      "x": 4,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_profile_configuration_x_name",
+      "probeIds": [
+        "catalog.profile_configuration.x_name"
+      ],
+      "x": 8,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_profile_configuration_x_profile_configuration_action",
+      "probeIds": [
+        "catalog.profile_configuration.x_profile_configuration_action"
+      ],
+      "x": 0,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    }
+  ]
+}

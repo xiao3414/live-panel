@@ -39,7 +39,17 @@ git push -u origin main
 
 （勿重复 `git remote add`；若需改地址：`git remote set-url origin https://github.com/xiao3414/live-panel.git`）
 
+## 本地运行（开发中）
+
+```powershell
+npm install
+npm run electron:dev
+```
+
+详见 `docs/DEV.md`。成品阶段再打包 `npm run electron:build` 并同步 GitHub。
+
 ## 后续
 
-- 壳：Tauri 2 + React + react-grid-layout
-- 运行时：Rust/sidecar 调用 ADB 执行 `probe.runner`
+- 策略 JSON Diff、布局另存为
+- USDK 探针、Local OTA 专用 runner
+- 可选：安装 Rust 后迁 Tauri 2 减体积

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "组合面板 · Network · WLAN",
+  "oemModule": "Network Configuration",
+  "description": "用户自由组合；默认空。L4 单项见配置目录或模块库",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": null
+  },
+  "refresh": {
+    "globalMs": 30000,
+    "pauseWhenHidden": true
+  },
+  "widgets": []
+}

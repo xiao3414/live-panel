@@ -1,0 +1,50 @@
+# OEM 2.0 L1: Application Management（框架占位 catalog，自动生成）
+module: Application Management
+frameworkRef: 03_接口与配置映射/OEMConfig_2.0_产品框架/Application Management.md
+probes:
+- id: catalog.application_management.install_app_download_link
+  module: Application Management / Install APP / Download Link
+  item: Download Link（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Application Management / Install APP / Download Link
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:17.App / 第x行：4
+  risk: safe
+  enabled: true
+  l1: Application Management
+- id: catalog.application_management.install_app_file_name
+  module: Application Management / Install APP / File Name
+  item: File Name（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Application Management / Install APP / File Name
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:17.App / 第x行：5
+  risk: safe
+  enabled: true
+  l1: Application Management
+- id: catalog.application_management.x_action
+  module: Application Management / Action
+  item: Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Application Management / Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:17.App / 第x行：3
+         选项: Application由原一级菜单调整为二级菜单，并删除原总控制
+  risk: safe
+  enabled: true
+  l1: Application Management

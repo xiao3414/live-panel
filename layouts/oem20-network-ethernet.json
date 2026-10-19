@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network · Ethernet",
+  "oemModule": "Network Configuration",
+  "description": "与 OEM 托管「Ethernet」同级",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [10, 10],
+    "compactType": null
+  },
+  "refresh": {
+    "globalMs": 15000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_eth_link",
+      "probeIds": ["ethernet.enable"],
+      "title": "Ethernet link",
+      "oemPath": "Network Configuration › Ethernet",
+      "x": 0,
+      "y": 0,
+      "w": 6,
+      "h": 2
+    },
+    {
+      "id": "w_eth_proxy",
+      "probeIds": ["ethernet.proxy"],
+      "title": "Proxy Mode",
+      "oemPath": "Network Configuration › Ethernet",
+      "x": 6,
+      "y": 0,
+      "w": 6,
+      "h": 2
+    }
+  ]
+}

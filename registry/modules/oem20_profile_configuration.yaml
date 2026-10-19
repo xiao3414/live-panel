@@ -1,0 +1,110 @@
+# OEM 2.0 L1: Profile Configuration（框架占位 catalog，自动生成）
+module: Profile Configuration
+frameworkRef: 03_接口与配置映射/OEMConfig_2.0_产品框架/Profile Configuration.md
+probes:
+- id: catalog.profile_configuration.ftp_or_smb_configuration_anonymous
+  module: Profile Configuration / FTP or SMB Configuration / Anonymous Login
+  item: Anonymous Login（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Profile Configuration / FTP or SMB Configuration / Anonymous Login
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:7.Profile Configuration / 第x行：8
+  risk: safe
+  enabled: true
+  l1: Profile Configuration
+- id: catalog.profile_configuration.ftp_or_smb_configuration_configura
+  module: Profile Configuration / FTP or SMB Configuration / Configuration Download Destination Path
+  item: Configuration Download Destination Path（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Profile Configuration / FTP or SMB Configuration / Configuration Download Destination Path
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:7.Profile Configuration / 第x行：10
+  risk: safe
+  enabled: true
+  l1: Profile Configuration
+- id: catalog.profile_configuration.ftp_or_smb_configuration_pwd
+  module: Profile Configuration / FTP or SMB Configuration / PWD
+  item: PWD（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Profile Configuration / FTP or SMB Configuration / PWD
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:7.Profile Configuration / 第x行：6
+  risk: safe
+  enabled: true
+  l1: Profile Configuration
+- id: catalog.profile_configuration.ftp_or_smb_configuration_port
+  module: Profile Configuration / FTP or SMB Configuration / Port
+  item: Port（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Profile Configuration / FTP or SMB Configuration / Port
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:7.Profile Configuration / 第x行：7
+  risk: safe
+  enabled: true
+  l1: Profile Configuration
+- id: catalog.profile_configuration.ftp_or_smb_configuration_username
+  module: Profile Configuration / FTP or SMB Configuration / Username
+  item: Username（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Profile Configuration / FTP or SMB Configuration / Username
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:7.Profile Configuration / 第x行：5
+  risk: safe
+  enabled: true
+  l1: Profile Configuration
+- id: catalog.profile_configuration.x_name
+  module: Profile Configuration / Name
+  item: Name（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Profile Configuration / Name
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:7.Profile Configuration / 第x行：4
+  risk: safe
+  enabled: true
+  l1: Profile Configuration
+- id: catalog.profile_configuration.x_profile_configuration_action
+  module: Profile Configuration / Profile Configuration Action
+  item: Profile Configuration Action（1 项）
+  display:
+    type: catalog
+  probe:
+    kind: static
+    note: |
+      OEM 2.0 框架 · Profile Configuration / Profile Configuration Action
+      共 1 项（实况面板占位，待接 ADB/USDK）
+      
+      1. sheet:7.Profile Configuration / 第x行：3
+         选项: Profile此部分格式完全照搬原来V1.3.42
+  risk: safe
+  enabled: true
+  l1: Profile Configuration

@@ -1,0 +1,22 @@
+# 探针注册表入口（模块化）。新增 L1 模块：registry/modules/<name>.yaml + manifest
+version: 2
+meta:
+  oemFrameworkXlsx: "Urovo OEMConfig 2.0框架.xlsx"
+  oemFrameworkKb: "03_接口与配置映射/OEMConfig_2.0_产品框架/Network Configuration.md"
+  oemConfigApk: "Urovo_OEMConfig_2.0.0.261009_1744.apk"
+  updated: "2026-10-15"
+
+includes:
+  - modules/network.yaml
+  - modules/oem20_live_reads.yaml
+  - modules/oem20_network_catalog.yaml
+  - modules/oem20_overview.yaml
+  - modules/oem20_system_configuration.yaml
+  - modules/oem20_application_management.yaml
+  - modules/oem20_package_configuration.yaml
+  - modules/oem20_securityandrestriction.yaml
+  - modules/oem20_data_capture_and_peripherals.yaml
+  - modules/oem20_device_maintenance.yaml
+  - modules/oem20_profile_configuration.yaml
+  - modules/_other_l1.yaml
+  - modules/oem20_security_probes.yaml

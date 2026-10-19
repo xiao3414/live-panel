@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Application Management",
+  "oemModule": "Application Management",
+  "description": "框架 L2 目录占位概览（3 块）；细项探针逐批接入",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 60000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_catalog_application_management_install_app_download_link",
+      "probeIds": [
+        "catalog.application_management.install_app_download_link"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_application_management_install_app_file_name",
+      "probeIds": [
+        "catalog.application_management.install_app_file_name"
+      ],
+      "x": 4,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_catalog_application_management_x_action",
+      "probeIds": [
+        "catalog.application_management.x_action"
+      ],
+      "x": 8,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    }
+  ]
+}

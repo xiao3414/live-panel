@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network（框架目录）",
+  "oemModule": "Network Configuration",
+  "description": "111 项按 L2 分块；实况探针见 oem20-network-configuration",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 120000
+  },
+  "widgets": [
+    {
+      "id": "w_catalog_network_configuration_delete_apn_x",
+      "probeIds": [
+        "catalog.network_configuration.delete_apn_x"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "id": "w_catalog_network_configuration_sim1_x",
+      "probeIds": [
+        "catalog.network_configuration.sim1_x"
+      ],
+      "x": 4,
+      "y": 0,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "id": "w_catalog_network_configuration_sim1_add_apn",
+      "probeIds": [
+        "catalog.network_configuration.sim1_add_apn"
+      ],
+      "x": 8,
+      "y": 0,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "id": "w_catalog_network_configuration_sim2_x",
+      "probeIds": [
+        "catalog.network_configuration.sim2_x"
+      ],
+      "x": 0,
+      "y": 4,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "id": "w_catalog_network_configuration_sim2_add_apn",
+      "probeIds": [
+        "catalog.network_configuration.sim2_add_apn"
+      ],
+      "x": 4,
+      "y": 4,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "id": "w_catalog_network_configuration_wifi_advanced_option_x",
+      "probeIds": [
+        "catalog.network_configuration.wifi_advanced_option_x"
+      ],
+      "x": 8,
+      "y": 4,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "id": "w_catalog_network_configuration_wifi_networks_x",
+      "probeIds": [
+        "catalog.network_configuration.wifi_networks_x"
+      ],
+      "x": 0,
+      "y": 8,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "id": "w_catalog_network_configuration_wifi_preference_x",
+      "probeIds": [
+        "catalog.network_configuration.wifi_preference_x"
+      ],
+      "x": 4,
+      "y": 8,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "id": "w_catalog_network_configuration_wifi_whtelist_x",
+      "probeIds": [
+        "catalog.network_configuration.wifi_whtelist_x"
+      ],
+      "x": 8,
+      "y": 8,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "id": "w_catalog_network_configuration_esim_x",
+      "probeIds": [
+        "catalog.network_configuration.esim_x"
+      ],
+      "x": 0,
+      "y": 12,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "id": "w_catalog_network_configuration_esim_add_esim_profiles",
+      "probeIds": [
+        "catalog.network_configuration.esim_add_esim_profiles"
+      ],
+      "x": 4,
+      "y": 12,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "id": "w_catalog_network_configuration_x_x",
+      "probeIds": [
+        "catalog.network_configuration.x_x"
+      ],
+      "x": 8,
+      "y": 12,
+      "w": 4,
+      "h": 4
+    }
+  ]
+}

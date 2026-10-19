@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · 八大模块总览",
+  "description": "一次看清 2.0 全部 L1 与框架条数；点布局切换进入各域 L2 目录",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 76,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "refresh": {
+    "globalMs": 120000
+  },
+  "widgets": [
+    {
+      "id": "w_overview_network_configuration",
+      "probeIds": [
+        "overview.network_configuration"
+      ],
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_overview_system_configuration",
+      "probeIds": [
+        "overview.system_configuration"
+      ],
+      "x": 4,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_overview_application_management",
+      "probeIds": [
+        "overview.application_management"
+      ],
+      "x": 8,
+      "y": 0,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_overview_package_configuration",
+      "probeIds": [
+        "overview.package_configuration"
+      ],
+      "x": 0,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_overview_securityandrestriction",
+      "probeIds": [
+        "overview.securityandrestriction"
+      ],
+      "x": 4,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_overview_data_capture_and_peripherals",
+      "probeIds": [
+        "overview.data_capture_and_peripherals"
+      ],
+      "x": 8,
+      "y": 3,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_overview_device_maintenance",
+      "probeIds": [
+        "overview.device_maintenance"
+      ],
+      "x": 0,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "id": "w_overview_profile_configuration",
+      "probeIds": [
+        "overview.profile_configuration"
+      ],
+      "x": 4,
+      "y": 6,
+      "w": 4,
+      "h": 3
+    }
+  ]
+}
