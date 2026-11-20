@@ -27,7 +27,7 @@ export type WriteSpec =
       kind: "adb.settings";
       namespace: string;
       key: string;
-      values: { on: string; off: string };
+      values?: { on: string; off: string };
     }
   | {
       kind: "adb.shell";
@@ -37,6 +37,16 @@ export type WriteSpec =
   | {
       kind: "security.bridge";
       feature: string;
+    }
+  | {
+      kind: "scan.property";
+      property: string;
+      values?: { on: string; off: string };
+    }
+  | {
+      kind: "docking.field";
+      field: string;
+      values?: { on: string; off: string };
     };
 
 export type ProbeSpec = {
@@ -45,6 +55,7 @@ export type ProbeSpec = {
   l1?: string;
   module: string;
   item: string;
+  itemZh?: string;
   display: { type: string };
   labels?: Record<string, string>;
   probe: ProbeRunnerSpec;
@@ -69,6 +80,9 @@ export type ProbeRunnerSpec =
     }
   | { kind: "usdk"; api: string; fallback?: ProbeRunnerSpec }
   | { kind: "security.bridge"; feature: string; fallback?: ProbeRunnerSpec }
+  | { kind: "scan.profile"; property: string }
+  | { kind: "scan.field"; oemPath: string; property?: string }
+  | { kind: "docking.field"; oemPath: string; field: string }
   | {
       kind: "static";
       note?: string;
@@ -100,6 +114,8 @@ export type ProbeResult = {
   supportMessage?: string;
   /** 平台强制，不参与 OEM JSON 不符对比 */
   platformCompareExempt?: { message: string };
+  /** Sound 音量：stream 最大档，供 OEM 百分比同档对比 */
+  volumeMax?: number;
   at: number;
 };
 

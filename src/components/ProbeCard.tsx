@@ -51,6 +51,7 @@ function showBlockCompare(row: CompareRow | undefined): row is CompareRow {
 
 function ValueArea({
   compareRow,
+  meta,
   policyNote,
   valueText,
   results,
@@ -59,6 +60,7 @@ function ValueArea({
   compact,
 }: {
   compareRow?: CompareRow;
+  meta?: ProbeMeta;
   policyNote?: string;
   valueText: string;
   results: ProbeResult[];
@@ -67,7 +69,9 @@ function ValueArea({
   compact: boolean;
 }) {
   if (showBlockCompare(compareRow)) {
-    return <OemBlockCompare row={compareRow} policyNote={policyNote} />;
+    return (
+      <OemBlockCompare row={compareRow} meta={meta} policyNote={policyNote} />
+    );
   }
   return (
     <div
@@ -198,6 +202,7 @@ export function ProbeCard({
         ) : null}
         <ValueArea
           compareRow={compareRow}
+          meta={meta}
           policyNote={suppressBanner ? policyNote : undefined}
           valueText={primary?.display ?? "—"}
           results={results}
@@ -241,6 +246,7 @@ export function ProbeCard({
         ) : null}
         <ValueArea
           compareRow={compareRow}
+          meta={meta}
           policyNote={suppressBanner ? policyNote : undefined}
           valueText={primary?.display ?? "—"}
           results={results}
@@ -298,6 +304,7 @@ export function ProbeCard({
         {showBlockCompare(compareRow) ? (
           <OemBlockCompare
             row={compareRow}
+            meta={meta}
             policyNote={suppressBanner ? policyNote : undefined}
           />
         ) : policyNote ? (
@@ -330,13 +337,13 @@ export function ProbeCard({
     );
   }
 
-  const valueText = valueTextEarly;
+  const valueText = String(valueTextEarly ?? "");
   const hideDupValue =
     Boolean(banner) &&
     Boolean(valueText) &&
     valueText !== "…" &&
     (banner === valueText ||
-      (valueText.length >= 8 && banner.includes(valueText)));
+      (valueText.length >= 8 && Boolean(banner?.includes(valueText))));
 
   return (
     <div className={`probe-card ${embedded ? "probe-card--embedded" : ""} ${compact ? "probe-card--compact" : ""}`}>
@@ -351,12 +358,13 @@ export function ProbeCard({
       {!(compact && isToggle && writable) && !hideDupValue ? (
         <ValueArea
           compareRow={compareRow}
+          meta={meta}
           policyNote={suppressBanner ? policyNote : undefined}
           valueText={valueText}
           results={results}
           err={err}
           banner={banner}
-          compact={compact}
+          compact={Boolean(compact)}
         />
       ) : null}
       {writable && meta && !(compact && isToggle) ? (

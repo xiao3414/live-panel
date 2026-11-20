@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Dashboard } from "./components/Dashboard";
+import { PanelErrorBoundary } from "./components/PanelErrorBoundary";
 import { ExpectCompareBar } from "./components/ExpectCompareBar";
 import {
   compareTemplateToValues,
+  type CompareRow,
   type ExpectTemplate,
 } from "./expectCompare";
+import { isProbeWritable } from "./probeWritable";
 import { OemFocusPanel } from "./components/OemFocusPanel";
 import { OemL4Catalog } from "./components/OemL4Catalog";
 import { PanelComposerToolbar } from "./components/PanelComposerToolbar";
@@ -22,6 +25,7 @@ import {
 } from "./navigation/oemProject";
 import { WidgetLibrary } from "./components/WidgetLibrary";
 import { defaultWidgetForProbeMeta } from "./layout/defaultWidget";
+import { migrateLegacyScanProbeId } from "./layout/scanProbeLegacyMap";
 import {
   defaultL2IdForL1,
   findL1,
@@ -42,11 +46,16 @@ import {
   formatProbeErrorMessage,
   isProbeLocalSignError,
 } from "./formatProbeError";
-import { isProbeWritable } from "./probeWritable";
 import {
   autoArrangeWidgets,
   isLayoutProbablyCorrupt,
 } from "./layout/autoArrange";
+import { bumpWidgetGridHeight } from "./layout/bumpWidgetGridHeight";
+import {
+  normalizeScannerLayout,
+  SCANNER_PANEL_LAYOUT_ID,
+  scannerLayoutDrifted,
+} from "./layout/scannerPanelLayout";
 import { responsiveGrid } from "./layout/responsiveGrid";
 import type { LayoutFile, LayoutWidget, ProbeMeta, ProbeResult } from "./types";
 
@@ -149,7 +158,8 @@ function AppReady({ api }: { api: LivePanelApi }) {
   >([]);
   const [serial, setSerial] = useState("");
   const [adbError, setAdbError] = useState<string | null>(null);
-  const [refreshMs, setRefreshMs] = useState(3000);
+  const [refreshMs, setRefreshMs] = useState(12000);
+  const pauseRefreshWhenHiddenRef = useRef(true);
   const timerRef = useRef<number | null>(null);
   const refreshBusyRef = useRef(false);
   const refreshInFlightRef = useRef<Promise<void> | null>(null);
@@ -166,6 +176,9 @@ function AppReady({ api }: { api: LivePanelApi }) {
   const manualLayoutRef = useRef(false);
   const layoutBeforeAbnormalRef = useRef<LayoutWidget[] | null>(null);
   const layoutRepairOnceRef = useRef<string | null>(null);
+  const scanLayoutRepairOnceRef = useRef(false);
+  const dockingLayoutRepairOnceRef = useRef(false);
+  const DOCKING_PANEL_LAYOUT_ID = "oem20-data-capture-docking-panel";
   const layoutUndoRef = useRef<LayoutWidget[][]>([]);
 
   const cloneLayoutWidgets = useCallback(
@@ -211,11 +224,6 @@ function AppReady({ api }: { api: LivePanelApi }) {
       return false;
     }
   });
-  const compareByProbeId = useMemo(() => {
-    if (!expectTemplate) return undefined;
-    const rows = compareTemplateToValues(expectTemplate, probeMeta, values);
-    return new Map(rows.map((r) => [r.probeId, r]));
-  }, [expectTemplate, probeMeta, values]);
   const schemeApiReady =
     typeof api.listPanelSchemes === "function" &&
     typeof api.savePanelScheme === "function";
@@ -250,6 +258,18 @@ function AppReady({ api }: { api: LivePanelApi }) {
       oemL1Id && oemL2Id ? resolveLayoutId(oemL1Id, oemL2Id) : null,
     [oemL1Id, oemL2Id],
   );
+
+  useEffect(() => {
+    if (!layoutId) {
+      setExpectTemplate(null);
+      return;
+    }
+    setExpectTemplate((prev) => {
+      if (!prev?.scope?.layoutId) return prev;
+      if (prev.scope.layoutId === layoutId) return prev;
+      return null;
+    });
+  }, [layoutId]);
   const l2OemPath = useMemo(
     () =>
       oemL1Id && activeL2 ? oemPathForL2(oemL1Id, activeL2) : undefined,
@@ -440,7 +460,13 @@ function AppReady({ api }: { api: LivePanelApi }) {
     for (const w of layout.widgets) {
       for (const id of w.probeIds) {
         const m = probeMeta.get(id);
-        if (m?.displayType === "group" && m.memberIds?.length) {
+        if (
+          (m?.displayType === "group" ||
+            m?.displayType === "scan_module_form" ||
+            m?.displayType === "docking_station_form" ||
+            m?.displayType === "oem_module_form") &&
+          m.memberIds?.length
+        ) {
           for (const mid of m.memberIds) ids.add(mid);
         } else if (!m || m.displayType !== "group") {
           ids.add(id);
@@ -449,6 +475,18 @@ function AppReady({ api }: { api: LivePanelApi }) {
     }
     return [...ids];
   }, [layout, probeMeta, activeL4]);
+
+  const compareByProbeId = useMemo(() => {
+    if (!expectTemplate) return undefined;
+    const scope = new Set(allProbeIds);
+    const rows = compareTemplateToValues(
+      expectTemplate,
+      probeMeta,
+      values,
+      scope.size ? scope : null,
+    );
+    return new Map(rows.map((r) => [r.probeId, r]));
+  }, [expectTemplate, probeMeta, values, allProbeIds]);
 
   const prepareDeviceComponents = useCallback(
     async (force?: boolean): Promise<boolean> => {
@@ -660,6 +698,7 @@ function AppReady({ api }: { api: LivePanelApi }) {
         meta.set(p.id, {
           id: p.id,
           item: p.item,
+          itemZh: (p as { itemZh?: string }).itemZh,
           module: p.module,
           verifyPath: p.verifyPath,
           refreshMs: p.refreshMs,
@@ -682,9 +721,16 @@ function AppReady({ api }: { api: LivePanelApi }) {
             p.probe?.kind === "static" && "sectionHint" in p.probe
               ? (p.probe.sectionHint as string)
               : undefined,
-          labelOn: labels?.["1"] ?? labels?.["true"] ?? "开",
-          labelOff: labels?.["0"] ?? labels?.["false"] ?? "关",
-          valueLabels: labels,
+          labelOn: String(labels?.["1"] ?? labels?.["true"] ?? "开"),
+          labelOff: String(labels?.["0"] ?? labels?.["false"] ?? "关"),
+          valueLabels: labels
+            ? Object.fromEntries(
+                Object.entries(labels).map(([k, v]) => [
+                  String(k),
+                  v == null ? "" : String(v),
+                ]),
+              )
+            : undefined,
         });
       }
       setProbeMeta(meta);
@@ -714,25 +760,30 @@ function AppReady({ api }: { api: LivePanelApi }) {
   const applyAutoLayout = useCallback(() => {
       if (!layout || !probeMeta.size) return;
       pushLayoutUndo(layout.widgets);
-      const widgets = autoArrangeWidgets(
-        layout.widgets,
-        probeMeta,
-        gridSpec.cols,
-      );
+      const widgets =
+        layoutId === SCANNER_PANEL_LAYOUT_ID
+          ? normalizeScannerLayout(
+              layout.widgets,
+              probeMeta,
+              gridSpec.cols,
+            )
+          : autoArrangeWidgets(layout.widgets, probeMeta, gridSpec.cols, {
+              preserveOrder: false,
+            });
       const next: LayoutFile = {
         ...layout,
         widgets,
         grid: {
           ...layout.grid,
           cols: gridSpec.cols,
-          rowHeight: gridSpec.rowHeight,
-          compactType: null,
+          rowHeight: layout.grid.rowHeight ?? gridSpec.rowHeight,
+          compactType: layout.grid.compactType ?? "vertical",
         },
       };
       setLayout(next);
       persistLayout(next);
       lastBreakpointRef.current = gridSpec.breakpoint;
-    }, [layout, probeMeta, gridSpec, persistLayout, pushLayoutUndo]);
+    }, [layoutId, layout, probeMeta, gridSpec, persistLayout, pushLayoutUndo]);
 
   const onConfigSidebarToggleCollapse = useCallback(() => {
     if (!oemL2Id || !layout) return;
@@ -754,6 +805,19 @@ function AppReady({ api }: { api: LivePanelApi }) {
     setCatalog(await api.getLayoutCatalog(layoutId));
   }, [api, layoutId]);
 
+  const updateLayout = useCallback(
+    (updater: (prev: LayoutFile) => LayoutFile) => {
+      setLayout((prev) => {
+        if (!prev) return prev;
+        const next = updater(prev);
+        persistLayout(next);
+        void refreshCatalog();
+        return next;
+      });
+    },
+    [persistLayout, refreshCatalog],
+  );
+
   useEffect(() => {
     if (!layoutId) {
       setLayout(null);
@@ -773,7 +837,9 @@ function AppReady({ api }: { api: LivePanelApi }) {
       layoutUndoRef.current = [];
       setFollowViewport(loaded.layoutPrefs?.followViewport ?? true);
       setLayout({ ...loaded, stash: loaded.stash ?? [] });
-      setRefreshMs(loaded.refresh?.globalMs ?? 3000);
+      setRefreshMs(loaded.refresh?.globalMs ?? 12000);
+      pauseRefreshWhenHiddenRef.current =
+        loaded.refresh?.pauseWhenHidden ?? true;
       await refreshCatalog();
     })().catch(console.error);
   }, [api, layoutId, refreshCatalog]);
@@ -782,7 +848,18 @@ function AppReady({ api }: { api: LivePanelApi }) {
     if (!layout || !probeMeta.size) return;
     if (pendingInitialAutoRef.current) {
       pendingInitialAutoRef.current = false;
-      applyAutoLayout();
+      if (layoutId === SCANNER_PANEL_LAYOUT_ID) {
+        const widgets = normalizeScannerLayout(
+          layout.widgets,
+          probeMeta,
+          gridSpec.cols,
+        );
+        if (scannerLayoutDrifted(layout.widgets, probeMeta, gridSpec.cols)) {
+          updateLayout((prev) => ({ ...prev, widgets }));
+        }
+      } else {
+        applyAutoLayout();
+      }
       return;
     }
     if (!followViewport || manualLayoutRef.current) return;
@@ -795,25 +872,33 @@ function AppReady({ api }: { api: LivePanelApi }) {
       if (reflowTimerRef.current) window.clearTimeout(reflowTimerRef.current);
     };
   }, [
+    layoutId,
     layout,
-    probeMeta.size,
+    probeMeta,
+    gridSpec.cols,
     gridSpec.breakpoint,
     followViewport,
     applyAutoLayout,
+    updateLayout,
+    persistLayout,
   ]);
 
-  const updateLayout = useCallback(
-    (updater: (prev: LayoutFile) => LayoutFile) => {
-      setLayout((prev) => {
-        if (!prev) return prev;
-        const next = updater(prev);
-        persistLayout(next);
-        void refreshCatalog();
-        return next;
-      });
-    },
-    [persistLayout, refreshCatalog],
-  );
+  /** Scanner：本地缓存坐标漂移（大块空白/块乱序）→ 静默恢复装箱 */
+  useEffect(() => {
+    if (layoutId !== SCANNER_PANEL_LAYOUT_ID || !layout || !probeMeta.size) {
+      return;
+    }
+    if (manualLayoutRef.current) return;
+    if (!scannerLayoutDrifted(layout.widgets, probeMeta, gridSpec.cols)) {
+      return;
+    }
+    const widgets = normalizeScannerLayout(
+      layout.widgets,
+      probeMeta,
+      gridSpec.cols,
+    );
+    updateLayout((prev) => ({ ...prev, widgets }));
+  }, [layoutId, layout, probeMeta, gridSpec.cols, updateLayout]);
 
   const onLayoutWidgetsChange = useCallback(
     (widgets: LayoutWidget[]) => {
@@ -824,6 +909,22 @@ function AppReady({ api }: { api: LivePanelApi }) {
       });
     },
     [updateLayout, pushLayoutUndo],
+  );
+
+  const onScanWidgetNeedHeight = useCallback(
+    (widgetId: string, gridRows: number) => {
+      // Scanner / Display 等表单块：按内容增高，避免底部字段被裁切
+      updateLayout((prev) => {
+        const nextWidgets = bumpWidgetGridHeight(
+          prev.widgets,
+          widgetId,
+          gridRows,
+        );
+        if (nextWidgets === prev.widgets) return prev;
+        return { ...prev, widgets: nextWidgets };
+      });
+    },
+    [updateLayout],
   );
 
   const revertLayoutStep = useCallback(() => {
@@ -871,6 +972,74 @@ function AppReady({ api }: { api: LivePanelApi }) {
     gridSpec.cols,
     applyAutoLayout,
   ]);
+
+  useEffect(() => {
+    scanLayoutRepairOnceRef.current = false;
+    dockingLayoutRepairOnceRef.current = false;
+  }, [layoutId]);
+
+  /** Docking：旧三卡/placeholder → 恢复 WiFi 风格整页表单（layoutVersion≥3） */
+  useEffect(() => {
+    if (layoutId !== DOCKING_PANEL_LAYOUT_ID || !layout || !probeMeta.size) return;
+    if (dockingLayoutRepairOnceRef.current) return;
+    if (typeof api.resetLayoutDefault !== "function") return;
+
+    const hasUnknown = layout.widgets.some((w) =>
+      w.probeIds.some((id) => !probeMeta.has(id)),
+    );
+    const layoutVer = (layout as LayoutFile & { layoutVersion?: number })
+      .layoutVersion;
+    const stale = layoutVer == null || layoutVer < 3;
+    const missingForm = !layout.widgets.some((w) =>
+      w.probeIds.includes("dock.module.station"),
+    );
+    if (!hasUnknown && !stale && !missingForm) return;
+
+    dockingLayoutRepairOnceRef.current = true;
+    void api.resetLayoutDefault!(DOCKING_PANEL_LAYOUT_ID).then((fresh) => {
+      manualLayoutRef.current = false;
+      pendingInitialAutoRef.current = true;
+      layoutUndoRef.current = [];
+      setLayout({ ...fresh, stash: [] });
+      void refreshCatalog();
+    });
+  }, [layoutId, layout, probeMeta, api, refreshCatalog]);
+
+  /** Scanner：旧 13 块 probeId / 缺项 → 恢复仓库默认 129+ 分区（SOTI 顺序） */
+  useEffect(() => {
+    if (layoutId !== SCANNER_PANEL_LAYOUT_ID || !layout || !probeMeta.size) return;
+    if (scanLayoutRepairOnceRef.current) return;
+    if (typeof api.resetLayoutDefault !== "function") return;
+
+    const probeKnown = (id: string) =>
+      probeMeta.has(id) ||
+      id.startsWith("meta.layout_section.") ||
+      id.startsWith("scan.module.");
+    const migratedWidgets = layout.widgets.map((w) => ({
+      ...w,
+      probeIds: w.probeIds.map((id) => migrateLegacyScanProbeId(id)),
+    }));
+    const moduleWidgets = migratedWidgets.filter((w) =>
+      w.probeIds[0]?.startsWith("scan.module."),
+    );
+    const hasUnknown = migratedWidgets.some((w) =>
+      w.probeIds.some((id) => !probeKnown(id)),
+    );
+    const layoutVer = (layout as LayoutFile & { layoutVersion?: number })
+      .layoutVersion;
+    const staleLayout = layoutVer == null || layoutVer < 16;
+
+    if (!hasUnknown && !staleLayout && moduleWidgets.length >= 10) return;
+
+    scanLayoutRepairOnceRef.current = true;
+    void api.resetLayoutDefault!(SCANNER_PANEL_LAYOUT_ID).then((fresh) => {
+      manualLayoutRef.current = false;
+      pendingInitialAutoRef.current = true;
+      layoutUndoRef.current = [];
+      setLayout({ ...fresh, stash: [] });
+      void refreshCatalog();
+    });
+  }, [layoutId, layout, probeMeta, api, refreshCatalog]);
 
   const onWidgetUiChange = useCallback(
     (widgetId: string, patch: Partial<LayoutWidget["ui"]>) => {
@@ -1077,6 +1246,12 @@ function AppReady({ api }: { api: LivePanelApi }) {
     if (timerRef.current) window.clearInterval(timerRef.current);
     timerRef.current = window.setInterval(() => {
       if (
+        pauseRefreshWhenHiddenRef.current &&
+        document.visibilityState === "hidden"
+      ) {
+        return;
+      }
+      if (
         writingProbeIdRef.current ||
         deviceRefreshBusyRef.current ||
         refreshBusyRef.current
@@ -1100,21 +1275,23 @@ function AppReady({ api }: { api: LivePanelApi }) {
   };
 
   const onWriteProbe = useCallback(
-    (probeId: string, mode: "on" | "off") => {
+    async (probeId: string, mode: "on" | "off") => {
       if (typeof api.writeProbe !== "function") {
-        setAdbError(
-          "writeProbe 未加载：请完全退出实况面板（关窗口+关黑色命令行）后重新双击 LivePanel.lnk 启动。",
-        );
-        return;
+        const msg =
+          "writeProbe 未加载：请完全退出实况面板（关窗口+关黑色命令行）后重新双击 LivePanel.lnk 启动。";
+        setAdbError(msg);
+        throw new Error(msg);
       }
-      if (writeBusyRef.current.has(probeId)) return;
+      if (writeBusyRef.current.has(probeId)) {
+        throw new Error("该项正在写回，请稍候");
+      }
 
       const meta = probeMeta.get(probeId);
       if (meta?.risk === "warn") {
         const ok = window.confirm(
           `「${meta.item}」将写入设备（测试用途，可能与 OEM 策略冲突）。继续？`,
         );
-        if (!ok) return;
+        if (!ok) throw new Error("用户取消写回");
       }
 
       const labelOn = meta?.labelOn ?? "开";
@@ -1133,75 +1310,171 @@ function AppReady({ api }: { api: LivePanelApi }) {
         }),
       );
 
-      void api
-        .writeProbe(probeId, mode)
-        .then((result) => {
-          setValues((prev) => new Map(prev).set(probeId, result));
-          if (!result.ok && !isProbeLocalSignError(result)) {
-            setAdbError(formatProbeErrorMessage(result));
-          } else if (result.ok) {
-            setAdbError(null);
-          }
-        })
-        .catch((e: unknown) => {
-          const msg = e instanceof Error ? e.message : String(e);
-          const stub = { ok: false as const, error: msg, display: msg };
-          if (!isProbeLocalSignError(stub)) {
-            setAdbError(formatProbeErrorMessage(stub));
-          }
-        })
-        .finally(() => {
-          writeBusyRef.current.delete(probeId);
-          setWritingProbeId((cur) => (cur === probeId ? null : cur));
-        });
+      try {
+        const result = await api.writeProbe(probeId, mode);
+        setValues((prev) => new Map(prev).set(probeId, result));
+        if (!result.ok && !isProbeLocalSignError(result)) {
+          const msg = formatProbeErrorMessage(result);
+          setAdbError(msg);
+          throw new Error(msg);
+        }
+        if (result.ok) setAdbError(null);
+        return result;
+      } catch (e: unknown) {
+        const msg = e instanceof Error ? e.message : String(e);
+        const stub = { ok: false as const, error: msg, display: msg };
+        if (!isProbeLocalSignError(stub)) {
+          setAdbError(formatProbeErrorMessage(stub));
+        }
+        throw e instanceof Error ? e : new Error(msg);
+      } finally {
+        writeBusyRef.current.delete(probeId);
+        setWritingProbeId((cur) => (cur === probeId ? null : cur));
+      }
     },
     [api, probeMeta],
   );
 
   const onWriteProbeValue = useCallback(
-    (probeId: string, value: string) => {
+    async (probeId: string, value: string) => {
       if (typeof api.writeProbeValue !== "function") {
-        setAdbError(
-          "writeProbeValue 未加载：请完全退出实况面板后重新启动，并确认 USDK 桥接 APK 已升级（versionCode 4）。",
-        );
-        return;
+        const msg =
+          "writeProbeValue 未加载：请完全退出实况面板后重新启动，并确认 USDK 桥接 APK 已升级（versionCode 4）。";
+        setAdbError(msg);
+        throw new Error(msg);
       }
-      if (writeBusyRef.current.has(probeId)) return;
+      if (writeBusyRef.current.has(probeId)) {
+        throw new Error("该项正在写回，请稍候");
+      }
 
       const meta = probeMeta.get(probeId);
       if (meta?.risk === "warn") {
         const ok = window.confirm(
           `「${meta.item}」将写入设备（测试用途）。继续？`,
         );
-        if (!ok) return;
+        if (!ok) throw new Error("用户取消写回");
       }
 
       writeBusyRef.current.add(probeId);
       setWritingProbeId(probeId);
 
-      void api
-        .writeProbeValue(probeId, value)
-        .then((result) => {
-          setValues((prev) => new Map(prev).set(probeId, result));
-          if (!result.ok && !isProbeLocalSignError(result)) {
-            setAdbError(formatProbeErrorMessage(result));
-          } else if (result.ok) {
-            setAdbError(null);
-          }
-        })
-        .catch((e: unknown) => {
-          const msg = e instanceof Error ? e.message : String(e);
-          const stub = { ok: false as const, error: msg, display: msg };
-          if (!isProbeLocalSignError(stub)) {
-            setAdbError(formatProbeErrorMessage(stub));
-          }
-        })
-        .finally(() => {
-          writeBusyRef.current.delete(probeId);
-          setWritingProbeId((cur) => (cur === probeId ? null : cur));
-        });
+      try {
+        const result = await api.writeProbeValue(probeId, value);
+        setValues((prev) => new Map(prev).set(probeId, result));
+        if (!result.ok && !isProbeLocalSignError(result)) {
+          const msg = formatProbeErrorMessage(result);
+          setAdbError(msg);
+          throw new Error(msg);
+        }
+        if (result.ok) setAdbError(null);
+        return result;
+      } catch (e: unknown) {
+        const msg = e instanceof Error ? e.message : String(e);
+        const stub = { ok: false as const, error: msg, display: msg };
+        if (!isProbeLocalSignError(stub)) {
+          setAdbError(formatProbeErrorMessage(stub));
+        }
+        throw e instanceof Error ? e : new Error(msg);
+      } finally {
+        writeBusyRef.current.delete(probeId);
+        setWritingProbeId((cur) => (cur === probeId ? null : cur));
+      }
     },
     [api, probeMeta],
+  );
+
+  const onWriteAllCompareMismatches = useCallback(
+    async (mismatchRows: CompareRow[]) => {
+      if (
+        typeof api.writeProbe !== "function" ||
+        typeof api.writeProbeValue !== "function"
+      ) {
+        setAdbError("写回 API 未加载，请重启实况面板。");
+        return;
+      }
+      const order = [
+        "scan.scanSwitch",
+        "scan.scanFloatingButton",
+        "scan.scannerSelectionStep__internalSelection",
+      ];
+      const sorted = [...mismatchRows].sort((a, b) => {
+        const ia = order.indexOf(a.probeId);
+        const ib = order.indexOf(b.probeId);
+        const ra = ia < 0 ? 999 : ia;
+        const rb = ib < 0 ? 999 : ib;
+        return ra - rb || a.probeId.localeCompare(b.probeId);
+      });
+      const failed: string[] = [];
+      let wrote = 0;
+      for (const row of sorted) {
+        const meta = probeMeta.get(row.probeId);
+        // ProbeMeta 已在加载 registry 时算好 writable；勿再对 meta 调 isProbeWritable（缺 probe/display）
+        if (!meta || !meta.writable) {
+          failed.push(`${meta?.itemZh ?? meta?.item ?? row.probeId}（不可写）`);
+          continue;
+        }
+        if (meta.risk === "warn") {
+          const ok = window.confirm(
+            `「${meta.item}」将按 JSON 写回设备。继续写剩余 ${sorted.length} 项？`,
+          );
+          if (!ok) break;
+        }
+        try {
+          // Scan 项统一走 raw 写回（Enable/Short/枚举文案由 toScanWedgeWriteValue 归一）
+          // toggle：Enable/Disable/1/0 一律走 writeProbe on|off，避免 settings 收到「Enable」被拒
+          let result;
+          const er = String(row.expectedRaw ?? "").trim();
+          const erLower = er.toLowerCase();
+          if (meta.displayType === "toggle") {
+            if (
+              er === "1" ||
+              erLower === "true" ||
+              erLower === "enable" ||
+              erLower === "enabled" ||
+              erLower === "on" ||
+              erLower === "auto"
+            ) {
+              result = await api.writeProbe(row.probeId, "on");
+            } else if (
+              er === "0" ||
+              erLower === "false" ||
+              erLower === "disable" ||
+              erLower === "disabled" ||
+              erLower === "off" ||
+              erLower === "manual"
+            ) {
+              result = await api.writeProbe(row.probeId, "off");
+            } else {
+              result = await api.writeProbeValue(row.probeId, er);
+            }
+          } else {
+            result = await api.writeProbeValue(row.probeId, er);
+          }
+          setValues((prev) => new Map(prev).set(row.probeId, result));
+          if (!result.ok) {
+            failed.push(
+              `${meta.itemZh ?? meta.item}：${result.error ?? result.display}`,
+            );
+          } else {
+            wrote++;
+          }
+        } catch (e) {
+          const msg = e instanceof Error ? e.message : String(e);
+          failed.push(`${meta.itemZh ?? meta.item}：${msg}`);
+          break;
+        }
+        await new Promise((r) => setTimeout(r, 450));
+      }
+      await refreshProbes();
+      if (failed.length) {
+        setAdbError(
+          `按 JSON 写回：成功 ${wrote}/${sorted.length}。失败：${failed.slice(0, 4).join("；")}${failed.length > 4 ? "…" : ""}`,
+        );
+      } else {
+        setAdbError(null);
+      }
+    },
+    [api, probeMeta, refreshProbes],
   );
 
   const connected = devices.some((d) => d.serial === serial && d.state === "device");
@@ -1514,6 +1787,8 @@ function AppReady({ api }: { api: LivePanelApi }) {
                       values={values}
                       template={expectTemplate}
                       onTemplateChange={setExpectTemplate}
+                      compareScopeLayoutId={layoutId}
+                      compareScopeProbeIds={allProbeIds}
                       showAbnormalOnly={expectShowAbnormalOnly}
                       onShowAbnormalOnlyChange={handleShowAbnormalOnlyChange}
                       onAutoLayout={() => {
@@ -1532,6 +1807,7 @@ function AppReady({ api }: { api: LivePanelApi }) {
                           /* ignore */
                         }
                       }}
+                      onWriteAllCompareMismatches={onWriteAllCompareMismatches}
                     />
                   ) : null}
                 </div>
@@ -1551,28 +1827,33 @@ function AppReady({ api }: { api: LivePanelApi }) {
                   />
                 ) : null}
                 <div className="oem-panel-grid-host">
-                  <Dashboard
-                    layout={layout}
-                    gridCols={gridSpec.cols}
-                    gridRowHeight={gridSpec.rowHeight}
-                    probeMeta={probeMeta}
-                    values={values}
-                    width={gridWidth}
-                    deviceSerial={serial}
-                    hideLayoutSections
-                    compareByProbeId={compareByProbeId}
-                    expectShowAbnormalOnly={Boolean(
-                      expectTemplate && expectShowAbnormalOnly,
-                    )}
-                    showEnSubtitles={showEnSubtitles}
-                    onWriteProbe={onWriteProbe}
-                    onWriteProbeValue={onWriteProbeValue}
-                    writingProbeId={writingProbeId}
-                    onLayoutChange={onLayoutWidgetsChange}
-                    onLayoutRevert={revertLayoutStep}
-                    onWidgetUiChange={onWidgetUiChange}
-                    onRemoveWidget={onRemoveWidget}
-                  />
+                  <PanelErrorBoundary title="模块面板渲染出错">
+                    <Dashboard
+                      layout={layout}
+                      gridCols={gridSpec.cols}
+                      gridRowHeight={
+                        layout.grid.rowHeight ?? gridSpec.rowHeight
+                      }
+                      probeMeta={probeMeta}
+                      values={values}
+                      width={gridWidth}
+                      deviceSerial={serial}
+                      hideLayoutSections
+                      compareByProbeId={compareByProbeId}
+                      expectShowAbnormalOnly={Boolean(
+                        expectTemplate && expectShowAbnormalOnly,
+                      )}
+                      showEnSubtitles={showEnSubtitles}
+                      onWriteProbe={onWriteProbe}
+                      onWriteProbeValue={onWriteProbeValue}
+                      writingProbeId={writingProbeId}
+                      onLayoutChange={onLayoutWidgetsChange}
+                      onLayoutRevert={revertLayoutStep}
+                      onWidgetUiChange={onWidgetUiChange}
+                      onRemoveWidget={onRemoveWidget}
+                      onScanWidgetNeedHeight={onScanWidgetNeedHeight}
+                    />
+                  </PanelErrorBoundary>
                 </div>
                 {activeL2.composable && activeL2.l4Items?.length ? (
                   <OemL4Catalog

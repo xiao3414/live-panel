@@ -50,6 +50,8 @@ export function isDirectReadableProbe(spec: ProbeSpec): boolean {
   }
   if (spec.probe.kind === "usdk" && spec.probe.fallback) return true;
   if (spec.probe.kind === "security.bridge") return true;
+  if (spec.probe.kind === "docking.field") return true;
+  if (spec.probe.kind === "scan.field") return true;
   return false;
 }
 

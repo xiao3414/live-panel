@@ -8,10 +8,12 @@ meta:
 
 includes:
   - modules/network.yaml
+  - modules/oem20_network_49_probes.yaml
   - modules/oem20_live_reads.yaml
   - modules/oem20_network_catalog.yaml
   - modules/oem20_overview.yaml
   - modules/oem20_system_configuration.yaml
+  - modules/oem20_system_probes.yaml
   - modules/oem20_application_management.yaml
   - modules/oem20_package_configuration.yaml
   - modules/oem20_securityandrestriction.yaml
@@ -20,3 +22,5 @@ includes:
   - modules/oem20_profile_configuration.yaml
   - modules/_other_l1.yaml
   - modules/oem20_security_probes.yaml
+  - modules/oem20_scan_probes.yaml
+  - modules/oem20_docking_probes.yaml

@@ -8,7 +8,12 @@ type Props = {
   ui?: LayoutWidgetUi;
   verifyPath?: string;
   /** 期望对比着色 */
-  expectStatus?: "match" | "mismatch" | "unread" | "platform_locked";
+  expectStatus?:
+    | "match"
+    | "mismatch"
+    | "unread"
+    | "platform_locked"
+    | "out_of_scope";
   expectCaption?: string;
   /** 为 true 时在标题下显示英文项名 */
   showEnSub?: boolean;
@@ -20,6 +25,12 @@ type Props = {
   onRemove?: () => void;
   /** 标题左键仍为拖动；右键触发回退 */
   onTitleRevert?: () => void;
+  /** 内容超出块高度时在块内滚动 */
+  bodyScroll?: boolean;
+  /** 随内容撑开（Scanner 模块，配合外层网格自动加高） */
+  bodyFit?: boolean;
+  /** 整块标题栏作为拖动手柄（Scanner 单开关紧凑条） */
+  headAsDragHandle?: boolean;
 };
 
 export function WidgetShell({
@@ -38,6 +49,9 @@ export function WidgetShell({
   onTogglePin,
   onRemove,
   onTitleRevert,
+  bodyScroll,
+  bodyFit,
+  headAsDragHandle,
 }: Props) {
   const collapsed = ui?.collapsed;
   const minimized = ui?.minimized;
@@ -46,15 +60,21 @@ export function WidgetShell({
 
   return (
     <div
-      className={`widget-shell ${pinned ? "widget-shell--pinned" : ""} ${minimized ? "widget-shell--minimized" : ""} ${collapsed ? "widget-shell--collapsed" : ""}${expectStatus === "mismatch" ? " widget-shell--expect-mismatch" : ""}${expectStatus === "unread" ? " widget-shell--expect-unread" : ""}${expectStatus === "platform_locked" ? " widget-shell--expect-platform" : ""}${expectStatus === "match" ? " widget-shell--expect-match" : ""}`}
+      className={`widget-shell ${pinned ? "widget-shell--pinned" : ""} ${minimized ? "widget-shell--minimized" : ""} ${collapsed ? "widget-shell--collapsed" : ""}${bodyFit ? " widget-shell--body-fit" : ""}${expectStatus === "mismatch" ? " widget-shell--expect-mismatch" : ""}${expectStatus === "unread" ? " widget-shell--expect-unread" : ""}${expectStatus === "platform_locked" ? " widget-shell--expect-platform" : ""}${expectStatus === "match" ? " widget-shell--expect-match" : ""}`}
     >
-      <div className="widget-shell__head">
+      <div
+        className={`widget-shell__head${headAsDragHandle ? " widget-shell__drag-handle" : ""}`}
+      >
         <div className="widget-shell__titleblock">
           {oemPath ? (
             <span className="widget-shell__oem-path">{oemPath}</span>
           ) : null}
           <span
-            className="widget-shell__drag-handle widget-shell__title-main"
+            className={
+              headAsDragHandle
+                ? "widget-shell__title-main"
+                : "widget-shell__drag-handle widget-shell__title-main"
+            }
             title={
               titleSub
                 ? `${title}\n${titleSub}${pinned ? "" : "\n左键拖动 · 右键撤回布局"}`
@@ -91,7 +111,10 @@ export function WidgetShell({
             </span>
           ) : null}
         </div>
-        <div className="widget-shell__tools">
+        <div
+          className="widget-shell__tools"
+          onMouseDown={(e) => e.stopPropagation()}
+        >
           {verifyPath ? (
             <button
               type="button"
@@ -152,7 +175,11 @@ export function WidgetShell({
         <div className="widget-shell__peek">{minimizedSummary}</div>
       ) : null}
       {!hideBody ? (
-        <div className="widget-shell__body">{children}</div>
+        <div
+          className={`widget-shell__body${bodyScroll ? " widget-shell__body--scroll" : ""}`}
+        >
+          {children}
+        </div>
       ) : null}
     </div>
   );

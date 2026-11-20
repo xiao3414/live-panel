@@ -60,7 +60,9 @@ export function expectedToggleRaw(
 ): string {
   const write = spec.write;
   if (write && typeof write === "object" && write.kind === "adb.settings") {
-    return mode === "on" ? write.values.on : write.values.off;
+    const on = write.values?.on ?? "1";
+    const off = write.values?.off ?? "0";
+    return mode === "on" ? on : off;
   }
   return mode === "on" ? "1" : "0";
 }

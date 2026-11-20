@@ -3,20 +3,22 @@ import {
   actualDisplayLabel,
   jsonOriginalConfigLabel,
 } from "../expectCompare";
+import type { ProbeMeta } from "../types";
 type Props = {
   row: CompareRow;
+  meta?: ProbeMeta;
   /** MDM / 管理员策略锁定说明（与 OEM 不符且不可改时） */
   policyNote?: string;
 };
 
 /** 块内主区域：JSON 期望 vs 设备实况（与差异清单同源数据） */
-export function OemBlockCompare({ row, policyNote }: Props) {
+export function OemBlockCompare({ row, meta, policyNote }: Props) {
   const jsonOrig = jsonOriginalConfigLabel(row);
   const showPanelJson =
     row.expectedDisplay !== jsonOrig &&
     row.expectedDisplay !== row.expectedRaw;
 
-  const deviceVal = actualDisplayLabel(row);
+  const deviceVal = actualDisplayLabel(row, meta);
   const unread = row.status === "unread";
   return (
     <div

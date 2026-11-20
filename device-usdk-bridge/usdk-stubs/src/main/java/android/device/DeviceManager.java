@@ -29,4 +29,36 @@ public class DeviceManager {
     public String getSettingProperty(String key) {
         return "";
     }
+
+    public boolean getAutoPopInputMethod() {
+        return true;
+    }
+
+    public void setAutoPopInputMethod(boolean enabled) {}
+
+    public void setLeftKeyEnabled(boolean enabled) {}
+
+    public boolean getLeftKeyEnabled() {
+        return true;
+    }
+
+    public void enableHomeKey(boolean enabled) {}
+
+    public boolean getHomeKeyEnabled() {
+        return true;
+    }
+
+    public void setRightKeyEnabled(boolean enabled) {}
+
+    public boolean getRightKeyEnabled() {
+        return true;
+    }
+
+    public void enableStatusBar(boolean enabled) {}
+
+    public void setChargeLimitPercent(String percent) {}
+
+    public String getChargeLimitPercent() {
+        return "";
+    }
 }

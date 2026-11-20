@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Network · Airplane Mode",
+  "oemModule": "Network Configuration",
+  "description": "Airplane Mode（USDK set/getAirplaneModeEnabled）",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 64,
+    "margin": [10, 10],
+    "compactType": "vertical"
+  },
+  "layoutVersion": 1,
+  "refresh": {
+    "globalMs": 8000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_netcfg_airplane",
+      "probeIds": ["netcfg.module.airplane"],
+      "title": "Airplane Mode",
+      "titleZh": "飞行模式",
+      "x": 0,
+      "y": 0,
+      "w": 12,
+      "h": 5
+    }
+  ]
+}

@@ -9,6 +9,7 @@ type CacheItem = {
   sourcePath: string;
   importedAt: string;
   stale: boolean;
+  scopeLayoutId?: string;
 };
 
 type Props = {
@@ -16,39 +17,64 @@ type Props = {
   values: Map<string, ProbeResult>;
   template: ExpectTemplate | null;
   onTemplateChange: (t: ExpectTemplate | null) => void;
+  /** 当前面板 layoutId：仅展示/记忆本模块的 OEM 缓存 */
+  compareScopeLayoutId?: string | null;
+  /** 当前面板相关探针；有则只对比这些项 */
+  compareScopeProbeIds?: readonly string[] | null;
   showAbnormalOnly: boolean;
   onShowAbnormalOnlyChange: (v: boolean) => void;
   showEnSubtitles: boolean;
   onShowEnSubtitlesChange: (v: boolean) => void;
   onAutoLayout?: () => void;
+  /** 将差异项按 JSON 期望顺序写回 ScanWedge（SOTI 未全量下发时的验收兜底） */
+  onWriteAllCompareMismatches?: (rows: CompareRow[]) => Promise<void>;
 };
 
-const ACTIVE_KEY = "livepanel.activeOemCompareFile.v2";
+function activeStorageKey(scopeLayoutId: string | null | undefined): string {
+  const scope = scopeLayoutId?.trim() || "global";
+  return `livepanel.activeOemCompareFile.v3.${scope}`;
+}
 
 export function ExpectCompareBar({
   probeMeta,
   values,
   template,
   onTemplateChange,
+  compareScopeLayoutId,
+  compareScopeProbeIds,
   showAbnormalOnly,
   onShowAbnormalOnlyChange,
   showEnSubtitles,
   onShowEnSubtitlesChange,
   onAutoLayout,
+  onWriteAllCompareMismatches,
 }: Props) {
+  const storageKey = activeStorageKey(compareScopeLayoutId);
   const [catalog, setCatalog] = useState<CacheItem[]>([]);
   const [activeFile, setActiveFile] = useState(
-    () => localStorage.getItem(ACTIVE_KEY) ?? "",
+    () => localStorage.getItem(storageKey) ?? "",
   );
   const [statusNote, setStatusNote] = useState<string | null>(null);
+  const [writingAll, setWritingAll] = useState(false);
   const api = window.livePanel;
 
   const rows: CompareRow[] = useMemo(() => {
     if (!template) return [];
-    return compareTemplateToValues(template, probeMeta, values);
-  }, [template, probeMeta, values]);
+    const scope =
+      compareScopeProbeIds && compareScopeProbeIds.length
+        ? new Set(compareScopeProbeIds)
+        : null;
+    return compareTemplateToValues(template, probeMeta, values, scope);
+  }, [template, probeMeta, values, compareScopeProbeIds]);
 
   const summary = useMemo(() => summarizeCompare(rows), [rows]);
+
+  const scopedCatalog = useMemo(() => {
+    if (!compareScopeLayoutId) return catalog;
+    return catalog.filter(
+      (c) => !c.scopeLayoutId || c.scopeLayoutId === compareScopeLayoutId,
+    );
+  }, [catalog, compareScopeLayoutId]);
 
   const refreshCatalog = useCallback(async () => {
     if (typeof api.listOemConfigCache !== "function") return;
@@ -56,16 +82,20 @@ export function ExpectCompareBar({
     setCatalog(list);
   }, [api]);
 
+  useEffect(() => {
+    setActiveFile(localStorage.getItem(storageKey) ?? "");
+  }, [storageKey]);
+
   const activateFile = useCallback(
     async (fileName: string) => {
       setActiveFile(fileName);
       if (!fileName) {
         onTemplateChange(null);
-        localStorage.removeItem(ACTIVE_KEY);
+        localStorage.removeItem(storageKey);
         setStatusNote(null);
         return;
       }
-      localStorage.setItem(ACTIVE_KEY, fileName);
+      localStorage.setItem(storageKey, fileName);
       if (typeof api.loadOemConfigCache !== "function") return;
       const hit = await api.loadOemConfigCache(fileName);
       if (!hit) {
@@ -78,7 +108,7 @@ export function ExpectCompareBar({
         hit.stale ? "源文件已变更，可点「更新源文件」重新解析" : null,
       );
     },
-    [api, onTemplateChange],
+    [api, onTemplateChange, storageKey],
   );
 
   useEffect(() => {
@@ -87,8 +117,20 @@ export function ExpectCompareBar({
 
   useEffect(() => {
     if (template || !activeFile) return;
+    if (
+      compareScopeLayoutId &&
+      !scopedCatalog.some((c) => c.fileName === activeFile)
+    ) {
+      return;
+    }
     void activateFile(activeFile);
-  }, [activeFile, template, activateFile]);
+  }, [
+    activeFile,
+    template,
+    activateFile,
+    compareScopeLayoutId,
+    scopedCatalog,
+  ]);
 
   const onAddJson = useCallback(async () => {
     if (typeof api.pickAndImportOemConfig === "function") {
@@ -125,7 +167,7 @@ export function ExpectCompareBar({
     await activateFile("");
   }, [activeFile, api, activateFile, refreshCatalog]);
 
-  const activeMeta = catalog.find((c) => c.fileName === activeFile);
+  const activeMeta = scopedCatalog.find((c) => c.fileName === activeFile);
   const mismatchRows = rows.filter((r) => r.status === "mismatch");
   const unreadRows = rows.filter((r) => r.status === "unread");
 
@@ -148,7 +190,7 @@ export function ExpectCompareBar({
           title="已导入的配置保存在实况面板内，切换设备无需重复读文件"
         >
           <option value="">— 不对比 —</option>
-          {catalog.map((c) => (
+          {scopedCatalog.map((c) => (
             <option key={c.fileName} value={c.fileName}>
               {c.stale ? "⚠ " : ""}
               {c.fileName}
@@ -198,6 +240,27 @@ export function ExpectCompareBar({
                 自动排版
               </button>
             ) : null}
+            {onWriteAllCompareMismatches && mismatchRows.length > 0 ? (
+              <button
+                type="button"
+                className="secondary"
+                disabled={writingAll}
+                title="按当前 JSON 期望，通过 USDK/ScanWedge 逐项写回（先扫描开关与扫码头）"
+                onClick={() => {
+                  const n = mismatchRows.length;
+                  const ok = window.confirm(
+                    `将 ${n} 项差异写回设备，使其与「${activeFile}」一致。继续？`,
+                  );
+                  if (!ok) return;
+                  setWritingAll(true);
+                  void onWriteAllCompareMismatches(mismatchRows).finally(() =>
+                    setWritingAll(false),
+                  );
+                }}
+              >
+                {writingAll ? "写回中…" : "按 JSON 写回差异"}
+              </button>
+            ) : null}
             <span
               className={
                 summary.mismatch > 0
@@ -207,7 +270,7 @@ export function ExpectCompareBar({
             >
               一致 {summary.match}/{summary.total}
               {summary.platformLocked > 0
-                ? `（含平台强制 ${summary.platformLocked}）`
+                ? `（含平台/机型豁免 ${summary.platformLocked}）`
                 : ""}
               {summary.mismatch > 0 ? ` · 异常 ${summary.mismatch}` : ""}
               {summary.unread > 0 ? ` · 未读到 ${summary.unread}` : ""}
@@ -217,14 +280,21 @@ export function ExpectCompareBar({
       </div>
       {statusNote ? (
         <p className="expect-compare-bar__desc">{statusNote}</p>
-      ) : activeMeta?.sourcePath ? (
+      ) : null}
+      {template?.description ? (
+        <p className="expect-compare-bar__desc">{template.description}</p>
+      ) : null}
+      {!template?.description && !statusNote && activeMeta?.sourcePath ? (
         <p className="expect-compare-bar__desc" title={activeMeta.sourcePath}>
           缓存：{activeMeta.fileName}
           {activeMeta.stale ? " · 源文件已变更" : " · 与源文件同步"}
         </p>
       ) : null}
       {template && (mismatchRows.length > 0 || unreadRows.length > 0) ? (
-        <details className="expect-compare-bar__details" open={summary.mismatch > 0}>
+        <details
+          className="expect-compare-bar__details"
+          open={summary.mismatch > 0 || summary.unread > 0}
+        >
           <summary>差异清单（{mismatchRows.length + unreadRows.length}）</summary>
           <OemCompareDiffTable
             rows={[...mismatchRows, ...unreadRows]}

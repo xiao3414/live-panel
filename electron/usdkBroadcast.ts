@@ -65,6 +65,12 @@ function logcatExpectPrefixes(op: string): string[] | undefined {
     return ["BOOL:", "VAL:", "ERR:", "OK"];
   }
   if (op === "getWifiWhiteList") return ["LIST:", "ERR:"];
+  if (op === "scanDumpAll") return ["SCANPROPS:", "ERR:"];
+  if (op === "scanGetProperty") return ["VAL:", "ERR:"];
+  if (op === "scanSetProperty") return ["OK", "ERR:"];
+  if (op === "dockingDumpAll") return ["DOCKPROPS:", "ERR:"];
+  if (op === "dockingGetField") return ["VAL:", "ERR:"];
+  if (op === "dockingApply") return ["OK", "ERR:"];
   return undefined;
 }
 
@@ -276,7 +282,13 @@ function usdkBroadcastParallelOk(op: string, mode: UsdkBroadcastMode): boolean {
     op === "ping" ||
     op === "securityGet" ||
     op === "securityGetBatch" ||
-    op === "getWifiWhiteList"
+    op === "getWifiWhiteList" ||
+    op === "scanDumpAll" ||
+    op === "scanGetProperty" ||
+    op === "scanSetProperty" ||
+    op === "dockingDumpAll" ||
+    op === "dockingGetField" ||
+    op === "dockingApply"
   );
 }
 

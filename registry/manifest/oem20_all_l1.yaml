@@ -26,7 +26,9 @@ l1Modules:
   - l1: Data Capture & Peripherals
     frameworkItems: 74
     layoutId: oem20-data-capture-and-peripherals
+    liveLayoutId: oem20-data-capture-scanner-panel
     registryModule: oem20_data_capture_and_peripherals.yaml
+    scanProbesModule: oem20_scan_probes.yaml
   - l1: Device Maintenance
     frameworkItems: 13
     layoutId: oem20-device-maintenance

@@ -25,3 +25,9 @@ dist-electron/
 Thumbs.db
 .idea/
 .vscode/
+.cursor/
+
+# local scratch
+tmp_*.txt
+scripts/_v*.mjs
+scripts/_tmp_*.mjs

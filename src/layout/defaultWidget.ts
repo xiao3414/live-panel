@@ -12,15 +12,19 @@ export function defaultWidgetForProbeMeta(
   if (t === "toggle") {
     w = 2;
     h = 2;
+  } else if (t === "docking_station_form" || t === "oem_module_form") {
+    w = 12;
+    h = 14;
   } else if (
     t === "wifi_general_settings_form" ||
     t === "wifi_network_form" ||
     t === "wifi_preference_settings_form" ||
     t === "wifi_whitelist_settings_form" ||
-    t === "wifi_advanced_settings_form"
+    t === "wifi_advanced_settings_form" ||
+    t === "scan_module_form"
   ) {
     w = 6;
-    h = 8;
+    h = 5;
   } else if (t === "group") {
     w = 6;
     h = 2;

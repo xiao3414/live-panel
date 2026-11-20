@@ -1,0 +1,317 @@
+# OEM 2.0 Network Configuration · 集合 4–9
+# Private DNS / NFC / Ethernet / GPS / Bluetooth / Airplane Mode
+version: 1
+probes:
+  - id: netcfg.module.collection_4_9
+    l1: Network Configuration
+    module: Network Configuration / 集合4-9
+    item: Collection 4-9
+    itemZh: 集合 4–9
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - netcfg.privateDnsStep__privateDNSMode
+        - netcfg.privateDnsStep__privateDNS
+        - netcfg.privateDnsStep__deviceHostName
+        - netcfg.privateDnsStep__deviceModelName
+        - netcfg.nfcStep__nfcAdapter
+        - netcfg.ethernetStep__ethernetEnable
+        - netcfg.gpsStep__GPSEnable
+        - netcfg.bluetoothStep__BTEnable
+        - netcfg.airplaneStep__airplaneEnable
+      note: "OEM 2.0 Network · 集合4-9（Private DNS / NFC / Ethernet / GPS / BT / Airplane）"
+    verifyPath: 03_接口与配置映射/OEMConfig_2.0_产品框架/Network Configuration.md · 1.4–1.9
+    enabled: true
+    refreshMs: 10000
+
+  - id: netcfg.module.private_dns
+    l1: Network Configuration
+    module: Network Configuration / Private DNS
+    item: Private DNS
+    itemZh: 私人 DNS
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - netcfg.privateDnsStep__privateDNSMode
+        - netcfg.privateDnsStep__privateDNS
+        - netcfg.privateDnsStep__deviceHostName
+        - netcfg.privateDnsStep__deviceModelName
+      note: "OEM 2.0 Network · Private DNS"
+    verifyPath: Network Configuration.md · 1.4 Private DNS
+    enabled: true
+    refreshMs: 10000
+
+  - id: netcfg.module.nfc
+    l1: Network Configuration
+    module: Network Configuration / NFC
+    item: NFC
+    itemZh: NFC
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - netcfg.nfcStep__nfcAdapter
+      note: "OEM 2.0 Network · NFC"
+    verifyPath: Network Configuration.md · 1.5 NFC
+    enabled: true
+    refreshMs: 8000
+
+  - id: netcfg.module.ethernet
+    l1: Network Configuration
+    module: Network Configuration / Ethernet
+    item: Ethernet
+    itemZh: 以太网
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - netcfg.ethernetStep__ethernetEnable
+      note: "OEM 2.0 Network · Ethernet"
+    verifyPath: Network Configuration.md · 1.6 Ethernet
+    enabled: true
+    refreshMs: 8000
+
+  - id: netcfg.module.gps
+    l1: Network Configuration
+    module: Network Configuration / GPS
+    item: GPS
+    itemZh: GPS
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - netcfg.gpsStep__GPSEnable
+      note: "OEM 2.0 Network · GPS"
+    verifyPath: Network Configuration.md · 1.7 GPS
+    enabled: true
+    refreshMs: 8000
+
+  - id: netcfg.module.bluetooth
+    l1: Network Configuration
+    module: Network Configuration / Bluetooth
+    item: Bluetooth
+    itemZh: 蓝牙
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - netcfg.bluetoothStep__BTEnable
+      note: "OEM 2.0 Network · Bluetooth"
+    verifyPath: Network Configuration.md · 1.8 Bluetooth
+    enabled: true
+    refreshMs: 8000
+
+  - id: netcfg.module.airplane
+    l1: Network Configuration
+    module: Network Configuration / Airplane Mode
+    item: Airplane Mode
+    itemZh: 飞行模式
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - netcfg.airplaneStep__airplaneEnable
+      note: "OEM 2.0 Network · Airplane Mode"
+    verifyPath: Network Configuration.md · 1.9 Airplane Mode
+    enabled: true
+    refreshMs: 8000
+
+  - id: netcfg.privateDnsStep__privateDNSMode
+    l1: Network Configuration
+    module: Network Configuration / Private DNS
+    item: Private Dns Mode
+    itemZh: 私人 DNS 模式
+    display:
+      type: enum
+    labels:
+      Closed: Closed
+      Auto: Auto
+      "Private DNS Provider Hostname": Private DNS Provider Hostname
+    probe:
+      kind: security.bridge
+      feature: private_dns_mode
+    write:
+      kind: security.bridge
+      feature: private_dns_mode
+    oemPath: privateDnsStep.privateDNSMode
+    verifyPath: OEM 2.0 · Private DNS Mode（USDK set/getPrivateDns）
+    refreshMs: 10000
+    enabled: true
+
+  - id: netcfg.privateDnsStep__privateDNS
+    l1: Network Configuration
+    module: Network Configuration / Private DNS
+    item: Private DNS Provider Hostname
+    itemZh: DNS 主机名
+    display:
+      type: text
+    probe:
+      kind: security.bridge
+      feature: private_dns_hostname
+    write:
+      kind: security.bridge
+      feature: private_dns_hostname
+    oemPath: privateDnsStep.privateDNS
+    verifyPath: OEM 2.0 · Private DNS Provider Hostname（USDK getPrivateDns 2-地址）
+    refreshMs: 10000
+    enabled: true
+
+  - id: netcfg.privateDnsStep__deviceHostName
+    l1: Network Configuration
+    module: Network Configuration / Private DNS
+    item: Device host name
+    itemZh: 设备主机名
+    display:
+      type: text
+    probe:
+      kind: security.bridge
+      feature: net_hostname
+    write:
+      kind: security.bridge
+      feature: net_hostname
+    oemPath: privateDnsStep.deviceHostName
+    verifyPath: OEM 2.0 · Device host name（USDK set/getNetHostname）
+    refreshMs: 10000
+    enabled: true
+
+  - id: netcfg.privateDnsStep__deviceModelName
+    l1: Network Configuration
+    module: Network Configuration / Private DNS
+    item: Device model name
+    itemZh: 设备型号名
+    display:
+      type: text
+    probe:
+      kind: security.bridge
+      feature: device_name
+    write:
+      kind: security.bridge
+      feature: device_name
+    oemPath: privateDnsStep.deviceModelName
+    verifyPath: OEM 2.0 · Device model name（USDK setDeviceName / Settings DEVICE_NAME）
+    refreshMs: 10000
+    enabled: true
+
+  - id: netcfg.nfcStep__nfcAdapter
+    l1: Network Configuration
+    module: Network Configuration / NFC
+    item: NFC Adapter
+    itemZh: NFC 开关
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: nfc_switch
+    write:
+      kind: security.bridge
+      feature: nfc_switch
+    oemPath: nfcStep.nfcAdapter
+    verifyPath: OEM 2.0 · NFC（USDK getSwitchStatus/controlSwitchPolicy NFC）
+    refreshMs: 8000
+    enabled: true
+
+  - id: netcfg.ethernetStep__ethernetEnable
+    l1: Network Configuration
+    module: Network Configuration / Ethernet
+    item: Ethernet
+    itemZh: 以太网
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: ethernet_enable
+    write:
+      kind: security.bridge
+      feature: ethernet_enable
+    oemPath: ethernetStep.ethernetEnable
+    verifyPath: OEM 2.0 · Ethernet（USDK set/getEthernetEnabled）
+    refreshMs: 8000
+    enabled: true
+
+  - id: netcfg.gpsStep__GPSEnable
+    l1: Network Configuration
+    module: Network Configuration / GPS
+    item: GPS
+    itemZh: GPS / 定位
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: location_mode_switch
+    write:
+      kind: security.bridge
+      feature: location_mode_switch
+    oemPath: gpsStep.GPSEnable
+    verifyPath: OEM 2.0 · GPS（USDK set/getLocationModeEnabled）
+    refreshMs: 8000
+    enabled: true
+
+  - id: netcfg.bluetoothStep__BTEnable
+    l1: Network Configuration
+    module: Network Configuration / Bluetooth
+    item: Bluetooth
+    itemZh: 蓝牙
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: bluetooth_switch
+    write:
+      kind: security.bridge
+      feature: bluetooth_switch
+    oemPath: bluetoothStep.BTEnable
+    verifyPath: OEM 2.0 · Bluetooth（USDK getSwitchStatus/controlSwitchPolicy Bluetooth）
+    refreshMs: 8000
+    enabled: true
+
+  - id: netcfg.airplaneStep__airplaneEnable
+    l1: Network Configuration
+    module: Network Configuration / Airplane Mode
+    item: Airplane Mode
+    itemZh: 飞行模式
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: airplane_mode
+    write:
+      kind: security.bridge
+      feature: airplane_mode
+    oemPath: airplaneStep.airplaneEnable
+    verifyPath: OEM 2.0 · Airplane Mode（USDK set/getAirplaneModeEnabled）
+    refreshMs: 8000
+    enabled: true

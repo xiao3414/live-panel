@@ -127,6 +127,7 @@ export type LivePanelApi = {
   }) => Promise<void>;
   readWifiGeneralSettings?: () => Promise<Record<string, unknown>>;
   applyWifiGeneralSettings?: (payload: Record<string, unknown>) => Promise<void>;
+  applyDockingSettings?: (payload: Record<string, unknown>) => Promise<void>;
   readWifiAdvancedSettings?: () => Promise<Record<string, unknown>>;
   applyWifiAdvancedSettings?: (payload: Record<string, unknown>) => Promise<void>;
   readWifiPreferenceSettings?: () => Promise<Record<string, unknown>>;
@@ -151,6 +152,7 @@ export type LivePanelApi = {
       size: number;
       importedAt: string;
       stale: boolean;
+      scopeLayoutId?: string;
     }>
   >;
   loadOemConfigCache?: (fileName: string) => Promise<{

@@ -1,0 +1,218 @@
+# OEM 2.0 Docking Station — Bottom/Back Host + Ethernet Settings
+# 读数：USDK DeviceManagerEx（桥接 dockingDumpAll）
+# Back Host：部分机型不支持（如 DT630 仅底部 Host）— 见产品框架说明
+module: Data Capture & Peripherals / Docking Station
+probes:
+  - id: dock.module.station
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: Docking Station
+    itemZh: 扩展坞
+    display:
+      type: docking_station_form
+    probe:
+      kind: static
+      members:
+        - dock.bottom_host
+        - dock.back_host
+        - dock.ethernet
+        - dock.eth_ip_mode
+        - dock.eth_ip
+        - dock.eth_gateway
+        - dock.eth_netmask
+        - dock.eth_dns1
+        - dock.eth_dns2
+        - dock.eth_proxy_host
+        - dock.eth_proxy_port
+        - dock.eth_proxy_bypass
+        - dock.eth_proxy_restore
+      note: "USDK dockingDumpAll；表单布局对齐 WiFi General Settings"
+    verifyPath: OEM 2.0 · Docking Station；Back Host 部分机型不支持
+    enabled: true
+    refreshMs: 12000
+  - id: dock.bottom_host
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: Bottom Host Mode
+    itemZh: 底部主机模式
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: docking.field
+      oemPath: bottomHostModeEnable
+      field: bottomHost
+    verifyPath: 扩展坞底部 Host（机型相关）
+    refreshMs: 12000
+  - id: dock.back_host
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: Back Host Mode
+    itemZh: 背部主机模式
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: docking.field
+      oemPath: backHostModeEnable
+      field: backHost
+    verifyPath: 部分机型不支持（如 DT630 仅底部 Host）
+    refreshMs: 12000
+  - id: dock.ethernet
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: Ethernet
+    itemZh: 以太网
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: docking.field
+      oemPath: dockingEthernetMode
+      field: ethernet
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: dock.eth_ip_mode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: Assignment
+    itemZh: IP 分配方式
+    display:
+      type: enum
+    labels:
+      DHCP: DHCP
+      Static: Static
+      dhcp: DHCP
+      static: Static
+    probe:
+      kind: docking.field
+      oemPath: dockingEthernetConfigureStep.dockingEthernetIpMode
+      field: ipMode
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: dock.eth_ip
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: IP Address
+    itemZh: IP 地址
+    display:
+      type: text
+    probe:
+      kind: docking.field
+      oemPath: dockingEthernetConfigureStep.dockingEthernetIpAddress
+      field: ipAddress
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: dock.eth_gateway
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: Gateway Address
+    itemZh: 网关地址
+    display:
+      type: text
+    probe:
+      kind: docking.field
+      oemPath: dockingEthernetConfigureStep.dockingEthernetGateway
+      field: gateway
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: dock.eth_netmask
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: Netmask
+    itemZh: 子网掩码
+    display:
+      type: text
+    probe:
+      kind: docking.field
+      oemPath: dockingEthernetConfigureStep.dockingEthernetNetmask
+      field: netmask
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: dock.eth_dns1
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: DNS Address 1
+    itemZh: DNS 地址 1
+    display:
+      type: text
+    probe:
+      kind: docking.field
+      oemPath: dockingEthernetConfigureStep.dockingEthernetDns1
+      field: dns1
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: dock.eth_dns2
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: DNS Address 2
+    itemZh: DNS 地址 2
+    display:
+      type: text
+    probe:
+      kind: docking.field
+      oemPath: dockingEthernetConfigureStep.dockingEthernetDns2
+      field: dns2
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: dock.eth_proxy_host
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: Proxy Hostname
+    itemZh: 代理主机名
+    display:
+      type: text
+    probe:
+      kind: docking.field
+      oemPath: dockingEthernetConfigureStep.dockingEthernetProxyHostname
+      field: proxyHost
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: dock.eth_proxy_port
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: Proxy Port
+    itemZh: 代理端口
+    display:
+      type: text
+    probe:
+      kind: docking.field
+      oemPath: dockingEthernetConfigureStep.dockingEthernetProxyPort
+      field: proxyPort
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: dock.eth_proxy_bypass
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: Bypass Proxy for
+    itemZh: 代理旁路
+    display:
+      type: text
+    probe:
+      kind: docking.field
+      oemPath: dockingEthernetConfigureStep.dockingEthernetProxyBypass
+      field: proxyBypass
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: dock.eth_proxy_restore
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Docking Station
+    item: Restore Proxy to Default
+    itemZh: 恢复代理默认
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    write: false
+    probe:
+      kind: static
+      note: 一次性动作（restoreEthernetProxyDefault），设备无持久状态可读
+    verifyPath: DT630
+    refreshMs: 30000

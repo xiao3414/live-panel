@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · System · Notification",
+  "oemModule": "System Configuration",
+  "description": "通知（WiFi/Docking 风格表单 · ADB 可读项已接）",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 64,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "layoutVersion": 1,
+  "refresh": {
+    "globalMs": 12000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_syscfg_notification",
+      "probeIds": [
+        "syscfg.module.notification"
+      ],
+      "title": "Notification",
+      "titleZh": "通知",
+      "x": 0,
+      "y": 0,
+      "w": 12,
+      "h": 8
+    }
+  ]
+}

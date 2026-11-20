@@ -1,0 +1,1729 @@
+# OEM 2.0 System Configuration — 分模块表单（自动生成）
+# 重新生成: node tools/generate_oem20_system_panel.mjs
+# 依据: 03_接口与配置映射/OEMConfig_2.0_产品框架/System Configuration.md
+module: System Configuration
+frameworkRef: 03_接口与配置映射/OEMConfig_2.0_产品框架/System Configuration.md
+probes:
+  - id: syscfg.module.date_time
+    l1: System Configuration
+    module: System Configuration / Date & Time
+    item: "Date & Time"
+    itemZh: 日期与时间
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - syscfg.clockStep__clockTimeMode
+        - syscfg.clockStep__clockManualDate
+        - syscfg.clockStep__clockManualTime
+        - syscfg.clockStep__clockTimeZoneMode
+        - syscfg.clockStep__clockManualTimeZone
+        - syscfg.clockStep__clockTimeFormat
+        - syscfg.clockStep__clockNtpServer
+        - syscfg.clockStep__timeServerSyncIntercal
+      note: "OEM 2.0 System Configuration · Date & Time（表单对齐 Docking/WiFi）"
+    verifyPath: "03_接口与配置映射/OEMConfig_2.0_产品框架/System Configuration.md · Date & Time"
+    enabled: true
+    refreshMs: 12000
+  - id: syscfg.clockStep__clockTimeMode
+    l1: System Configuration
+    module: System Configuration / Date & Time
+    item: Time Mode
+    itemZh: 时间模式
+    display:
+      type: enum
+    labels:
+      Manual: Manual
+      Auto: Auto
+      "1": Auto
+      "0": Manual
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: auto_time
+    oemPath: clockStep.clockTimeMode
+    verifyPath: "OEM 2.0 · System Configuration / Date & Time · Time Mode"
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.clockStep__clockManualDate
+    l1: System Configuration
+    module: System Configuration / Date & Time
+    item: Manual Date
+    itemZh: 手动日期
+    display:
+      type: text
+    probe:
+      kind: static
+      note: OEM clockStep.clockManualDate · 库内未找到 ADB/USDK 直读映射
+    oemPath: clockStep.clockManualDate
+    verifyPath: "OEM 2.0 · System Configuration / Date & Time · Manual Date"
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.clockStep__clockManualTime
+    l1: System Configuration
+    module: System Configuration / Date & Time
+    item: Manual Time
+    itemZh: 手动时间
+    display:
+      type: text
+    probe:
+      kind: static
+      note: OEM clockStep.clockManualTime · 库内未找到 ADB/USDK 直读映射
+    oemPath: clockStep.clockManualTime
+    verifyPath: "OEM 2.0 · System Configuration / Date & Time · Manual Time"
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.clockStep__clockTimeZoneMode
+    l1: System Configuration
+    module: System Configuration / Date & Time
+    item: Time Zone Mode
+    itemZh: 时区模式
+    display:
+      type: enum
+    labels:
+      Manual: Manual
+      Auto: Auto
+      "1": Auto
+      "0": Manual
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: auto_time_zone
+    oemPath: clockStep.clockTimeZoneMode
+    verifyPath: "OEM 2.0 · System Configuration / Date & Time · Time Zone Mode"
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.clockStep__clockManualTimeZone
+    l1: System Configuration
+    module: System Configuration / Date & Time
+    item: Manual Time Zone
+    itemZh: 手动时区
+    display:
+      type: text
+    probe:
+      kind: adb.shell
+      cmd: getprop persist.sys.timezone
+    oemPath: clockStep.clockManualTimeZone
+    verifyPath: "OEM 2.0 · System Configuration / Date & Time · Manual Time Zone"
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.clockStep__clockTimeFormat
+    l1: System Configuration
+    module: System Configuration / Date & Time
+    item: Time Format
+    itemZh: 时间格式
+    display:
+      type: enum
+    labels:
+      "12": "12"
+      "24": "24"
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: time_12_24
+    oemPath: clockStep.clockTimeFormat
+    verifyPath: "OEM 2.0 · System Configuration / Date & Time · Time Format"
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.clockStep__clockNtpServer
+    l1: System Configuration
+    module: System Configuration / Date & Time
+    item: Manual Ntp Server
+    itemZh: NTP 服务器
+    display:
+      type: text
+    probe:
+      kind: static
+      note: OEM clockStep.clockNtpServer · 库内未找到 ADB/USDK 直读映射
+    oemPath: clockStep.clockNtpServer
+    verifyPath: "OEM 2.0 · System Configuration / Date & Time · Manual Ntp Server"
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.clockStep__timeServerSyncIntercal
+    l1: System Configuration
+    module: System Configuration / Date & Time
+    item: Time server sync interval
+    itemZh: 时间同步间隔
+    display:
+      type: text
+    probe:
+      kind: static
+      note: OEM clockStep.timeServerSyncIntercal · 库内未找到 ADB/USDK 直读映射
+    oemPath: clockStep.timeServerSyncIntercal
+    verifyPath: "OEM 2.0 · System Configuration / Date & Time · Time server sync interval"
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.module.sound
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Sound
+    itemZh: 声音
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - syscfg.soundStep__alarmVolume
+        - syscfg.soundStep__mediaVolume
+        - syscfg.soundStep__ringVolume
+        - syscfg.soundStep__callVolume
+        - syscfg.soundStep__lockTheVolume
+        - syscfg.soundStep__lockTheFullVolume
+        - syscfg.soundStep__notificationSound
+        - syscfg.soundStep__dialPadTones
+        - syscfg.soundStep__touchSounds
+        - syscfg.soundStep__touchVibration
+        - syscfg.soundStep__screenLockingSounds
+        - syscfg.soundStep__chargingSoundAndVibration
+      note: "OEM 2.0 System Configuration · Sound（表单对齐 Docking/WiFi）"
+    verifyPath: 03_接口与配置映射/OEMConfig_2.0_产品框架/System Configuration.md · Sound
+    enabled: true
+    refreshMs: 12000
+  - id: syscfg.soundStep__alarmVolume
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Alarm Volume
+    itemZh: 闹钟音量
+    display:
+      type: text
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: volume_alarm
+    oemPath: soundStep.alarmVolume
+    verifyPath: OEM 2.0 · System Configuration / Sound · Alarm Volume
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.soundStep__mediaVolume
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Media Volume
+    itemZh: 媒体音量
+    display:
+      type: text
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: volume_music
+    oemPath: soundStep.mediaVolume
+    verifyPath: OEM 2.0 · System Configuration / Sound · Media Volume
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.soundStep__ringVolume
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Ring Volume
+    itemZh: 铃声音量
+    display:
+      type: text
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: volume_ring
+    oemPath: soundStep.ringVolume
+    verifyPath: OEM 2.0 · System Configuration / Sound · Ring Volume
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.soundStep__callVolume
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Call Volume
+    itemZh: 通话音量
+    display:
+      type: text
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: volume_voice_call
+    oemPath: soundStep.callVolume
+    verifyPath: OEM 2.0 · System Configuration / Sound · Call Volume
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.soundStep__lockTheVolume
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Lock the Volume
+    itemZh: 锁定音量
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: fixed_volume
+    write:
+      kind: security.bridge
+      feature: fixed_volume
+    oemPath: soundStep.lockTheVolume
+    verifyPath: OEM 2.0 · System Configuration / Sound · Lock the Volume（USDK set/getFixedVolumeEnabled）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.soundStep__lockTheFullVolume
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Lock at Full Volume
+    itemZh: 锁定最大音量
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: fixed_volume
+    write:
+      kind: security.bridge
+      feature: fixed_volume
+    oemPath: soundStep.lockTheFullVolume
+    verifyPath: OEM 2.0 · System Configuration / Sound · Lock at Full Volume（与 Lock the Volume 同用 set/getFixedVolumeEnabled；库内无独立接口）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.soundStep__notificationSound
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Notification Sound
+    itemZh: 通知音
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: static
+      note: OEM soundStep.notificationSound · 库内未找到 ADB/USDK 直读映射
+    oemPath: soundStep.notificationSound
+    verifyPath: OEM 2.0 · System Configuration / Sound · Notification Sound
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.soundStep__dialPadTones
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Dial Pad Tones
+    itemZh: 拨号音
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: dtmf_tone
+    oemPath: soundStep.dialPadTones
+    verifyPath: OEM 2.0 · System Configuration / Sound · Dial Pad Tones（settings dtmf_tone）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.soundStep__touchSounds
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Touch Sounds
+    itemZh: 触摸音
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: sound_effects_enabled
+    oemPath: soundStep.touchSounds
+    verifyPath: OEM 2.0 · System Configuration / Sound · Touch Sounds（settings sound_effects_enabled）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.soundStep__touchVibration
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Touch Vibration
+    itemZh: 触摸振动
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: haptic_feedback_enabled
+    oemPath: soundStep.touchVibration
+    verifyPath: OEM 2.0 · System Configuration / Sound · Touch Vibration（settings haptic_feedback_enabled）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.soundStep__screenLockingSounds
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Screen Locking Sounds
+    itemZh: 锁屏音
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: lockscreen_sounds_enabled
+    oemPath: soundStep.screenLockingSounds
+    verifyPath: OEM 2.0 · System Configuration / Sound · Screen Locking Sounds（settings lockscreen_sounds_enabled）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.soundStep__chargingSoundAndVibration
+    l1: System Configuration
+    module: System Configuration / Sound
+    item: Charging Sound And Vibration
+    itemZh: 充电声振
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: charging_sounds
+      fallback:
+        kind: adb.settings
+        namespace: global
+        key: charging_sounds_enabled
+    write:
+      kind: security.bridge
+      feature: charging_sounds
+    oemPath: soundStep.chargingSoundAndVibration
+    verifyPath: OEM 2.0 · System Configuration / Sound · Charging Sound（USDK set/getChargingSoundsEnabled；fallback settings）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.module.display
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Display
+    itemZh: 显示
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - syscfg.displayStep__setFontSize
+        - syscfg.displayStep__displayTimeout
+        - syscfg.displayStep__displayStayAwake
+        - syscfg.displayStep__displayBackLightLevel
+        - syscfg.displayStep__displayAutoBrightness
+        - syscfg.displayStep__displayAutoRotate
+        - syscfg.displayStep__screenOrientation
+        - syscfg.displayStep__screenOrientationSuggestion
+        - syscfg.displayStep__homeScreenWallpaper
+        - syscfg.displayStep__lockScreenWallpaper
+        - syscfg.displayStep__screenSaverStep__use_screen_saver
+        - syscfg.displayStep__screenSaverStep__whenToStart
+        - syscfg.displayStep__screenSaverStep__screenSaver
+        - syscfg.displayStep__displayExternalStep__displayExternalModeSelection
+        - syscfg.displayStep__displayExternalStep__displayExternalDisplayTarget
+        - syscfg.displayStep__displayExternalStep__displayExternalSecondaryScreenOrientation
+      note: "OEM 2.0 System Configuration · Display（表单对齐 Docking/WiFi）"
+    verifyPath: 03_接口与配置映射/OEMConfig_2.0_产品框架/System Configuration.md · Display
+    enabled: true
+    refreshMs: 12000
+  - id: syscfg.displayStep__setFontSize
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Display Font Size
+    itemZh: 字体大小
+    display:
+      type: enum
+    labels:
+      Default: Default
+      Small: Small
+      Large: Large
+      Largest: Largest
+      "1.0": Default
+      "0.85": Small
+      "1.15": Large
+      "1.3": Largest
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: font_scale
+    oemPath: displayStep.setFontSize
+    verifyPath: OEM 2.0 · System Configuration / Display · Display Font Size
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__displayTimeout
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Display Timeout
+    itemZh: 熄屏超时
+    display:
+      type: enum
+    labels:
+      Never: Never
+      15 seconds: 15 seconds
+      30 seconds: 30 seconds
+      1 minute: 1 minute
+      2 minutes: 2 minutes
+      5 minutes: 5 minutes
+      10 minutes: 10 minutes
+      30 minutes: 30 minutes
+      "2147483647": Never
+      "15000": 15 seconds
+      "30000": 30 seconds
+      "60000": 1 minute
+      "120000": 2 minutes
+      "300000": 5 minutes
+      "600000": 10 minutes
+      "1800000": 30 minutes
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: screen_off_timeout
+    oemPath: displayStep.displayTimeout
+    verifyPath: OEM 2.0 · System Configuration / Display · Display Timeout
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__displayStayAwake
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Stay Awake
+    itemZh: 保持唤醒
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+      "7": Enable
+      "15": Enable
+    probe:
+      kind: adb.settings
+      namespace: global
+      key: stay_on_while_plugged_in
+    oemPath: displayStep.displayStayAwake
+    verifyPath: OEM 2.0 · System Configuration / Display · Stay Awake
+    refreshMs: 12000
+    enabled: true
+    write:
+      kind: adb.settings
+      namespace: global
+      key: stay_on_while_plugged_in
+      values:
+        on: "15"
+        off: "0"
+  - id: syscfg.displayStep__displayBackLightLevel
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Screen Brightness
+    itemZh: 屏幕亮度
+    display:
+      type: text
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: screen_brightness
+    oemPath: displayStep.displayBackLightLevel
+    verifyPath: OEM 2.0 · System Configuration / Display · Screen Brightness
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__displayAutoBrightness
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Auto Brightness
+    itemZh: 自动亮度
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: screen_brightness_mode
+    oemPath: displayStep.displayAutoBrightness
+    verifyPath: OEM 2.0 · System Configuration / Display · Auto Brightness
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__displayAutoRotate
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Auto Rotate
+    itemZh: 自动旋转
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: adb.settings
+      namespace: system
+      key: accelerometer_rotation
+    oemPath: displayStep.displayAutoRotate
+    verifyPath: OEM 2.0 · System Configuration / Display · Auto Rotate
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__screenOrientation
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Screen Orientation
+    itemZh: 屏幕方向
+    display:
+      type: enum
+    labels:
+      0°: 0°
+      90°: 90°
+      180°: 180°
+      270°: 270°
+    probe:
+      kind: security.bridge
+      feature: screen_rotation
+    write:
+      kind: security.bridge
+      feature: screen_rotation
+    oemPath: displayStep.screenOrientation
+    verifyPath: OEM 2.0 · System Configuration / Display · Screen Orientation（USDK set/getScreenRotation 0–3↔0°/90°/180°/270°）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__screenOrientationSuggestion
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Display Orientation Suggestion
+    itemZh: 方向建议
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: orientation_suggestion
+    write:
+      kind: security.bridge
+      feature: orientation_suggestion
+    oemPath: displayStep.screenOrientationSuggestion
+    verifyPath: OEM 2.0 · System Configuration / Display · Display Orientation Suggestion（USDK set/getOrientationSuggestionDisabled，OEM Enable=建议开）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__homeScreenWallpaper
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Home Screen Wallpaper
+    itemZh: 主屏壁纸
+    display:
+      type: text
+    probe:
+      kind: static
+      note: OEM displayStep.homeScreenWallpaper · 库内未找到 ADB/USDK 直读映射
+    oemPath: displayStep.homeScreenWallpaper
+    verifyPath: OEM 2.0 · System Configuration / Display · Home Screen Wallpaper
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__lockScreenWallpaper
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Lock Screen Wallpaper
+    itemZh: 锁屏壁纸
+    display:
+      type: text
+    probe:
+      kind: static
+      note: OEM displayStep.lockScreenWallpaper · 库内未找到 ADB/USDK 直读映射
+    oemPath: displayStep.lockScreenWallpaper
+    verifyPath: OEM 2.0 · System Configuration / Display · Lock Screen Wallpaper
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__screenSaverStep__use_screen_saver
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Use Screen Saver
+    itemZh: 使用屏保
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: static
+      note: OEM displayStep.screenSaverStep.use_screen_saver · 库内未找到 ADB/USDK 直读映射
+    oemPath: displayStep.screenSaverStep.use_screen_saver
+    verifyPath: OEM 2.0 · System Configuration / Display · Use Screen Saver
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__screenSaverStep__whenToStart
+    l1: System Configuration
+    module: System Configuration / Display
+    item: When to Start
+    itemZh: 屏保启动时机
+    display:
+      type: enum
+    labels:
+      While charging: While charging
+      While docked and charging: While docked and charging
+    probe:
+      kind: static
+      note: OEM displayStep.screenSaverStep.whenToStart · 库内未找到 ADB/USDK 直读映射
+    oemPath: displayStep.screenSaverStep.whenToStart
+    verifyPath: OEM 2.0 · System Configuration / Display · When to Start
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__screenSaverStep__screenSaver
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Choose A Screen Saver
+    itemZh: 屏保样式
+    display:
+      type: enum
+    labels:
+      Clock: Clock
+      Color: Color
+      Photos: Photos
+    probe:
+      kind: static
+      note: OEM displayStep.screenSaverStep.screenSaver · 库内未找到 ADB/USDK 直读映射
+    oemPath: displayStep.screenSaverStep.screenSaver
+    verifyPath: OEM 2.0 · System Configuration / Display · Choose A Screen Saver
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__displayExternalStep__displayExternalModeSelection
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Mode Selection
+    itemZh: 外接显示模式
+    display:
+      type: enum
+    labels:
+      Desktop Mode: Desktop Mode
+      Mirror Mode: Mirror Mode
+    probe:
+      kind: static
+      note: OEM displayStep.displayExternalStep.displayExternalModeSelection · 库内未找到 ADB/USDK 直读映射
+    oemPath: displayStep.displayExternalStep.displayExternalModeSelection
+    verifyPath: OEM 2.0 · System Configuration / Display · Mode Selection
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__displayExternalStep__displayExternalDisplayTarget
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Display Target
+    itemZh: 显示目标
+    display:
+      type: enum
+    labels:
+      This Device: This Device
+      External Device: External Device
+    probe:
+      kind: static
+      note: OEM displayStep.displayExternalStep.displayExternalDisplayTarget · 库内未找到 ADB/USDK 直读映射
+    oemPath: displayStep.displayExternalStep.displayExternalDisplayTarget
+    verifyPath: OEM 2.0 · System Configuration / Display · Display Target
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.displayStep__displayExternalStep__displayExternalSecondaryScreenOrientation
+    l1: System Configuration
+    module: System Configuration / Display
+    item: Secondary Screen Orientation
+    itemZh: 副屏方向
+    display:
+      type: enum
+    labels:
+      0°: 0°
+      90°: 90°
+      180°: 180°
+      270°: 270°
+    probe:
+      kind: static
+      note: OEM displayStep.displayExternalStep.displayExternalSecondaryScreenOrientation · 副屏方向；setScreenRotation 仅主屏，库内未找到副屏独立直读
+    oemPath: displayStep.displayExternalStep.displayExternalSecondaryScreenOrientation
+    verifyPath: OEM 2.0 · System Configuration / Display · Secondary Screen Orientation（非主屏 setScreenRotation）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.module.touch_mode
+    l1: System Configuration
+    module: System Configuration / Touch Mode
+    item: Touch Mode
+    itemZh: 触摸模式
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - syscfg.touchModeStep__gloveModeEnable
+      note: "OEM 2.0 System Configuration · Touch Mode（表单对齐 Docking/WiFi）"
+    verifyPath: 03_接口与配置映射/OEMConfig_2.0_产品框架/System Configuration.md · Touch Mode
+    enabled: true
+    refreshMs: 12000
+  - id: syscfg.touchModeStep__gloveModeEnable
+    l1: System Configuration
+    module: System Configuration / Touch Mode
+    item: Glove Mode
+    itemZh: 手套模式
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: glove_mode
+    write:
+      kind: security.bridge
+      feature: glove_mode
+    oemPath: touchModeStep.gloveModeEnable
+    verifyPath: OEM 2.0 · System Configuration / Touch Mode · Glove Mode（USDK set/getGloveMode）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.module.notification
+    l1: System Configuration
+    module: System Configuration / Notification
+    item: Notification
+    itemZh: 通知
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - syscfg.notificationStep__doNotDisturb
+        - syscfg.notificationStep__notificationDots
+        - syscfg.notificationStep__notificationLed
+      note: "OEM 2.0 System Configuration · Notification（表单对齐 Docking/WiFi）"
+    verifyPath: 03_接口与配置映射/OEMConfig_2.0_产品框架/System Configuration.md · Notification
+    enabled: true
+    refreshMs: 12000
+  - id: syscfg.notificationStep__doNotDisturb
+    l1: System Configuration
+    module: System Configuration / Notification
+    item: Do Not Disturb
+    itemZh: 勿扰
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: do_not_disturb
+    write:
+      kind: security.bridge
+      feature: do_not_disturb
+    oemPath: notificationStep.doNotDisturb
+    verifyPath: OEM 2.0 · System Configuration / Notification · Do Not Disturb（USDK set/isDoNotDisturbEnabled）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.notificationStep__notificationDots
+    l1: System Configuration
+    module: System Configuration / Notification
+    item: Notification Dots on App Icon
+    itemZh: 通知角标
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: notification_badging
+      fallback:
+        kind: adb.settings
+        namespace: secure
+        key: notification_badging
+    write:
+      kind: security.bridge
+      feature: notification_badging
+    oemPath: notificationStep.notificationDots
+    verifyPath: OEM 2.0 · System Configuration / Notification · Notification Dots（USDK set/getNotificationBadgingEnabled）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.notificationStep__notificationLed
+    l1: System Configuration
+    module: System Configuration / Notification
+    item: Enable Notification LED
+    itemZh: 通知灯
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: notification_light_pulse
+      fallback:
+        kind: adb.settings
+        namespace: system
+        key: notification_light_pulse
+    write:
+      kind: security.bridge
+      feature: notification_light_pulse
+    oemPath: notificationStep.notificationLed
+    verifyPath: OEM 2.0 · System Configuration / Notification · Notification LED（USDK set/getNotificationLightPulseEnabled）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.module.language_input
+    l1: System Configuration
+    module: System Configuration / Language & Input
+    item: "Language & Input"
+    itemZh: 语言与输入
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - syscfg.languageInputStep__generalUiSystemLanguage
+        - syscfg.languageInputStep__inputMethod
+        - syscfg.languageInputStep__generalUiImeCurrentKeyboard
+        - syscfg.languageInputStep__generalUiImeSpellChecker
+        - syscfg.languageInputStep__generalUiImePointerSpeed
+        - syscfg.languageInputStep__imeActivates__permanentlyProhibit
+        - syscfg.languageInputStep__imeActivates__suspensionButton
+        - syscfg.languageInputStep__imeActivates__physicalButton
+        - syscfg.languageInputStep__disableInputMethodStep__disableInputMethodAction
+        - syscfg.languageInputStep__disableInputMethodStep__disableInputMethod
+      note: "OEM 2.0 System Configuration · Language & Input（表单对齐 Docking/WiFi）"
+    verifyPath: "03_接口与配置映射/OEMConfig_2.0_产品框架/System Configuration.md · Language & Input"
+    enabled: true
+    refreshMs: 12000
+  - id: syscfg.languageInputStep__generalUiSystemLanguage
+    l1: System Configuration
+    module: System Configuration / Language & Input
+    item: System Language
+    itemZh: 系统语言
+    display:
+      type: text
+    probe:
+      kind: security.bridge
+      feature: system_language
+      fallback:
+        kind: adb.settings
+        namespace: system
+        key: system_locales
+    write:
+      kind: security.bridge
+      feature: system_language
+    oemPath: languageInputStep.generalUiSystemLanguage
+    verifyPath: "OEM 2.0 · System Configuration / Language & Input · System Language（USDK set/getSystemLanguage；主 locale 对齐）"
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.languageInputStep__inputMethod
+    l1: System Configuration
+    module: System Configuration / Language & Input
+    item: Input Method
+    itemZh: 输入法弹出
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: auto_pop_input_method
+    write:
+      kind: security.bridge
+      feature: auto_pop_input_method
+    oemPath: languageInputStep.inputMethod
+    verifyPath: "OEM 2.0 · System Configuration / Language & Input · Input Method（USDK set/getAutoPopInputMethod）"
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.languageInputStep__generalUiImeCurrentKeyboard
+    l1: System Configuration
+    module: System Configuration / Language & Input
+    item: IME Current Keyboard
+    itemZh: 当前键盘
+    display:
+      type: text
+    probe:
+      kind: security.bridge
+      feature: default_input_method
+      fallback:
+        kind: adb.settings
+        namespace: secure
+        key: default_input_method
+    write:
+      kind: security.bridge
+      feature: default_input_method
+    oemPath: languageInputStep.generalUiImeCurrentKeyboard
+    verifyPath: "OEM 2.0 · System Configuration / Language & Input · IME Current Keyboard（USDK set/getDefaultInputMethod）"
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.languageInputStep__generalUiImeSpellChecker
+    l1: System Configuration
+    module: System Configuration / Language & Input
+    item: Spell Checker
+    itemZh: 拼写检查
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: spell_checker
+      fallback:
+        kind: adb.settings
+        namespace: secure
+        key: spell_checker_enabled
+    write:
+      kind: security.bridge
+      feature: spell_checker
+    oemPath: languageInputStep.generalUiImeSpellChecker
+    verifyPath: "OEM 2.0 · System Configuration / Language & Input · Spell Checker（USDK set/getSpellCheckerEnabled）"
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.languageInputStep__generalUiImePointerSpeed
+    l1: System Configuration
+    module: System Configuration / Language & Input
+    item: Pointer Speed
+    itemZh: 指针速度
+    display:
+      type: text
+    probe:
+      kind: security.bridge
+      feature: pointer_speed
+      fallback:
+        kind: adb.settings
+        namespace: system
+        key: pointer_speed
+    write:
+      kind: security.bridge
+      feature: pointer_speed
+    oemPath: languageInputStep.generalUiImePointerSpeed
+    verifyPath: "OEM 2.0 · System Configuration / Language & Input · Pointer Speed（USDK set/getPointerSpeed；-7~7）"
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.languageInputStep__imeActivates__permanentlyProhibit
+    l1: System Configuration
+    module: System Configuration / Language & Input
+    item: Permanently Prohibit
+    itemZh: 永久禁止软键盘
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: disable_pop_softinput
+    write:
+      kind: security.bridge
+      feature: disable_pop_softinput
+    oemPath: languageInputStep.imeActivates.permanentlyProhibit
+    verifyPath: "OEM 2.0 · System Configuration / Language & Input · Permanently Prohibit（USDK set/getDisablePopSoftinput）"
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.languageInputStep__imeActivates__suspensionButton
+    l1: System Configuration
+    module: System Configuration / Language & Input
+    item: Suspension Button
+    itemZh: 悬浮按钮
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: keyboard_floating_window
+    write:
+      kind: security.bridge
+      feature: keyboard_floating_window
+    oemPath: languageInputStep.imeActivates.suspensionButton
+    verifyPath: "OEM 2.0 · System Configuration / Language & Input · Suspension Button（USDK set/getKeyboardFloatingWindow）"
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.languageInputStep__imeActivates__physicalButton
+    l1: System Configuration
+    module: System Configuration / Language & Input
+    item: Physical Button
+    itemZh: 物理按键
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: fn_key_control_softinput
+    write:
+      kind: security.bridge
+      feature: fn_key_control_softinput
+    oemPath: languageInputStep.imeActivates.physicalButton
+    verifyPath: "OEM 2.0 · System Configuration / Language & Input · Physical Button（USDK set/getFnKeyControlSoftInput）"
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.languageInputStep__disableInputMethodStep__disableInputMethodAction
+    l1: System Configuration
+    module: System Configuration / Language & Input
+    item: Disable Input Method Action
+    itemZh: 禁用输入法动作
+    display:
+      type: enum
+    labels:
+      Clear disabled: Clear disabled
+      Add disabled: Add disabled
+      Cancel disabled: Cancel disabled
+    probe:
+      kind: static
+      note: "[动作] Clear/Add/Cancel 无设备持久态；对比请看禁用列表 getDisableImi"
+    oemPath: languageInputStep.disableInputMethodStep.disableInputMethodAction
+    verifyPath: "OEM 2.0 · System Configuration / Language & Input · Disable Input Method Action（动作型，写回走 disable_imi）"
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.languageInputStep__disableInputMethodStep__disableInputMethod
+    l1: System Configuration
+    module: System Configuration / Language & Input
+    item: Input Method Package Name
+    itemZh: 输入法包名
+    display:
+      type: text
+    probe:
+      kind: security.bridge
+      feature: disable_imi
+    write:
+      kind: security.bridge
+      feature: disable_imi
+    oemPath: languageInputStep.disableInputMethodStep.disableInputMethod
+    verifyPath: "OEM 2.0 · System Configuration / Language & Input · Input Method Package Name（USDK getDisableImi；写回 1-包名）"
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.module.system_ui
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: System UI
+    itemZh: 系统界面
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - syscfg.systemUiStep__leftKey
+        - syscfg.systemUiStep__middleKey
+        - syscfg.systemUiStep__rightKey
+        - syscfg.systemUiStep__navigationBar
+        - syscfg.systemUiStep__statusBarDropdown
+        - syscfg.systemUiStep__sideAppBarMode
+        - syscfg.systemUiStep__sideAppBarPosition
+        - syscfg.systemUiStep__generalUiGesturesStep__threeFingerScreenshots
+        - syscfg.systemUiStep__generalUiGesturesStep__generalUiGestureQuickCamera
+        - syscfg.systemUiStep__generalUiGesturesStep__generalUiSystemNavigation
+        - syscfg.systemUiStep__generalUiGesturesStep__generalUiPowerButtonLongPress
+      note: "OEM 2.0 System Configuration · System UI（表单对齐 Docking/WiFi）"
+    verifyPath: 03_接口与配置映射/OEMConfig_2.0_产品框架/System Configuration.md · System UI
+    enabled: true
+    refreshMs: 12000
+  - id: syscfg.systemUiStep__leftKey
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: Back
+    itemZh: 返回键
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: left_key
+    write:
+      kind: security.bridge
+      feature: left_key
+    oemPath: systemUiStep.leftKey
+    verifyPath: OEM 2.0 · System Configuration / System UI · Back（USDK set/getLeftKeyEnabled）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.systemUiStep__middleKey
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: Home
+    itemZh: 主页键
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: home_key
+    write:
+      kind: security.bridge
+      feature: home_key
+    oemPath: systemUiStep.middleKey
+    verifyPath: OEM 2.0 · System Configuration / System UI · Home（USDK enableHomeKey/getHomeKeyEnabled）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.systemUiStep__rightKey
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: Menu
+    itemZh: 菜单键
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: right_key
+    write:
+      kind: security.bridge
+      feature: right_key
+    oemPath: systemUiStep.rightKey
+    verifyPath: OEM 2.0 · System Configuration / System UI · Menu（USDK set/getRightKeyEnabled）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.systemUiStep__navigationBar
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: Hide Navigation Bar
+    itemZh: 隐藏导航栏
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: hide_navigation_bar
+    write:
+      kind: security.bridge
+      feature: hide_navigation_bar
+    oemPath: systemUiStep.navigationBar
+    verifyPath: OEM 2.0 · System Configuration / System UI · Hide Navigation Bar（USDK set/getBottomBarEnable，Enable=隐藏）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.systemUiStep__statusBarDropdown
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: Dropdown Status Bar
+    itemZh: 状态栏下拉
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: status_bar_dropdown
+    write:
+      kind: security.bridge
+      feature: status_bar_dropdown
+    oemPath: systemUiStep.statusBarDropdown
+    verifyPath: OEM 2.0 · System Configuration / System UI · Dropdown Status Bar（USDK enableStatusBar；读 getSystemConfig/UROVO_STATUSBAR_ENABLE）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.systemUiStep__sideAppBarMode
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: Side Bar Status (DT630)
+    itemZh: 侧边栏状态
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: side_app_bar
+    write:
+      kind: security.bridge
+      feature: side_app_bar
+    oemPath: systemUiStep.sideAppBarMode
+    verifyPath: OEM 2.0 · System Configuration / System UI · Side Bar Status（仅 DT630；USDK enableSideAppBar/getSideAppBarStatus）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.systemUiStep__sideAppBarPosition
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: Side Bar Position (DT630)
+    itemZh: 侧边栏位置
+    display:
+      type: enum
+    labels:
+      Left: Left
+      Right: Right
+    probe:
+      kind: security.bridge
+      feature: side_app_bar_left
+    write:
+      kind: security.bridge
+      feature: side_app_bar_left
+    oemPath: systemUiStep.sideAppBarPosition
+    verifyPath: OEM 2.0 · System Configuration / System UI · Side Bar Position（仅 DT630；侧边栏 Enable 时才测位置）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.systemUiStep__generalUiGesturesStep__threeFingerScreenshots
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: Three Finger Screenshots
+    itemZh: 三指截屏
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: multi_finger_screenshot
+    write:
+      kind: security.bridge
+      feature: multi_finger_screenshot
+    oemPath: systemUiStep.generalUiGesturesStep.threeFingerScreenshots
+    verifyPath: OEM 2.0 · System Configuration / System UI · Three Finger Screenshots（USDK set/getMultiFingerScreenShotEnabled）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.systemUiStep__generalUiGesturesStep__generalUiGestureQuickCamera
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: Quickly Open the Camera
+    itemZh: 快速打开相机
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: quickly_open_camera
+    write:
+      kind: security.bridge
+      feature: quickly_open_camera
+    oemPath: systemUiStep.generalUiGesturesStep.generalUiGestureQuickCamera
+    verifyPath: OEM 2.0 · System Configuration / System UI · Quickly Open the Camera（USDK enableQuicklyOpenCamera）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.systemUiStep__generalUiGesturesStep__generalUiSystemNavigation
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: System Navigation
+    itemZh: 系统导航
+    display:
+      type: enum
+    labels:
+      Gesture navigation: Gesture navigation
+      3- button navigation: 3- button navigation
+    probe:
+      kind: security.bridge
+      feature: gesture_navigation
+    write:
+      kind: security.bridge
+      feature: gesture_navigation
+    oemPath: systemUiStep.generalUiGesturesStep.generalUiSystemNavigation
+    verifyPath: OEM 2.0 · System Configuration / System UI · System Navigation（USDK set/getGestureNavigationEnabled）
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.systemUiStep__generalUiGesturesStep__generalUiPowerButtonLongPress
+    l1: System Configuration
+    module: System Configuration / System UI
+    item: "Press & Hold Power Button"
+    itemZh: 长按电源键
+    display:
+      type: enum
+    labels:
+      Access power menu: Access power menu
+      Digital assistant: Digital assistant
+    probe:
+      kind: security.bridge
+      feature: long_press_power_assistant
+    write:
+      kind: security.bridge
+      feature: long_press_power_assistant
+    oemPath: systemUiStep.generalUiGesturesStep.generalUiPowerButtonLongPress
+    verifyPath: "OEM 2.0 · System Configuration / System UI · Press & Hold Power Button（USDK set/getLongPressPowerForAssistant）"
+    risk: warn
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.module.power_management
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Power Management
+    itemZh: 电源管理
+    display:
+      type: oem_module_form
+    probe:
+      kind: static
+      members:
+        - syscfg.powerManagementStep__batteryPercentageEnable
+        - syscfg.powerManagementStep__powerSavingMode
+        - syscfg.powerManagementStep__appBatteryUsageStep__batteryOptimization
+        - syscfg.powerManagementStep__smartChargingStep__Battery_Optimized
+        - syscfg.powerManagementStep__smartChargingStep__Battery_Type
+        - syscfg.powerManagementStep__smartChargingStep__chargingRestrictionPercentage
+        - syscfg.powerManagementStep__smartChargingStep__health
+        - syscfg.powerManagementStep__smartChargingStep__cycle
+        - syscfg.powerManagementStep__smartChargingStep__temp
+        - syscfg.powerManagementStep__smartChargingStep__monitor_service
+        - syscfg.powerManagementStep__smartChargingStep__battery_tip
+        - syscfg.powerManagementStep__screenWakeUpStep__keymapScreenLeftStep
+        - syscfg.powerManagementStep__screenWakeUpStep__keymapScreenRightStep
+        - syscfg.powerManagementStep__screenWakeUpStep__keymapScreenPttStep
+      note: "OEM 2.0 System Configuration · Power Management（表单对齐 Docking/WiFi）"
+    verifyPath: 03_接口与配置映射/OEMConfig_2.0_产品框架/System Configuration.md · Power Management
+    enabled: true
+    refreshMs: 12000
+  - id: syscfg.powerManagementStep__batteryPercentageEnable
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Show Battery Percentage
+    itemZh: 显示电量百分比
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: battery_percent
+    write:
+      kind: security.bridge
+      feature: battery_percent
+    oemPath: powerManagementStep.batteryPercentageEnable
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Show Battery Percentage（USDK set/getBatteryPercentVisible）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__powerSavingMode
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Battery Saver Mode
+    itemZh: 省电模式
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: power_save_mode
+    write:
+      kind: security.bridge
+      feature: power_save_mode
+    oemPath: powerManagementStep.powerSavingMode
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Battery Saver（USDK set/getPowerSaveModeEnabled；库注：不能充电时推送）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__appBatteryUsageStep__batteryOptimization
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Package name
+    itemZh: 电池优化包名
+    display:
+      type: text
+    probe:
+      kind: static
+      note: "[动作] 包名为下发目标，无设备持久态直读；Allow Background Usage 需包名参数（getBatteryOptimizationMode）"
+    oemPath: powerManagementStep.appBatteryUsageStep.batteryOptimization
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Package name
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__smartChargingStep__Battery_Optimized
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Charging Optimization
+    itemZh: 充电优化
+    display:
+      type: enum
+    labels:
+      On: On
+      Off: Off
+      on: On
+      off: Off
+    probe:
+      kind: security.bridge
+      feature: charging_optimization
+    write:
+      kind: security.bridge
+      feature: charging_optimization
+    oemPath: powerManagementStep.smartChargingStep.Battery_Optimized
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Charging Optimization（USDK set/getBatteryWorkMode，0=智能充电→on）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__smartChargingStep__Battery_Type
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Smart Charging
+    itemZh: 智能充电
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: smart_charging
+    write:
+      kind: security.bridge
+      feature: smart_charging
+    oemPath: powerManagementStep.smartChargingStep.Battery_Type
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Smart Charging（USDK set/getBatteryWorkMode，0=Enable）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__smartChargingStep__chargingRestrictionPercentage
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Charging Restriction Percentage
+    itemZh: 充电上限
+    display:
+      type: enum
+    labels:
+      "70": "70"
+      "75": "75"
+      "80": "80"
+      "85": "85"
+      "90": "90"
+      "95": "95"
+    probe:
+      kind: security.bridge
+      feature: charge_limit_percent
+    write:
+      kind: security.bridge
+      feature: charge_limit_percent
+    oemPath: powerManagementStep.smartChargingStep.chargingRestrictionPercentage
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Charging Restriction Percentage（USDK set/getChargeLimitPercent）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__smartChargingStep__health
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Battery info health threshold
+    itemZh: 健康阈值
+    display:
+      type: text
+    probe:
+      kind: security.bridge
+      feature: battery_health_threshold
+    write:
+      kind: security.bridge
+      feature: battery_health_threshold
+    oemPath: powerManagementStep.smartChargingStep.health
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Battery info health threshold（USDK get/setBatteryHealthRetirementThreshold）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__smartChargingStep__cycle
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Battery info cycle threshold
+    itemZh: 循环阈值
+    display:
+      type: text
+    probe:
+      kind: security.bridge
+      feature: battery_cycle_threshold
+    write:
+      kind: security.bridge
+      feature: battery_cycle_threshold
+    oemPath: powerManagementStep.smartChargingStep.cycle
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Battery info cycle threshold（USDK get/setBatteryCycleRetirementThreshold）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__smartChargingStep__temp
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Battery info temperature threshold
+    itemZh: 温度阈值
+    display:
+      type: text
+    probe:
+      kind: security.bridge
+      feature: battery_temp_threshold
+    write:
+      kind: security.bridge
+      feature: battery_temp_threshold
+    oemPath: powerManagementStep.smartChargingStep.temp
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Battery info temperature threshold（USDK get/setBatteryHighTemperatureThreshold）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__smartChargingStep__monitor_service
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Battery info monitor service
+    itemZh: 监控服务
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: battery_monitor_service
+    write:
+      kind: security.bridge
+      feature: battery_monitor_service
+    oemPath: powerManagementStep.smartChargingStep.monitor_service
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Battery info monitor service（USDK get/setBatteryMonitorServiceEnabled）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__smartChargingStep__battery_tip
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Battery info battery tip
+    itemZh: 电池提示
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: battery_tip
+    write:
+      kind: security.bridge
+      feature: battery_tip
+    oemPath: powerManagementStep.smartChargingStep.battery_tip
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Battery info battery tip（USDK get/setBatteryRetirementTipEnabled）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__screenWakeUpStep__keymapScreenLeftStep
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Left scan
+    itemZh: 左键唤醒
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: left_scan_wakeup
+    write:
+      kind: security.bridge
+      feature: left_scan_wakeup
+    oemPath: powerManagementStep.screenWakeUpStep.keymapScreenLeftStep
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Left scan（USDK set/getLeftScanKeyWakeup）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__screenWakeUpStep__keymapScreenRightStep
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: Right scan
+    itemZh: 右键唤醒
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: right_scan_wakeup
+    write:
+      kind: security.bridge
+      feature: right_scan_wakeup
+    oemPath: powerManagementStep.screenWakeUpStep.keymapScreenRightStep
+    verifyPath: OEM 2.0 · System Configuration / Power Management · Right scan（USDK set/getRightScanKeyWakeup）
+    refreshMs: 12000
+    enabled: true
+  - id: syscfg.powerManagementStep__screenWakeUpStep__keymapScreenPttStep
+    l1: System Configuration
+    module: System Configuration / Power Management
+    item: TALK(PTT)
+    itemZh: PTT 唤醒
+    display:
+      type: toggle
+    labels:
+      Enable: Enable
+      Disable: Disable
+      "1": Enable
+      "0": Disable
+    probe:
+      kind: security.bridge
+      feature: ptt_wakeup
+    write:
+      kind: security.bridge
+      feature: ptt_wakeup
+    oemPath: powerManagementStep.screenWakeUpStep.keymapScreenPttStep
+    verifyPath: OEM 2.0 · System Configuration / Power Management · TALK(PTT)（USDK set/getPttKeyWakeupEnabled）
+    refreshMs: 12000
+    enabled: true

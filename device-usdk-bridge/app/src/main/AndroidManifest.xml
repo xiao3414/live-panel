@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="com.ubx.datawedge.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.ubx.datawedge.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="com.ubx.datawedge.permission.EXPORT_IMPORT_PROFILESETTINGS" />
     <application android:allowBackup="false" android:label="LivePanel USDK Bridge">
         <activity
             android:name=".BridgeWakeActivity"

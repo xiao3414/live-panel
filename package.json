@@ -1,6 +1,6 @@
 {
   "name": "live-panel",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "实况面板 — OEM 设备配置可视化看板",
   "private": true,
   "type": "module",
@@ -19,8 +19,11 @@
     "verify:clipboard": "node scripts/verify-clipboard-write.mjs",
     "verify:usb-mode": "node scripts/verify-usb-mode-read.mjs",
     "verify:mdm": "node scripts/verify-mdm-policy-logic.mjs",
+    "generate:scan-panel": "node tools/generate_oem20_scan_panel.mjs",
+    "verify:scanner": "node scripts/verify-scan-manifest.mjs && node scripts/verify-scanner-layout.mjs",
     "verify:security": "npm run verify:bridge && npm run verify:write && npm run verify:reconcile && npm run verify:clipboard && npm run verify:usb-mode && npm run verify:mdm",
     "compare:oem": "node scripts/compare-oem-config.mjs",
+    "audit:static-probes": "node scripts/audit-static-probes.mjs",
     "electron:dev": "tsc -p tsconfig.electron.json && npm run copy:preload && concurrently -k \"tsc -p tsconfig.electron.json --watch --preserveWatchOutput\" \"vite\" \"wait-on http://127.0.0.1:5173 && cross-env VITE_DEV_SERVER_URL=http://127.0.0.1:5173 electron .\"",
     "electron:build": "npm run build && npm run copy:preload && npm run copy:bridge && electron-builder --win portable"
   },

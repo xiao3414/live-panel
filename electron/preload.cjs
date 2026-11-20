@@ -27,6 +27,8 @@ contextBridge.exposeInMainWorld("livePanel", {
   readWifiGeneralSettings: () => ipcRenderer.invoke("wifi:readGeneral"),
   applyWifiGeneralSettings: (payload) =>
     ipcRenderer.invoke("wifi:applyGeneral", payload),
+  applyDockingSettings: (payload) =>
+    ipcRenderer.invoke("docking:apply", payload),
   readWifiAdvancedSettings: () => ipcRenderer.invoke("wifi:readAdvanced"),
   applyWifiAdvancedSettings: (payload) =>
     ipcRenderer.invoke("wifi:applyAdvanced", payload),

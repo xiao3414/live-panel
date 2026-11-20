@@ -10,6 +10,27 @@ export function isProbeWritable(p: {
   if (dt !== "toggle" && dt !== "enum" && dt !== "text") return false;
   if (p.write === false) return false;
   if (p.write && typeof p.write === "object") return true;
-  if (dt === "toggle" && p.probe?.kind === "adb.settings") return true;
+  if (
+    p.probe?.kind === "security.bridge" &&
+    (dt === "toggle" || dt === "enum" || dt === "text")
+  ) {
+    return true;
+  }
+  if (
+    p.probe?.kind === "adb.settings" &&
+    (dt === "toggle" || dt === "enum" || dt === "text")
+  ) {
+    return true;
+  }
+  if (
+    p.probe?.kind === "scan.field" &&
+    "property" in p.probe &&
+    p.probe.property
+  ) {
+    return dt === "toggle" || dt === "enum" || dt === "text";
+  }
+  if (p.probe?.kind === "docking.field") {
+    return dt === "toggle" || dt === "enum" || dt === "text";
+  }
   return false;
 }

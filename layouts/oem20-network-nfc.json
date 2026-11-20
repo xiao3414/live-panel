@@ -2,27 +2,28 @@
   "version": 1,
   "name": "OEM2.0 · Network · NFC",
   "oemModule": "Network Configuration",
-  "description": "与 OEM 托管「NFC」同级（NFC Adapter）",
+  "description": "NFC Adapter（USDK 开关直读）",
   "grid": {
     "cols": 12,
-    "rowHeight": 76,
+    "rowHeight": 64,
     "margin": [10, 10],
-    "compactType": null
+    "compactType": "vertical"
   },
+  "layoutVersion": 2,
   "refresh": {
-    "globalMs": 10000,
+    "globalMs": 8000,
     "pauseWhenHidden": true
   },
   "widgets": [
     {
-      "id": "w_nfc",
-      "probeIds": ["nfc.state"],
-      "title": "NFC Adapter",
-      "oemPath": "Network Configuration › NFC",
+      "id": "w_netcfg_nfc",
+      "probeIds": ["netcfg.module.nfc"],
+      "title": "NFC",
+      "titleZh": "NFC",
       "x": 0,
       "y": 0,
-      "w": 4,
-      "h": 2
+      "w": 12,
+      "h": 5
     }
   ]
 }

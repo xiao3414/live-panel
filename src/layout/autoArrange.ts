@@ -1,4 +1,5 @@
 import type { LayoutWidget, ProbeMeta } from "../types";
+import { scannerBlockFootprint } from "./scannerPanelLayout";
 
 export type SizeKind = "xl" | "lg" | "md" | "sm";
 
@@ -9,10 +10,13 @@ export function widgetSizeKind(meta?: ProbeMeta): SizeKindWithSection {
     t === "wifi_advanced_settings_form" ||
     t === "wifi_network_form" ||
     t === "wifi_preference_settings_form" ||
-    t === "wifi_whitelist_settings_form"
+    t === "wifi_whitelist_settings_form" ||
+    t === "docking_station_form" ||
+    t === "oem_module_form"
   ) {
     return "xl";
   }
+  if (t === "scan_module_form") return "lg";
   if (t === "layout_section") return "section";
   if (t === "catalog") return "lg";
   if (t === "group") return "md";
@@ -90,6 +94,11 @@ function layoutFootprint(
       storedH,
     };
   }
+  if (meta?.displayType === "scan_module_form") {
+    const memberN = meta.memberIds?.length ?? 0;
+    const { w: gw, h: gh } = scannerBlockFootprint(memberN, cols);
+    return { gw, gh, storedH: gh };
+  }
   return { gw: Math.min(full.w, cols), gh: full.h, storedH: full.h };
 }
 
@@ -141,10 +150,22 @@ function findSlot(
 }
 
 /** 二维装箱；折叠/最小化只占 1～2 行，保留展开时的 storedH */
+export type AutoArrangeOptions = {
+  /** 保持 widgets 数组 / sotiOrder / y,x 顺序，仅做装箱（Scanner 默认 SOTI 序） */
+  preserveOrder?: boolean;
+};
+
+function orderKey(w: LayoutWidget, index: number): number {
+  const soti = (w as LayoutWidget & { sotiOrder?: number }).sotiOrder;
+  if (soti != null) return soti;
+  return w.y * 10_000 + w.x * 100 + index;
+}
+
 export function autoArrangeWidgets(
   widgets: LayoutWidget[],
   probeMeta: Map<string, ProbeMeta>,
   cols: number,
+  opts?: AutoArrangeOptions,
 ): LayoutWidget[] {
   const occ: Occ = new Set();
   const placed = new Map<string, LayoutWidget>();
@@ -181,6 +202,11 @@ export function autoArrangeWidgets(
   }
 
   const sortedExpanded = [...expanded].sort((a, b) => {
+    if (opts?.preserveOrder) {
+      return (
+        orderKey(a, widgets.indexOf(a)) - orderKey(b, widgets.indexOf(b))
+      );
+    }
     const ma = probeMeta.get(a.probeIds[0]);
     const mb = probeMeta.get(b.probeIds[0]);
     const ka = widgetSizeKind(ma);

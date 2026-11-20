@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · System · System UI",
+  "oemModule": "System Configuration",
+  "description": "系统界面（WiFi/Docking 风格表单 · ADB 可读项已接）",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 64,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "layoutVersion": 1,
+  "refresh": {
+    "globalMs": 12000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_syscfg_system_ui",
+      "probeIds": [
+        "syscfg.module.system_ui"
+      ],
+      "title": "System UI",
+      "titleZh": "系统界面",
+      "x": 0,
+      "y": 0,
+      "w": 12,
+      "h": 16
+    }
+  ]
+}

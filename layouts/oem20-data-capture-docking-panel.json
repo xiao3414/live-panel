@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Data Capture · Docking Station",
+  "oemModule": "Data Capture & Peripherals",
+  "description": "扩展坞 Host + Ethernet（WiFi 风格表单 · USDK 读数）",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 64,
+    "margin": [10, 10],
+    "compactType": "vertical"
+  },
+  "layoutVersion": 3,
+  "refresh": {
+    "globalMs": 12000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_dock_station",
+      "probeIds": ["dock.module.station"],
+      "title": "Docking Station",
+      "titleZh": "扩展坞",
+      "x": 0,
+      "y": 0,
+      "w": 12,
+      "h": 14
+    }
+  ]
+}

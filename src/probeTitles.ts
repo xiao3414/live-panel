@@ -27,13 +27,14 @@ export function probeBlockTitle(
   probeId: string,
   fallbackItem?: string,
   layoutTitle?: string,
+  itemZh?: string,
 ): { main: string; sub?: string } {
-  const zh = PROBE_TITLE_ZH[probeId];
+  const zh = itemZh ?? PROBE_TITLE_ZH[probeId];
   const en = layoutTitle ?? fallbackItem;
   if (zh) {
     const sub =
-      en && en !== zh && !/^sec\./.test(en) ? en : undefined;
+      en && en !== zh && !/^(sec|scan)\./.test(en) ? en : undefined;
     return { main: zh, sub };
   }
-  return { main: fallbackItem ?? layoutTitle ?? probeId };
+  return { main: fallbackItem ?? layoutTitle ?? probeId, sub: undefined };
 }

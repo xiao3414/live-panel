@@ -1,0 +1,2299 @@
+# OEM 2.0 Scanner — 自动生成（129 项 · SOTI 顺序 · 261009 APK）
+# 重新生成: node tools/generate_oem20_scan_panel.mjs
+module: Data Capture & Peripherals / Scanner
+frameworkRef: 03_接口与配置映射/OEMConfig_2.0_产品框架/Data Capture _ Peripherals.md
+probes:
+  - id: scan.module.scanSwitch
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Scan Switch
+    itemZh: 扫描开关
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.scanSwitch
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.scanFloatingButton
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Floating Scan Button
+    itemZh: 悬浮扫描按钮
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.scanFloatingButton
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.scannerSelectionStep
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Scanner Selection
+    itemZh: 扫码头选择
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.scannerSelectionStep__internalSelection
+        - scan.scannerSelectionStep__scanEngineStep__scanEngineViewFinderTarget
+        - scan.scannerSelectionStep__rearCameraStep__rearCameraTorchControl
+        - scan.scannerSelectionStep__rearCameraStep__rearCameraViewFinderWindow
+        - scan.scannerSelectionStep__rearCameraStep__rearCameraViewFinderTarget
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.scanTriggerMode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Scan Trigger Mode
+    itemZh: 扫描触发模式
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.scanTriggerMode
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.continuousScanningSet
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Continuous Scanning Set
+    itemZh: 连续扫描设置
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.continuousScanningSet__continuousScanningMode
+        - scan.continuousScanningSet__continuousScanningTimeout
+        - scan.continuousScanningSet__continuousScanningTimeInterval
+        - scan.continuousScanningSet__decodeMultipleTimes
+        - scan.continuousScanningSet__decodeFixedNumber
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.multipleBarcodeParameters
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Multibarcode Config
+    itemZh: 多条码配置
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.multipleBarcodeParameters__basicMultibarcode
+        - scan.multipleBarcodeParameters__numberOfBarcodesScannedPerTime
+        - scan.multipleBarcodeParameters__fullReadMode
+        - scan.multipleBarcodeParameters__barcodeSeparator
+        - scan.multipleBarcodeParameters__barcodeCentroidSort
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.outputMode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Output Mode
+    itemZh: 输出方式
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.outputMode__outputModeSelect
+        - scan.outputMode__keyBoardOutputMode__keyboardType
+        - scan.outputMode__keyBoardOutputMode__sound
+        - scan.outputMode__keyBoardOutputMode__vibrate
+        - scan.outputMode__keyBoardOutputMode__operationKeyCharacters
+        - scan.outputMode__keyBoardOutputMode__specifyControlCharacter
+        - scan.outputMode__broadcastOutputMode__broadcastAction
+        - scan.outputMode__broadcastOutputMode__broadcastStringDataLabel
+        - scan.outputMode__broadcastOutputMode__broadcastByteDataLabel
+        - scan.outputMode__broadcastOutputMode__broadcastSound
+        - scan.outputMode__broadcastOutputMode__broadcastVibrate
+        - scan.outputMode__broadcastOutputMode__pasteBoard
+        - scan.outputMode__broadcastOutputMode__inputTextBoxMode
+        - scan.outputMode__broadcastOutputMode__parseUrlAndOpen
+        - scan.outputMode__tcpOutputMode__tcpNetworkOutput
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.readerParameters
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Reader Parameters
+    itemZh: 读取器参数
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.readerParameters__chineseEncodingType
+        - scan.readerParameters__customEncodingType
+        - scan.readerParameters__minimumLengthOfOneDimensionalCode
+        - scan.readerParameters__minimumLengthOfOneDimensionalCodeValue
+        - scan.readerParameters__beamTimer
+        - scan.readerParameters__multipleVerification
+        - scan.readerParameters__oneDimensionalCodeCharacteristics__fuzzy1dProcessing
+        - scan.readerParameters__oneDimensionalCodeCharacteristics__oneDimensionalInverseDecod
+        - scan.readerParameters__oneDimensionalCodeCharacteristics__oneDimensionalCodeBorderCheck
+        - scan.readerParameters__oneDimensionalCodeCharacteristics__decodingSingleImageTime
+        - scan.readerParameters__otherSettingsStep__lowPowerMode
+        - scan.readerParameters__otherSettingsStep__lowContrastMode
+        - scan.readerParameters__otherSettingsStep__imageContrastLevel
+        - scan.readerParameters__otherSettingsStep__lowContrastImprovedAlgorithm
+        - scan.readerParameters__rgbSensorDecodingStep__imageSingleChannelRecognition
+        - scan.readerParameters__rgbSensorDecodingStep__imageEnhanceMode
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.udiDataFormat
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: UDI Data Format
+    itemZh: UDI 数据格式
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.udiDataFormat__udiDataFormatSwitch
+        - scan.udiDataFormat__tokenFormat
+        - scan.udiDataFormat__tokenSeparator
+        - scan.udiDataFormat__udiDate
+        - scan.udiDataFormat__allowAllUdiIds
+        - scan.udiDataFormat__labelIds
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.basicDataFormat
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Basic Data Format
+    itemZh: 基本数据格式
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.basicDataFormat__barcodeIdentifier
+        - scan.basicDataFormat__applicationIdentifier
+        - scan.basicDataFormat__applicationIDSeparator
+        - scan.basicDataFormat__specialCharactersGsCodeSet
+        - scan.basicDataFormat__additionalFormatting
+        - scan.basicDataFormat__prefix__prefixSpecialCharacters
+        - scan.basicDataFormat__prefix__prefixCustomCharacters
+        - scan.basicDataFormat__suffix__suffixSpecialCharacters
+        - scan.basicDataFormat__suffix__suffixCustomCharacters
+        - scan.basicDataFormat__format
+        - scan.basicDataFormat__replace__originalChar
+        - scan.basicDataFormat__replace__replaceChar
+        - scan.basicDataFormat__removeNonPrintingControlCharacter
+        - scan.basicDataFormat__convertCharacterCase
+        - scan.basicDataFormat__sendAsHex
+        - scan.basicDataFormat__sendControlCharactersAsEvents
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.barcodeSettings
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Symbology Settings
+    itemZh: 条码制式
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.barcodeSettings__code128
+        - scan.barcodeSettings__code39
+        - scan.barcodeSettings__EAN-13
+        - scan.barcodeSettings__EAN-8
+        - scan.barcodeSettings__interleaved2of5Step__interleaved2of5
+        - scan.barcodeSettings__interleaved2of5Step__interleaved2of5Length1
+        - scan.barcodeSettings__interleaved2of5Step__interleaved2of5Length2
+        - scan.barcodeSettings__interleaved2of5Step__interleaved2of5CheckDigit
+        - scan.barcodeSettings__interleaved2of5Step__interleaved2of5SendCheckDigit
+        - scan.barcodeSettings__interleaved2of5Step__interleaved2of5ReducedQuietZone
+        - scan.barcodeSettings__interleaved2of5Step__interleaved2of5SecurityLevel
+        - scan.barcodeSettings__interleaved2of5Step__interleaved2of5BoundaryCheck
+        - scan.barcodeSettings__interleaved2of5Step__interleaved2of5ConvertToEan13
+        - scan.barcodeSettings__gs1DataBarFamilyStep__GS1DataBarFamily
+        - scan.barcodeSettings__gs1DataBarFamilyStep__gs1DataBarLimit
+        - scan.barcodeSettings__gs1DataBarFamilyStep__gs1DataBarExpanded
+        - scan.barcodeSettings__gs1DataBarFamilyStep__gs1ExpandedLength1
+        - scan.barcodeSettings__gs1DataBarFamilyStep__gs1ExpandedLength2
+        - scan.barcodeSettings__UPC-A
+        - scan.barcodeSettings__UPC-E
+        - scan.barcodeSettings__UPC-E1
+        - scan.barcodeSettings__UPC/EANExtensions
+        - scan.barcodeSettings__codabar
+        - scan.barcodeSettings__code11
+        - scan.barcodeSettings__code93
+        - scan.barcodeSettings__chinese25
+        - scan.barcodeSettings__discrete2of5
+        - scan.barcodeSettings__iata2of5
+        - scan.barcodeSettings__matrix2of5
+        - scan.barcodeSettings__msi
+        - scan.barcodeSettings__telepen
+        - scan.barcodeSettings__stackedLinearSymbologiesStep__composite
+        - scan.barcodeSettings__stackedLinearSymbologiesStep__PDF417
+        - scan.barcodeSettings__stackedLinearSymbologiesStep__microPDF417
+        - scan.barcodeSettings__matrix2dSymbologiesStep__datamatrix__datamatrixEnable
+        - scan.barcodeSettings__matrix2dSymbologiesStep__datamatrix__datamatrixInverse
+        - scan.barcodeSettings__matrix2dSymbologiesStep__datamatrix__datamatrixSS
+        - scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeEnable
+        - scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeInverse
+        - scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeSS
+        - scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeModules
+        - scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeZones
+        - scan.barcodeSettings__matrix2dSymbologiesStep__microQRCode
+        - scan.barcodeSettings__matrix2dSymbologiesStep__aztec
+        - scan.barcodeSettings__matrix2dSymbologiesStep__dotCode
+        - scan.barcodeSettings__matrix2dSymbologiesStep__gridMatrix
+        - scan.barcodeSettings__matrix2dSymbologiesStep__hanXin
+        - scan.barcodeSettings__matrix2dSymbologiesStep__maxiCode
+        - scan.barcodeSettings__othersSymbologyStep__postalCodes
+        - scan.barcodeSettings__othersSymbologyStep__DPMDecoding
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.ocrScan
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: OCR Scan
+    itemZh: OCR 扫描
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.ocrScan__ocrDecodeMode
+        - scan.ocrScan__ocrTemplate
+        - scan.ocrScan__ocrFoundationTemplate__ocrTypefaceTemplate
+        - scan.ocrScan__ocrFoundationTemplate__ocrCharacterType
+        - scan.ocrScan__ocrFoundationTemplate__ocrBarcodeLength
+        - scan.ocrScan__ocrCustomTemplate
+    enabled: true
+    refreshMs: 12000
+  - id: scan.module.featureSet
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Special Settings
+    itemZh: 特色设置
+    display:
+      type: scan_module_form
+    probe:
+      kind: static
+      members:
+        - scan.featureSet__interCharacterDelay
+        - scan.featureSet__enterKeyDelay
+    enabled: true
+    refreshMs: 12000
+  - id: scan.scanSwitch
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Scan Switch
+    itemZh: 扫描开关
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: scanSwitch
+      property: SCANNER_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.scanFloatingButton
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Scan Floating Button
+    itemZh: 扫描悬浮按钮
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: scanFloatingButton
+      property: SUSPENSION_BUTTON
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.scannerSelectionStep__internalSelection
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Internal Selection
+    itemZh: 扫码头选择（内置）
+    display:
+      type: enum
+    labels:
+      "0": "Scan engine"
+      "1": "Rear camera"
+      "2": "Rear camera"
+      "rear_camera": "Rear camera"
+      "scan_engine": "Scan engine"
+      "Rear camera": "Rear camera"
+      "Scan engine": "Scan engine"
+    probe:
+      kind: scan.field
+      oemPath: scannerSelectionStep.internalSelection
+      property: SCANNER_INTERNAL_CAMERA_ID
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.scannerSelectionStep__scanEngineStep__scanEngineViewFinderTarget
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: View Finder Target
+    itemZh: 扫码头 · 取景目标
+    display:
+      type: enum
+    labels:
+      "0": "Disable"
+      "1": "Enable"
+    probe:
+      kind: scan.field
+      oemPath: scannerSelectionStep.scanEngineStep.scanEngineViewFinderTarget
+      property: VIEW_FINDER_TARGET
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.scannerSelectionStep__rearCameraStep__rearCameraTorchControl
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Torch Control
+    itemZh: 后置相机 · 手电筒
+    display:
+      type: enum
+    labels:
+      "0": "Disable"
+      "1": "Enable"
+    probe:
+      kind: scan.field
+      oemPath: scannerSelectionStep.rearCameraStep.rearCameraTorchControl
+      property: REAR_CAMERA_TORCH_CONTROL
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.scannerSelectionStep__rearCameraStep__rearCameraViewFinderWindow
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: View Finder Window
+    itemZh: 后置相机 · 取景窗
+    display:
+      type: enum
+    labels:
+      "0": "Full Screen"
+      "1": "Expanded"
+      "2": "Regular"
+      "full_screen": "Full Screen"
+      "expanded": "Expanded"
+      "regular": "Regular"
+    probe:
+      kind: scan.field
+      oemPath: scannerSelectionStep.rearCameraStep.rearCameraViewFinderWindow
+      property: VIEW_FINDER_SIZE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.scannerSelectionStep__rearCameraStep__rearCameraViewFinderTarget
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: View Finder Target
+    itemZh: 后置相机 · 取景目标
+    display:
+      type: enum
+    labels:
+      "0": "Disable"
+      "1": "Enable"
+    probe:
+      kind: scan.field
+      oemPath: scannerSelectionStep.rearCameraStep.rearCameraViewFinderTarget
+      property: VIEW_FINDER_TARGET
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.scanTriggerMode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Scan Trigger Mode
+    itemZh: 扫描触发模式
+    display:
+      type: enum
+    labels:
+      "0": "Short press decode or timeout"
+      "1": "Short press continuous"
+      "2": "Long press release stop"
+      "3": "Long press continuous release stop"
+      "4": "Hand-free continuous"
+      "8": "Hand-free continuous"
+      "10": "Short press decode or timeout"
+      "short_press_decode_or_timeout": "Short press decode or timeout"
+      "short_press_continuous": "Short press continuous"
+      "long_press_release_stop": "Long press release stop"
+      "long_press_continuous_release_stop": "Long press continuous release stop"
+      "hand_free_continuous": "Hand-free continuous"
+    probe:
+      kind: scan.field
+      oemPath: scanTriggerMode
+      property: TRIGGERING_MODES
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.continuousScanningSet__continuousScanningMode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Continuous Scanning Mode
+    itemZh: 连续扫描模式
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: continuousScanningSet.continuousScanningMode
+      property: DEC_Multiple_Decode_MODE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.continuousScanningSet__continuousScanningTimeout
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Continuous Scanning Timeout
+    itemZh: 连续扫描超时
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: continuousScanningSet.continuousScanningTimeout
+      property: DEC_Multiple_Decode_TIMEOUT
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.continuousScanningSet__continuousScanningTimeInterval
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Continuous Scanning Time Interval
+    itemZh: 连续扫描时间间隔
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: continuousScanningSet.continuousScanningTimeInterval
+      property: DEC_Multiple_Decode_INTERVAL
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.continuousScanningSet__decodeMultipleTimes
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Decode Multiple Times
+    itemZh: 解码多次个数
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: continuousScanningSet.decodeMultipleTimes
+      property: DEC_MaxMultiRead_COUNT
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.continuousScanningSet__decodeFixedNumber
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Decode Fixed Number
+    itemZh: 解码固定个数
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: continuousScanningSet.decodeFixedNumber
+      property: DEC_Multiple_Decode_MODE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.multipleBarcodeParameters__basicMultibarcode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Basic Multibarcode
+    itemZh: 多条码基础开关
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: multipleBarcodeParameters.basicMultibarcode
+      property: MULTI_DECODE_MODE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.multipleBarcodeParameters__numberOfBarcodesScannedPerTime
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Number of Barcodes Scanned Per Time
+    itemZh: 每次扫描条码数
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: multipleBarcodeParameters.numberOfBarcodesScannedPerTime
+      property: BAR_CODES_TO_READ
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.multipleBarcodeParameters__fullReadMode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Full Read Mode
+    itemZh: 全读模式
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: multipleBarcodeParameters.fullReadMode
+      property: FULL_READ_MODE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.multipleBarcodeParameters__barcodeSeparator
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Barcode Separator
+    itemZh: 条码分隔符
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: multipleBarcodeParameters.barcodeSeparator
+      property: MULTI_DECODE_GS_CHAR
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.multipleBarcodeParameters__barcodeCentroidSort
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Barcode Centroid Sort
+    itemZh: 条码重心排序
+    display:
+      type: enum
+    labels:
+      "0": "Top to bottom"
+      "1": "Left to right"
+      "2": "Vertical priority"
+    probe:
+      kind: scan.field
+      oemPath: multipleBarcodeParameters.barcodeCentroidSort
+      property: MULTI_DECODE_COORD_SORT
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__outputModeSelect
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Output Mode Select
+    itemZh: 输出方式选择
+    display:
+      type: enum
+    labels:
+      "0": "Keyboard Output"
+      "1": "Intent Output"
+      "2": "Intent and Keyboard Output"
+      "Disable": "Keyboard Output"
+      "Enable": "Intent Output"
+      "Keyboard Output": "Keyboard Output"
+      "Intent Output": "Intent Output"
+    probe:
+      kind: scan.field
+      oemPath: outputMode.outputModeSelect
+      property: WEDGE_INTENT_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__keyBoardOutputMode__keyboardType
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Keyboard Type
+    itemZh: 键盘输出 · 键盘类型
+    display:
+      type: enum
+    labels:
+      "0": "Text Box Optimization"
+      "1": "Input Method Software"
+      "2": "Only Physical Keyboard"
+    probe:
+      kind: scan.field
+      oemPath: outputMode.keyBoardOutputMode.keyboardType
+      property: WEDGE_KEYBOARD_TYPE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__keyBoardOutputMode__sound
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Sound
+    itemZh: 键盘输出 · 提示音
+    display:
+      type: enum
+    labels:
+      "0": "None"
+      "1": "Short"
+      "2": "Sharp"
+    probe:
+      kind: scan.field
+      oemPath: outputMode.keyBoardOutputMode.sound
+      property: GOOD_READ_BEEP_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__keyBoardOutputMode__vibrate
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Vibrate
+    itemZh: 键盘输出 · 振动
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: outputMode.keyBoardOutputMode.vibrate
+      property: GOOD_READ_VIBRATE_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__keyBoardOutputMode__operationKeyCharacters
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Action Key Character
+    itemZh: 键盘输出 · 操作键字符
+    display:
+      type: enum
+    labels:
+      "0": "None"
+      "1": "Carriage Return"
+      "2": "Line Feed"
+      "3": "Tab"
+    probe:
+      kind: scan.field
+      oemPath: outputMode.keyBoardOutputMode.operationKeyCharacters
+      property: LABEL_APPEND_ENTER
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__keyBoardOutputMode__specifyControlCharacter
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Specify Control Character
+    itemZh: 键盘输出 · 指定控制符
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: outputMode.keyBoardOutputMode.specifyControlCharacter
+      property: LABEL_FORMAT_SEPARATOR_CHAR
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__broadcastOutputMode__broadcastAction
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Broadcast Action
+    itemZh: 广播 · 动作
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: outputMode.broadcastOutputMode.broadcastAction
+      property: WEDGE_INTENT_ACTION_NAME
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__broadcastOutputMode__broadcastStringDataLabel
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Broadcast String Data Label
+    itemZh: 广播 · 字符串标签
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: outputMode.broadcastOutputMode.broadcastStringDataLabel
+      property: INTENT_DATA_STRING_TAG
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__broadcastOutputMode__broadcastByteDataLabel
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Broadcast Byte Data Label
+    itemZh: 广播 · 字节标签
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: outputMode.broadcastOutputMode.broadcastByteDataLabel
+      property: INTENT_DECODE_DATA_TAG
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__broadcastOutputMode__broadcastSound
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Sound
+    itemZh: 广播 · 提示音
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: outputMode.broadcastOutputMode.broadcastSound
+      property: SEND_GOOD_READ_BEEP_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__broadcastOutputMode__broadcastVibrate
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Vibrate
+    itemZh: 广播 · 振动
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: outputMode.broadcastOutputMode.broadcastVibrate
+      property: SEND_GOOD_READ_VIBRATE_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__broadcastOutputMode__pasteBoard
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Clipboard
+    itemZh: 广播 · 剪贴板
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: outputMode.broadcastOutputMode.pasteBoard
+      property: OUT_CLIPBOARD_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__broadcastOutputMode__inputTextBoxMode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Editor Text Mode
+    itemZh: 广播 · 文本框模式
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: outputMode.broadcastOutputMode.inputTextBoxMode
+      property: OUT_EDITORTEXT_MODE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__broadcastOutputMode__parseUrlAndOpen
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Parse URL and Open
+    itemZh: 广播 · 解析 URL 并打开
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: outputMode.broadcastOutputMode.parseUrlAndOpen
+      property: CACHE_DATA_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.outputMode__tcpOutputMode__tcpNetworkOutput
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: TCP Network Output
+    itemZh: TCP 网络输出
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: outputMode.tcpOutputMode.tcpNetworkOutput
+      property: IP_OUTPUT_WEDGE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__chineseEncodingType
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Coding Format
+    itemZh: 编码格式
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.chineseEncodingType
+      property: CODING_FORMAT
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__customEncodingType
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Extended Coding Format
+    itemZh: 扩展编码格式
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.customEncodingType
+      property: CODING_FORMAT_NAME
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__minimumLengthOfOneDimensionalCode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Limit 1D Min Length
+    itemZh: 限制一维码最小长度
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.minimumLengthOfOneDimensionalCode
+      property: VARIABLE_1D_MIN_LENGTH
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__minimumLengthOfOneDimensionalCodeValue
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Minimum 1D Length Value
+    itemZh: 一维码最小长度值
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.minimumLengthOfOneDimensionalCodeValue
+      property: VARIABLE_1D_MIN_LENGTH
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__beamTimer
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Beam Timer
+    itemZh: 光束计时
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.beamTimer
+      property: LASER_ON_TIME
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__multipleVerification
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Linear Code Type Security Level
+    itemZh: 线性码安全级别
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.multipleVerification
+      property: DEC_Multiple_Decode_MODE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__oneDimensionalCodeCharacteristics__fuzzy1dProcessing
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Fuzzy 1D Processing
+    itemZh: 模糊一维处理
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.oneDimensionalCodeCharacteristics.fuzzy1dProcessing
+      property: FUZZY_1D_PROCESSING
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__oneDimensionalCodeCharacteristics__oneDimensionalInverseDecod
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: 1D Inverse Decoder
+    itemZh: 一维反白解码
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.oneDimensionalCodeCharacteristics.oneDimensionalInverseDecod
+      property: IMAGE_ONE_D_INVERSE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__oneDimensionalCodeCharacteristics__oneDimensionalCodeBorderCheck
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Linear Boundary Check
+    itemZh: 一维码边界检查
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.oneDimensionalCodeCharacteristics.oneDimensionalCodeBorderCheck
+      property: LINEAR_CODE_TYPE_SECURITY_LEVEL
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__oneDimensionalCodeCharacteristics__decodingSingleImageTime
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Decoding Single Image Time
+    itemZh: 单张图像解码时间
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.oneDimensionalCodeCharacteristics.decodingSingleImageTime
+      property: DEC_EachImageAttempt_TIME
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__otherSettingsStep__lowPowerMode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Low Power Mode
+    itemZh: 低功耗模式
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.otherSettingsStep.lowPowerMode
+      property: LOW_POWER_SLEEP_MODE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__otherSettingsStep__lowContrastMode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Low Contrast Mode
+    itemZh: 低对比度模式
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.otherSettingsStep.lowContrastMode
+      property: DEC_2D_LIGHTS_MODE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__otherSettingsStep__imageContrastLevel
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Image Contrast Level
+    itemZh: 图像对比度等级
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.otherSettingsStep.imageContrastLevel
+      property: DEC_ES_IMAGE_GAMMA
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__otherSettingsStep__lowContrastImprovedAlgorithm
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Low Contrast Improved Algorithm
+    itemZh: 低对比改进算法
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.otherSettingsStep.lowContrastImprovedAlgorithm
+      property: DEC_USE_MLD
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__rgbSensorDecodingStep__imageSingleChannelRecognition
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Image Single-channel Recognition
+    itemZh: 图像单通道识别
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.rgbSensorDecodingStep.imageSingleChannelRecognition
+      property: DEC_2D_CENTERING_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.readerParameters__rgbSensorDecodingStep__imageEnhanceMode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Image Enhance Mode
+    itemZh: 图像增强模式
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: readerParameters.rgbSensorDecodingStep.imageEnhanceMode
+      property: DEC_2D_LIGHTS_MODE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.udiDataFormat__udiDataFormatSwitch
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: UDI Data Formatting
+    itemZh: UDI 数据格式化
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: udiDataFormat.udiDataFormatSwitch
+      property: LABEL_SEPARATOR_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.udiDataFormat__tokenFormat
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Token Format
+    itemZh: 令牌格式
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: udiDataFormat.tokenFormat
+      property: LABEL_MATCHER_PATTERN
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.udiDataFormat__tokenSeparator
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Token Separator
+    itemZh: 令牌分隔符
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: udiDataFormat.tokenSeparator
+      property: LABEL_FORMAT_SEPARATOR_CHAR
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.udiDataFormat__udiDate
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: UDI Date
+    itemZh: UDI 日期
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: udiDataFormat.udiDate
+      property: LABEL_MATCHER_TARGETREGEX
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.udiDataFormat__allowAllUdiIds
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Allow all UDI Label IDs
+    itemZh: 允许全部 UDI 标签 ID
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: udiDataFormat.allowAllUdiIds
+      property: LABEL_MATCHER_REPLACEMENT
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.udiDataFormat__labelIds
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Label IDs
+    itemZh: 标签 ID
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: udiDataFormat.labelIds
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__barcodeIdentifier
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Code ID Type
+    itemZh: 条码标识类型
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.barcodeIdentifier
+      property: TRANSMIT_CODE_ID
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__applicationIdentifier
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Application Identifier
+    itemZh: 应用标识符
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.applicationIdentifier
+      property: SPECIFIC_CODE_GS
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__applicationIDSeparator
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Application ID Separator
+    itemZh: 应用 ID 分隔符
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.applicationIDSeparator
+      property: LABEL_FORMAT_SEPARATOR_CHAR
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__specialCharactersGsCodeSet
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Special Characters GS CodeSet
+    itemZh: GS 特殊字符集
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.specialCharactersGsCodeSet
+      property: SPECIFIC_CODE_GS
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__additionalFormatting
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Append Formatting
+    itemZh: 附加格式化
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.additionalFormatting
+      property: SEND_LABEL_PREFIX_SUFFIX
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__prefix__prefixSpecialCharacters
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Prefix Special Characters
+    itemZh: 前缀 · 特殊字符
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.prefix.prefixSpecialCharacters
+      property: LABEL_PREFIX
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__prefix__prefixCustomCharacters
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Prefix Custom Characters
+    itemZh: 前缀 · 自定义字符
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.prefix.prefixCustomCharacters
+      property: LABEL_PREFIX
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__suffix__suffixSpecialCharacters
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Suffix Special Characters
+    itemZh: 后缀 · 特殊字符
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.suffix.suffixSpecialCharacters
+      property: LABEL_SUFFIX
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__suffix__suffixCustomCharacters
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Suffix Custom Characters
+    itemZh: 后缀 · 自定义字符
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.suffix.suffixCustomCharacters
+      property: LABEL_SUFFIX
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__format
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Formatting
+    itemZh: 格式化
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.format
+      property: LABEL_MATCHER_PATTERN
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__replace__originalChar
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Replace Original Char
+    itemZh: 替换 · 原字符
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.replace.originalChar
+      property: LABEL_MATCHER_TARGETREGEX
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__replace__replaceChar
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Replace Char
+    itemZh: 替换 · 新字符
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.replace.replaceChar
+      property: LABEL_MATCHER_REPLACEMENT
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__removeNonPrintingControlCharacter
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Remove Non-Printing Control Character
+    itemZh: 删除非打印控制字符
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.removeNonPrintingControlCharacter
+      property: REMOVE_NONPRINT_CHAR
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__convertCharacterCase
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Convert Character Case
+    itemZh: 字符大小写转换
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.convertCharacterCase
+      property: CONVERT_CHARACTER_CASE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__sendAsHex
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Send as hex
+    itemZh: 十六进制发送
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.sendAsHex
+      property: OUTPUT_HEX_STRING_DATA
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.basicDataFormat__sendControlCharactersAsEvents
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Send Control Characters as Events
+    itemZh: 控制字符作为事件发送
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: basicDataFormat.sendControlCharactersAsEvents
+      property: LABEL_APPEND_ENTER
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__code128
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Code 128
+    itemZh: Code 128
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.code128
+      property: CODE128_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__code39
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Code 39
+    itemZh: Code 39
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.code39
+      property: CODE39_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__EAN-13
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: EAN-13
+    itemZh: EAN-13
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.EAN-13
+      property: EAN13_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__EAN-8
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: EAN-8
+    itemZh: EAN-8
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.EAN-8
+      property: EAN8_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__interleaved2of5Step__interleaved2of5
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Interleaved 2 of 5
+    itemZh: Interleaved 2 of 5
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.interleaved2of5Step.interleaved2of5
+      property: I25_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__interleaved2of5Step__interleaved2of5Length1
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Interleaved 2 of 5 L1 Length
+    itemZh: ITF · L1 长度
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.interleaved2of5Step.interleaved2of5Length1
+      property: I25_LENGTH1
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__interleaved2of5Step__interleaved2of5Length2
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Interleaved 2 of 5 L2 Length
+    itemZh: ITF · L2 长度
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.interleaved2of5Step.interleaved2of5Length2
+      property: I25_LENGTH2
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__interleaved2of5Step__interleaved2of5CheckDigit
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Interleaved 2 of 5 Check Digit
+    itemZh: ITF · 校验位
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.interleaved2of5Step.interleaved2of5CheckDigit
+      property: I25_ENABLE_CHECK
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__interleaved2of5Step__interleaved2of5SendCheckDigit
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Interleaved 2 of 5 Send Check Digit
+    itemZh: ITF · 发送校验位
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.interleaved2of5Step.interleaved2of5SendCheckDigit
+      property: I25_SEND_CHECK
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__interleaved2of5Step__interleaved2of5ReducedQuietZone
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Interleaved 2 of 5 Reduced Quiet Zone
+    itemZh: ITF · 缩减静区
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.interleaved2of5Step.interleaved2of5ReducedQuietZone
+      property: I25_TO_EAN13
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__interleaved2of5Step__interleaved2of5SecurityLevel
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Interleaved 2 of 5 Security Level
+    itemZh: ITF · 安全级别
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.interleaved2of5Step.interleaved2of5SecurityLevel
+      property: LINEAR_CODE_TYPE_SECURITY_LEVEL
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__interleaved2of5Step__interleaved2of5BoundaryCheck
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Interleaved 2 of 5 Boundary Check
+    itemZh: ITF · 边界检查
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.interleaved2of5Step.interleaved2of5BoundaryCheck
+      property: LINEAR_CODE_TYPE_SECURITY_LEVEL
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__interleaved2of5Step__interleaved2of5ConvertToEan13
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Interleaved 2 of 5 Convert to EAN-13
+    itemZh: ITF · 转 EAN-13
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.interleaved2of5Step.interleaved2of5ConvertToEan13
+      property: I25_TO_EAN13
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__gs1DataBarFamilyStep__GS1DataBarFamily
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: GS1 DataBar Family
+    itemZh: GS1 DataBar 系列
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.gs1DataBarFamilyStep.GS1DataBarFamily
+      property: GS1_14_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__gs1DataBarFamilyStep__gs1DataBarLimit
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: GS1 DataBar Limited
+    itemZh: GS1 DataBar Limited
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.gs1DataBarFamilyStep.gs1DataBarLimit
+      property: GS1_LIMIT_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__gs1DataBarFamilyStep__gs1DataBarExpanded
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: GS1 DataBar Expanded
+    itemZh: GS1 DataBar Expanded
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.gs1DataBarFamilyStep.gs1DataBarExpanded
+      property: GS1_EXP_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__gs1DataBarFamilyStep__gs1ExpandedLength1
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: GS1 Expanded L1 Length
+    itemZh: GS1 Expanded · L1 长度
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.gs1DataBarFamilyStep.gs1ExpandedLength1
+      property: GS1_EXP_LENGTH1
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__gs1DataBarFamilyStep__gs1ExpandedLength2
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: GS1 Expanded L2 Length
+    itemZh: GS1 Expanded · L2 长度
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.gs1DataBarFamilyStep.gs1ExpandedLength2
+      property: GS1_EXP_LENGTH2
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__UPC-A
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: UPC-A
+    itemZh: UPC-A
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.UPC-A
+      property: UPCA_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__UPC-E
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: UPC-E
+    itemZh: UPC-E
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.UPC-E
+      property: UPCE_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__UPC-E1
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: UPC-E1
+    itemZh: UPC-E1
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.UPC-E1
+      property: UPCE1_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__UPC/EANExtensions
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: UPC/EAN Extensions
+    itemZh: UPC/EAN 扩展
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.UPC/EANExtensions
+      property: EAN_EXT_ENABLE_2_5_DIGIT
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__codabar
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Codabar
+    itemZh: Codabar
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.codabar
+      property: CODABAR_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__code11
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Code 11
+    itemZh: Code 11
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.code11
+      property: CODE11_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__code93
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Code 93
+    itemZh: Code 93
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.code93
+      property: CODE93_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__chinese25
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Chinese 2 of 5
+    itemZh: Chinese 2 of 5
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.chinese25
+      property: C25_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__discrete2of5
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Discrete 2 of 5
+    itemZh: Discrete 2 of 5
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.discrete2of5
+      property: D25_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__iata2of5
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: IATA 2 of 5
+    itemZh: IATA 2 of 5
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.iata2of5
+      property: IATA25_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2of5
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Matrix 2 of 5
+    itemZh: Matrix 2 of 5
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2of5
+      property: M25_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__msi
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: MSI
+    itemZh: MSI
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.msi
+      property: MSI_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__telepen
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Telepen
+    itemZh: Telepen
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.telepen
+      property: TELEPEN_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__stackedLinearSymbologiesStep__composite
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Composite
+    itemZh: Composite
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.stackedLinearSymbologiesStep.composite
+      property: COMPOSITE_CC_AB_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__stackedLinearSymbologiesStep__PDF417
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: PDF417
+    itemZh: PDF417
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.stackedLinearSymbologiesStep.PDF417
+      property: PDF417_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__stackedLinearSymbologiesStep__microPDF417
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: MicroPDF417
+    itemZh: MicroPDF417
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.stackedLinearSymbologiesStep.microPDF417
+      property: MICROPDF417_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__datamatrix__datamatrixEnable
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Data Matrix
+    itemZh: Data Matrix 开关
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.datamatrix.datamatrixEnable
+      property: DATAMATRIX_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__datamatrix__datamatrixInverse
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Data Matrix Inverse
+    itemZh: Data Matrix 反白
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.datamatrix.datamatrixInverse
+      property: DATAMATRIX_INVERSE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__datamatrix__datamatrixSS
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Data Matrix SS
+    itemZh: Data Matrix SS
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.datamatrix.datamatrixSS
+      property: DATAMATRIX_SYMBOL_SIZE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeEnable
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: QR Code
+    itemZh: QR Code 开关
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.QRCode.qrcodeEnable
+      property: QRCODE_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeInverse
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: QR Code Inverse
+    itemZh: QR Code 反白
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.QRCode.qrcodeInverse
+      property: QRCODE_INVERSE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeSS
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: QR Code SS
+    itemZh: QR Code SS
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.QRCode.qrcodeSS
+      property: QRCODE_SYMBOL_SIZE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeModules
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: QR Code Modules
+    itemZh: QR Code 模块
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.QRCode.qrcodeModules
+      property: QR_NON_SQUARE_MODULES
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeZones
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: QR Code Zones
+    itemZh: QR Code 区域
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.QRCode.qrcodeZones
+      property: QR_WITHOUT_QZ
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__microQRCode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Micro QR Code
+    itemZh: Micro QR Code
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.microQRCode
+      property: QRCODE_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__aztec
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Aztec
+    itemZh: Aztec
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.aztec
+      property: AZTEC_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__dotCode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: DotCode
+    itemZh: DotCode
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.dotCode
+      property: DOTCODE_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__gridMatrix
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Grid Matrix
+    itemZh: Grid Matrix
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.gridMatrix
+      property: HANXIN_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__hanXin
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Han Xin
+    itemZh: Han Xin
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.hanXin
+      property: HANXIN_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__matrix2dSymbologiesStep__maxiCode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: MaxiCode
+    itemZh: MaxiCode
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.matrix2dSymbologiesStep.maxiCode
+      property: MAXICODE_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__othersSymbologyStep__postalCodes
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Postal Codes
+    itemZh: 邮政码
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.othersSymbologyStep.postalCodes
+      property: TRIOPTIC_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.barcodeSettings__othersSymbologyStep__DPMDecoding
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: DPM Decoding
+    itemZh: DPM 解码
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: barcodeSettings.othersSymbologyStep.DPMDecoding
+      property: DEC_2D_CENTERING_ENABLE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.ocrScan__ocrDecodeMode
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: OCR Decode Mode
+    itemZh: OCR 解码模式
+    display:
+      type: enum
+    labels:
+      "0": "Off"
+      "1": "On"
+      "2": "Both"
+      "3": "Both"
+      "Off": "Off"
+      "On": "On"
+      "Normal Video": "On"
+      "normal_video": "On"
+      "Inverse": "Both"
+      "Both": "Both"
+    probe:
+      kind: scan.field
+      oemPath: ocrScan.ocrDecodeMode
+      property: DEC_OCR_MODE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.ocrScan__ocrTemplate
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: OCR Template
+    itemZh: OCR 模板
+    display:
+      type: enum
+    labels:
+      "0": "User Defined"
+      "1": "Foundation"
+      "User Defined": "User Defined"
+      "Foundation": "Foundation"
+    probe:
+      kind: scan.field
+      oemPath: ocrScan.ocrTemplate
+      property: DEC_OCR_TEMPLATE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.ocrScan__ocrFoundationTemplate__ocrTypefaceTemplate
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: OCR Typeface Template
+    itemZh: OCR 字体模板
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: ocrScan.ocrFoundationTemplate.ocrTypefaceTemplate
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.ocrScan__ocrFoundationTemplate__ocrCharacterType
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: OCR Character Type
+    itemZh: OCR 字符类型
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: ocrScan.ocrFoundationTemplate.ocrCharacterType
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.ocrScan__ocrFoundationTemplate__ocrBarcodeLength
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: OCR Barcode Length
+    itemZh: OCR 条码长度
+    display:
+      type: enum
+    probe:
+      kind: scan.field
+      oemPath: ocrScan.ocrFoundationTemplate.ocrBarcodeLength
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.ocrScan__ocrCustomTemplate
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: OCR Custom Template
+    itemZh: OCR 自定义模板
+    display:
+      type: toggle
+    labels:
+      '1': 启用
+      '0': 禁用
+    probe:
+      kind: scan.field
+      oemPath: ocrScan.ocrCustomTemplate
+      property: DEC_OCR_USER_TEMPLATE
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.featureSet__interCharacterDelay
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Inter Character Delay
+    itemZh: 字符间延迟
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: featureSet.interCharacterDelay
+      property: CHARACTER_DATA_DELAY
+    verifyPath: DT630
+    refreshMs: 12000
+  - id: scan.featureSet__enterKeyDelay
+    l1: Data Capture & Peripherals
+    module: Data Capture & Peripherals / Scanner
+    item: Enter Key Delay
+    itemZh: 回车键延迟
+    display:
+      type: text
+    probe:
+      kind: scan.field
+      oemPath: featureSet.enterKeyDelay
+      property: APPEND_ENTER_DELAY
+    verifyPath: DT630
+    refreshMs: 12000

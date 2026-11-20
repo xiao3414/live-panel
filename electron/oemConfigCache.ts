@@ -5,6 +5,7 @@ import {
   expectTemplateFromOemConfigFileText,
   type ExpectTemplate,
 } from "./oemConfigToExpect.js";
+import { migrateExpectationsProbeIds } from "./scanProbeLegacyMap.js";
 import {
   readOemConfigFromPath,
   type OemConfigPickResult,
@@ -74,6 +75,7 @@ export function isCacheStale(meta: OemConfigCacheMeta): boolean {
 
 export type OemConfigCacheListItem = OemConfigCacheMeta & {
   stale: boolean;
+  scopeLayoutId?: string;
 };
 
 export function listOemConfigCache(): OemConfigCacheListItem[] {
@@ -86,6 +88,7 @@ export function listOemConfigCache(): OemConfigCacheListItem[] {
     out.push({
       ...env.meta,
       stale: isCacheStale(env.meta),
+      scopeLayoutId: env.template?.scope?.layoutId,
     });
   }
   return out.sort((a, b) => a.fileName.localeCompare(b.fileName, "zh-CN"));
@@ -96,9 +99,16 @@ export function loadOemConfigCache(
 ): { meta: OemConfigCacheMeta; template: ExpectTemplate; stale: boolean } | null {
   const env = readEnvelope(fileName);
   if (!env?.template || !env.meta) return null;
+  const template = env.template;
+  if (
+    template.scope?.layoutId === "oem20-data-capture-scanner-panel" &&
+    template.expectations
+  ) {
+    template.expectations = migrateExpectationsProbeIds(template.expectations);
+  }
   return {
     meta: env.meta,
-    template: env.template,
+    template,
     stale: isCacheStale(env.meta),
   };
 }
@@ -106,10 +116,19 @@ export function loadOemConfigCache(
 function saveFromPick(
   pick: OemConfigPickResult & { mtimeMs: number; size: number },
 ): CacheEnvelope {
-  const template = expectTemplateFromOemConfigFileText(pick.content, {
+  let template = expectTemplateFromOemConfigFileText(pick.content, {
     sourcePath: pick.path,
     fileName: pick.fileName,
   });
+  if (
+    template.scope?.layoutId === "oem20-data-capture-scanner-panel" &&
+    template.expectations
+  ) {
+    template = {
+      ...template,
+      expectations: migrateExpectationsProbeIds(template.expectations),
+    };
+  }
   const envelope: CacheEnvelope = {
     version: 1,
     meta: {

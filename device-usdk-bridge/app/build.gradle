@@ -26,7 +26,7 @@ android {
         applicationId "com.urovo.livepanel.usdkbridge"
         minSdk 26
         targetSdk 34
-        versionCode 18
+        versionCode 29
         versionName "1.0"
         buildConfigField "boolean", "USDK_OEM_SIGN", urovoKeystore.exists() ? "true" : "false"
     }

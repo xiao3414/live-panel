@@ -84,12 +84,16 @@ export function defaultWidgetForProbe(p: ProbeSpec): LayoutWidget {
   if (p.display.type === "toggle") {
     w = 2;
     h = 2;
+  } else if (p.display.type === "docking_station_form") {
+    w = 12;
+    h = 14;
   } else if (
     p.display.type === "wifi_general_settings_form" ||
     p.display.type === "wifi_network_form" ||
     p.display.type === "wifi_preference_settings_form" ||
     p.display.type === "wifi_whitelist_settings_form" ||
-    p.display.type === "wifi_advanced_settings_form"
+    p.display.type === "wifi_advanced_settings_form" ||
+    p.display.type === "scan_module_form"
   ) {
     w = 5;
     h = 8;

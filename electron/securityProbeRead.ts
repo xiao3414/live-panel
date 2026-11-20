@@ -19,6 +19,10 @@ import {
 import { readInstallUnknownAppsEffectiveRaw } from "./adbUnknownSourcesEffective.js";
 import { readPlayProtectEffectiveRaw } from "./adbPlayProtectEffective.js";
 import { readUsbEnableEffectiveRaw } from "./adbUsbEffective.js";
+import {
+  isDeviceCharging,
+  POWER_SAVE_CHARGING_NOTE,
+} from "./adbBatteryCharging.js";
 
 /** 21 项一次 batch，减少广播轮次 */
 const BATCH_CHUNK = 21;
@@ -31,7 +35,8 @@ function featureOf(spec: ProbeSpec): string | null {
 }
 
 function hasRaw(hit: { raw: string | null } | undefined): boolean {
-  return hit?.raw != null && hit.raw !== "";
+  // 空串也算读到（如 disable_imi 无禁用项 → VAL:）
+  return hit != null && hit.raw != null;
 }
 
 export function isUsdkRuntimeBroken(note?: string | null): boolean {
@@ -143,22 +148,35 @@ async function enrichSecurityProbeResults(
   const needUnknownSource = ids.has("sec.unknown_source");
   const needPlayProtect = ids.has("sec.google_play_protect");
   const needUsb = ids.has("sec.usb");
+  const needPowerSaveCharging = [...ids].some((id) => {
+    const spec = byId.get(id);
+    return (
+      spec?.probe.kind === "security.bridge" &&
+      spec.probe.feature === "power_save_mode"
+    );
+  });
 
   const lockSummary = needLock ? await readLockSettingsSummary(config) : null;
   const cameraBlocked = needCamera
     ? await isCameraEffectivelyDisabled(config)
     : false;
-  const [mdmSnap, unknownEffective, playProtectEffective, usbEffective] =
-    await Promise.all([
-      readMdmPolicySnapshot(config),
-      needUnknownSource
-        ? readInstallUnknownAppsEffectiveRaw(config)
-        : Promise.resolve(null),
-      needPlayProtect
-        ? readPlayProtectEffectiveRaw(config)
-        : Promise.resolve(null),
-      needUsb ? readUsbEnableEffectiveRaw(config) : Promise.resolve(null),
-    ]);
+  const [
+    mdmSnap,
+    unknownEffective,
+    playProtectEffective,
+    usbEffective,
+    charging,
+  ] = await Promise.all([
+    readMdmPolicySnapshot(config),
+    needUnknownSource
+      ? readInstallUnknownAppsEffectiveRaw(config)
+      : Promise.resolve(null),
+    needPlayProtect
+      ? readPlayProtectEffectiveRaw(config)
+      : Promise.resolve(null),
+    needUsb ? readUsbEnableEffectiveRaw(config) : Promise.resolve(null),
+    needPowerSaveCharging ? isDeviceCharging(config) : Promise.resolve(false),
+  ]);
 
   const enriched: ProbeResult[] = results.map((r) => {
     const spec = byId.get(r.probeId);
@@ -250,6 +268,20 @@ async function enrichSecurityProbeResults(
         out = { ...out, supportMessage: playProtectEffective.detail };
       }
       return out;
+    }
+
+    // 库：省电模式「不能充电时推送」；USB/ADB 充电中读到关 → 对比豁免
+    if (
+      charging &&
+      spec.probe.kind === "security.bridge" &&
+      spec.probe.feature === "power_save_mode" &&
+      (r.raw === "0" || r.raw === "false")
+    ) {
+      return {
+        ...r,
+        supportMessage: POWER_SAVE_CHARGING_NOTE,
+        platformCompareExempt: { message: POWER_SAVE_CHARGING_NOTE },
+      };
     }
 
     return r;

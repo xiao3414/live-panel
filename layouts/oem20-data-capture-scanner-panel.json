@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "name": "OEM2.0 · Data Capture · Scanner",
+  "oemModule": "Data Capture & Peripherals",
+  "description": "DT630 · Scanner 129 项 · 13 个 SOTI 模块块（261009 APK）",
+  "grid": {
+    "cols": 12,
+    "rowHeight": 64,
+    "margin": [
+      10,
+      10
+    ],
+    "compactType": "vertical"
+  },
+  "layoutVersion": 16,
+  "refresh": {
+    "globalMs": 12000,
+    "pauseWhenHidden": true
+  },
+  "widgets": [
+    {
+      "id": "w_scan_module_scanSwitch",
+      "probeIds": [
+        "scan.module.scanSwitch"
+      ],
+      "title": "Scan Switch",
+      "titleZh": "扫描开关",
+      "x": 0,
+      "y": 0,
+      "w": 3,
+      "h": 1,
+      "sotiOrder": 0
+    },
+    {
+      "id": "w_scan_module_scanFloatingButton",
+      "probeIds": [
+        "scan.module.scanFloatingButton"
+      ],
+      "title": "Floating Scan Button",
+      "titleZh": "悬浮扫描按钮",
+      "x": 3,
+      "y": 0,
+      "w": 3,
+      "h": 1,
+      "sotiOrder": 1
+    },
+    {
+      "id": "w_scan_module_scannerSelectionStep",
+      "probeIds": [
+        "scan.module.scannerSelectionStep"
+      ],
+      "title": "Scanner Selection",
+      "titleZh": "扫码头选择",
+      "x": 0,
+      "y": 1,
+      "w": 12,
+      "h": 4,
+      "sotiOrder": 2
+    },
+    {
+      "id": "w_scan_module_scanTriggerMode",
+      "probeIds": [
+        "scan.module.scanTriggerMode"
+      ],
+      "title": "Scan Trigger Mode",
+      "titleZh": "扫描触发模式",
+      "x": 0,
+      "y": 5,
+      "w": 3,
+      "h": 1,
+      "sotiOrder": 3
+    },
+    {
+      "id": "w_scan_module_continuousScanningSet",
+      "probeIds": [
+        "scan.module.continuousScanningSet"
+      ],
+      "title": "Continuous Scanning Set",
+      "titleZh": "连续扫描设置",
+      "x": 0,
+      "y": 6,
+      "w": 12,
+      "h": 4,
+      "sotiOrder": 4
+    },
+    {
+      "id": "w_scan_module_multipleBarcodeParameters",
+      "probeIds": [
+        "scan.module.multipleBarcodeParameters"
+      ],
+      "title": "Multibarcode Config",
+      "titleZh": "多条码配置",
+      "x": 0,
+      "y": 10,
+      "w": 12,
+      "h": 4,
+      "sotiOrder": 5
+    },
+    {
+      "id": "w_scan_module_outputMode",
+      "probeIds": [
+        "scan.module.outputMode"
+      ],
+      "title": "Output Mode",
+      "titleZh": "输出方式",
+      "x": 0,
+      "y": 14,
+      "w": 12,
+      "h": 6,
+      "sotiOrder": 6
+    },
+    {
+      "id": "w_scan_module_readerParameters",
+      "probeIds": [
+        "scan.module.readerParameters"
+      ],
+      "title": "Reader Parameters",
+      "titleZh": "读取器参数",
+      "x": 0,
+      "y": 20,
+      "w": 12,
+      "h": 6,
+      "sotiOrder": 7
+    },
+    {
+      "id": "w_scan_module_udiDataFormat",
+      "probeIds": [
+        "scan.module.udiDataFormat"
+      ],
+      "title": "UDI Data Format",
+      "titleZh": "UDI 数据格式",
+      "x": 0,
+      "y": 26,
+      "w": 12,
+      "h": 4,
+      "sotiOrder": 8
+    },
+    {
+      "id": "w_scan_module_basicDataFormat",
+      "probeIds": [
+        "scan.module.basicDataFormat"
+      ],
+      "title": "Basic Data Format",
+      "titleZh": "基本数据格式",
+      "x": 0,
+      "y": 30,
+      "w": 12,
+      "h": 6,
+      "sotiOrder": 9
+    },
+    {
+      "id": "w_scan_module_barcodeSettings",
+      "probeIds": [
+        "scan.module.barcodeSettings"
+      ],
+      "title": "Symbology Settings",
+      "titleZh": "条码制式",
+      "x": 0,
+      "y": 36,
+      "w": 12,
+      "h": 16,
+      "sotiOrder": 10
+    },
+    {
+      "id": "w_scan_module_ocrScan",
+      "probeIds": [
+        "scan.module.ocrScan"
+      ],
+      "title": "OCR Scan",
+      "titleZh": "OCR 扫描",
+      "x": 0,
+      "y": 52,
+      "w": 12,
+      "h": 4,
+      "sotiOrder": 11
+    },
+    {
+      "id": "w_scan_module_featureSet",
+      "probeIds": [
+        "scan.module.featureSet"
+      ],
+      "title": "Special Settings",
+      "titleZh": "特色设置",
+      "x": 0,
+      "y": 56,
+      "w": 4,
+      "h": 4,
+      "sotiOrder": 12
+    }
+  ]
+}

@@ -21,6 +21,16 @@ export function loadAppConfig(): AppConfig {
   return JSON.parse(raw) as AppConfig;
 }
 
+/** js-yaml 会把 `12: 12` 解析成 number；UI/对比一律要 string */
+function coerceProbeLabels(p: ProbeSpec): ProbeSpec {
+  if (!p.labels) return p;
+  const labels: Record<string, string> = {};
+  for (const [k, v] of Object.entries(p.labels)) {
+    labels[String(k)] = v == null ? "" : String(v);
+  }
+  return { ...p, labels };
+}
+
 function loadRegistryMerged(): RegistryFile {
   const root = registryRootDir();
   const indexPath = path.join(root, "index.yaml");
@@ -32,7 +42,9 @@ function loadRegistryMerged(): RegistryFile {
     for (const rel of index.includes ?? []) {
       const modPath = path.join(root, rel.replace(/\//g, path.sep));
       const mod = yaml.load(fs.readFileSync(modPath, "utf8")) as RegistryModuleFile;
-      probes.push(...(mod.probes ?? []));
+      for (const p of mod.probes ?? []) {
+        probes.push(coerceProbeLabels(p));
+      }
     }
     return {
       version: index.version,
@@ -41,7 +53,11 @@ function loadRegistryMerged(): RegistryFile {
     };
   }
 
-  return yaml.load(fs.readFileSync(legacyPath, "utf8")) as RegistryFile;
+  const legacy = yaml.load(fs.readFileSync(legacyPath, "utf8")) as RegistryFile;
+  return {
+    ...legacy,
+    probes: (legacy.probes ?? []).map(coerceProbeLabels),
+  };
 }
 
 export function loadRegistry(): {

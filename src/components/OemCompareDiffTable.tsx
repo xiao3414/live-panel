@@ -26,9 +26,12 @@ export function OemCompareDiffTable({ rows, probeMeta }: Props) {
         </thead>
         <tbody>
           {rows.map((r) => {
+            const pm = probeMeta.get(r.probeId);
             const title = probeBlockTitle(
               r.probeId,
-              probeMeta.get(r.probeId)?.item,
+              pm?.item,
+              undefined,
+              pm?.itemZh,
             ).main;
             const jsonOrig = jsonOriginalConfigLabel(r);
             const panelExpect =
@@ -48,7 +51,7 @@ export function OemCompareDiffTable({ rows, probeMeta }: Props) {
                   ) : null}
                 </td>
                 <td className="oem-diff-table__device">
-                  {actualDisplayLabel(r)}
+                  {actualDisplayLabel(r, pm)}
                 </td>
                 <td className="oem-diff-table__status">
                   {r.status === "mismatch" ? "不符" : "未读到"}

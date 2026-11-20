@@ -10,7 +10,7 @@ import type { AppConfig } from "./types.js";
 export const BRIDGE_PKG = "com.urovo.livepanel.usdkbridge";
 
 /** 与 device-usdk-bridge/app/build.gradle versionCode 同步 */
-export const BUNDLED_BRIDGE_VERSION_CODE = 18;
+export const BUNDLED_BRIDGE_VERSION_CODE = 20;
 
 export type BridgeEnsureResult = {
   ok: boolean;

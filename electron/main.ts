@@ -9,6 +9,8 @@ import {
   readProbeValue,
 } from "./probeRunner.js";
 import { readSecurityProbeResults } from "./securityProbeRead.js";
+import { readScanProbeResults } from "./scanProbeRead.js";
+import { invalidateScanWedgeCache } from "./scanWedgeRead.js";
 import { resetBridgeSession } from "./usdkBroadcast.js";
 import type { ProbeSpec } from "./types.js";
 import { readModuleByL1 } from "./moduleRead.js";
@@ -294,6 +296,11 @@ app.whenReady().then(() => {
     const cfg = await ensureConfigDevice();
     return applyWifiGeneralSettings(cfg, payload);
   });
+  ipcMain.handle("docking:apply", async (_e, payload) => {
+    const cfg = await ensureConfigDevice();
+    const { applyDockingSettings } = await import("./dockingBridge.js");
+    return applyDockingSettings(cfg, payload ?? {});
+  });
   ipcMain.handle("wifi:readAdvanced", async () => {
     const cfg = await ensureConfigDevice();
     return readWifiAdvancedSettings(cfg);
@@ -428,13 +435,19 @@ app.whenReady().then(() => {
         const spec = byId.get(id);
         return spec && securityBridgeFeature(spec) != null;
       });
+      const scanIds = probeIds.filter((id) => id.startsWith("scan."));
       const allSecurity =
         securityIds.length >= 2 && securityIds.length === probeIds.length;
+      const allScan =
+        scanIds.length >= 2 && scanIds.length === probeIds.length;
       if (securityIds.length > 0) {
         await ensureDeviceBridge(cfg);
       }
       if (allSecurity) {
         return readSecurityProbeResults(cfg, probeIds, byId);
+      }
+      if (allScan) {
+        return readScanProbeResults(cfg, probeIds, byId);
       }
       return runProbesParallel(cfg, probeIds, byId);
     })().finally(() => {

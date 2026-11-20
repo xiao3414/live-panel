@@ -1,0 +1,11 @@
+{
+  "privateDnsStep.privateDNSMode": "netcfg.privateDnsStep__privateDNSMode",
+  "privateDnsStep.privateDNS": "netcfg.privateDnsStep__privateDNS",
+  "privateDnsStep.deviceHostName": "netcfg.privateDnsStep__deviceHostName",
+  "privateDnsStep.deviceModelName": "netcfg.privateDnsStep__deviceModelName",
+  "nfcStep.nfcAdapter": "netcfg.nfcStep__nfcAdapter",
+  "ethernetStep.ethernetEnable": "netcfg.ethernetStep__ethernetEnable",
+  "gpsStep.GPSEnable": "netcfg.gpsStep__GPSEnable",
+  "bluetoothStep.BTEnable": "netcfg.bluetoothStep__BTEnable",
+  "airplaneStep.airplaneEnable": "netcfg.airplaneStep__airplaneEnable"
+}

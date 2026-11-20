@@ -1,0 +1,1169 @@
+{
+  "version": 1,
+  "source": "policies/oem20/data-capture/Scan-1.json",
+  "apkRef": "Urovo_OEMConfig_2.0.0.261009_1744.apk",
+  "itemCount": 129,
+  "items": [
+    {
+      "oemPath": "scanSwitch",
+      "probeId": "scan.scanSwitch",
+      "title": "Scan Switch",
+      "titleZh": "扫描开关",
+      "section": "Scan",
+      "displayType": "toggle",
+      "wedgeProperty": "SCANNER_ENABLE"
+    },
+    {
+      "oemPath": "scanFloatingButton",
+      "probeId": "scan.scanFloatingButton",
+      "title": "Scan Floating Button",
+      "titleZh": "扫描悬浮按钮",
+      "section": "Scan",
+      "displayType": "toggle",
+      "wedgeProperty": "SUSPENSION_BUTTON"
+    },
+    {
+      "oemPath": "scannerSelectionStep.internalSelection",
+      "probeId": "scan.scannerSelectionStep__internalSelection",
+      "title": "Internal Selection",
+      "titleZh": "扫码头选择（内置）",
+      "section": "Scanner Selection",
+      "displayType": "enum",
+      "wedgeProperty": "SCANNER_INTERNAL_CAMERA_ID"
+    },
+    {
+      "oemPath": "scannerSelectionStep.scanEngineStep.scanEngineViewFinderTarget",
+      "probeId": "scan.scannerSelectionStep__scanEngineStep__scanEngineViewFinderTarget",
+      "title": "View Finder Target",
+      "titleZh": "扫码头 · 取景目标",
+      "section": "Scanner Selection",
+      "displayType": "enum",
+      "wedgeProperty": "VIEW_FINDER_TARGET"
+    },
+    {
+      "oemPath": "scannerSelectionStep.rearCameraStep.rearCameraTorchControl",
+      "probeId": "scan.scannerSelectionStep__rearCameraStep__rearCameraTorchControl",
+      "title": "Torch Control",
+      "titleZh": "后置相机 · 手电筒",
+      "section": "Scanner Selection",
+      "displayType": "enum",
+      "wedgeProperty": "REAR_CAMERA_TORCH_CONTROL"
+    },
+    {
+      "oemPath": "scannerSelectionStep.rearCameraStep.rearCameraViewFinderWindow",
+      "probeId": "scan.scannerSelectionStep__rearCameraStep__rearCameraViewFinderWindow",
+      "title": "View Finder Window",
+      "titleZh": "后置相机 · 取景窗",
+      "section": "Scanner Selection",
+      "displayType": "enum",
+      "wedgeProperty": "VIEW_FINDER_SIZE"
+    },
+    {
+      "oemPath": "scannerSelectionStep.rearCameraStep.rearCameraViewFinderTarget",
+      "probeId": "scan.scannerSelectionStep__rearCameraStep__rearCameraViewFinderTarget",
+      "title": "View Finder Target",
+      "titleZh": "后置相机 · 取景目标",
+      "section": "Scanner Selection",
+      "displayType": "enum",
+      "wedgeProperty": "VIEW_FINDER_TARGET"
+    },
+    {
+      "oemPath": "scanTriggerMode",
+      "probeId": "scan.scanTriggerMode",
+      "title": "Scan Trigger Mode",
+      "titleZh": "扫描触发模式",
+      "section": "Scan",
+      "displayType": "enum",
+      "wedgeProperty": "TRIGGERING_MODES"
+    },
+    {
+      "oemPath": "continuousScanningSet.continuousScanningMode",
+      "probeId": "scan.continuousScanningSet__continuousScanningMode",
+      "title": "Continuous Scanning Mode",
+      "titleZh": "连续扫描模式",
+      "section": "Continuous scanning set",
+      "displayType": "toggle",
+      "wedgeProperty": "DEC_Multiple_Decode_MODE"
+    },
+    {
+      "oemPath": "continuousScanningSet.continuousScanningTimeout",
+      "probeId": "scan.continuousScanningSet__continuousScanningTimeout",
+      "title": "Continuous Scanning Timeout",
+      "titleZh": "连续扫描超时",
+      "section": "Continuous scanning set",
+      "displayType": "text",
+      "wedgeProperty": "DEC_Multiple_Decode_TIMEOUT"
+    },
+    {
+      "oemPath": "continuousScanningSet.continuousScanningTimeInterval",
+      "probeId": "scan.continuousScanningSet__continuousScanningTimeInterval",
+      "title": "Continuous Scanning Time Interval",
+      "titleZh": "连续扫描时间间隔",
+      "section": "Continuous scanning set",
+      "displayType": "text",
+      "wedgeProperty": "DEC_Multiple_Decode_INTERVAL"
+    },
+    {
+      "oemPath": "continuousScanningSet.decodeMultipleTimes",
+      "probeId": "scan.continuousScanningSet__decodeMultipleTimes",
+      "title": "Decode Multiple Times",
+      "titleZh": "解码多次个数",
+      "section": "Continuous scanning set",
+      "displayType": "text",
+      "wedgeProperty": "DEC_MaxMultiRead_COUNT"
+    },
+    {
+      "oemPath": "continuousScanningSet.decodeFixedNumber",
+      "probeId": "scan.continuousScanningSet__decodeFixedNumber",
+      "title": "Decode Fixed Number",
+      "titleZh": "解码固定个数",
+      "section": "Continuous scanning set",
+      "displayType": "toggle",
+      "wedgeProperty": "DEC_Multiple_Decode_MODE"
+    },
+    {
+      "oemPath": "multipleBarcodeParameters.basicMultibarcode",
+      "probeId": "scan.multipleBarcodeParameters__basicMultibarcode",
+      "title": "Basic Multibarcode",
+      "titleZh": "多条码基础开关",
+      "section": "Multibarcode Config",
+      "displayType": "toggle",
+      "wedgeProperty": "MULTI_DECODE_MODE"
+    },
+    {
+      "oemPath": "multipleBarcodeParameters.numberOfBarcodesScannedPerTime",
+      "probeId": "scan.multipleBarcodeParameters__numberOfBarcodesScannedPerTime",
+      "title": "Number of Barcodes Scanned Per Time",
+      "titleZh": "每次扫描条码数",
+      "section": "Multibarcode Config",
+      "displayType": "text",
+      "wedgeProperty": "BAR_CODES_TO_READ"
+    },
+    {
+      "oemPath": "multipleBarcodeParameters.fullReadMode",
+      "probeId": "scan.multipleBarcodeParameters__fullReadMode",
+      "title": "Full Read Mode",
+      "titleZh": "全读模式",
+      "section": "Multibarcode Config",
+      "displayType": "toggle",
+      "wedgeProperty": "FULL_READ_MODE"
+    },
+    {
+      "oemPath": "multipleBarcodeParameters.barcodeSeparator",
+      "probeId": "scan.multipleBarcodeParameters__barcodeSeparator",
+      "title": "Barcode Separator",
+      "titleZh": "条码分隔符",
+      "section": "Multibarcode Config",
+      "displayType": "text",
+      "wedgeProperty": "MULTI_DECODE_GS_CHAR"
+    },
+    {
+      "oemPath": "multipleBarcodeParameters.barcodeCentroidSort",
+      "probeId": "scan.multipleBarcodeParameters__barcodeCentroidSort",
+      "title": "Barcode Centroid Sort",
+      "titleZh": "条码重心排序",
+      "section": "Multibarcode Config",
+      "displayType": "enum",
+      "wedgeProperty": "MULTI_DECODE_COORD_SORT"
+    },
+    {
+      "oemPath": "outputMode.outputModeSelect",
+      "probeId": "scan.outputMode__outputModeSelect",
+      "title": "Output Mode Select",
+      "titleZh": "输出方式选择",
+      "section": "Output Mode",
+      "displayType": "enum",
+      "wedgeProperty": "WEDGE_INTENT_ENABLE"
+    },
+    {
+      "oemPath": "outputMode.keyBoardOutputMode.keyboardType",
+      "probeId": "scan.outputMode__keyBoardOutputMode__keyboardType",
+      "title": "Keyboard Type",
+      "titleZh": "键盘输出 · 键盘类型",
+      "section": "Output Mode",
+      "displayType": "enum",
+      "wedgeProperty": "WEDGE_KEYBOARD_TYPE"
+    },
+    {
+      "oemPath": "outputMode.keyBoardOutputMode.sound",
+      "probeId": "scan.outputMode__keyBoardOutputMode__sound",
+      "title": "Sound",
+      "titleZh": "键盘输出 · 提示音",
+      "section": "Output Mode",
+      "displayType": "enum",
+      "wedgeProperty": "GOOD_READ_BEEP_ENABLE"
+    },
+    {
+      "oemPath": "outputMode.keyBoardOutputMode.vibrate",
+      "probeId": "scan.outputMode__keyBoardOutputMode__vibrate",
+      "title": "Vibrate",
+      "titleZh": "键盘输出 · 振动",
+      "section": "Output Mode",
+      "displayType": "toggle",
+      "wedgeProperty": "GOOD_READ_VIBRATE_ENABLE"
+    },
+    {
+      "oemPath": "outputMode.keyBoardOutputMode.operationKeyCharacters",
+      "probeId": "scan.outputMode__keyBoardOutputMode__operationKeyCharacters",
+      "title": "Action Key Character",
+      "titleZh": "键盘输出 · 操作键字符",
+      "section": "Output Mode",
+      "displayType": "enum",
+      "wedgeProperty": "LABEL_APPEND_ENTER"
+    },
+    {
+      "oemPath": "outputMode.keyBoardOutputMode.specifyControlCharacter",
+      "probeId": "scan.outputMode__keyBoardOutputMode__specifyControlCharacter",
+      "title": "Specify Control Character",
+      "titleZh": "键盘输出 · 指定控制符",
+      "section": "Output Mode",
+      "displayType": "text",
+      "wedgeProperty": "LABEL_FORMAT_SEPARATOR_CHAR"
+    },
+    {
+      "oemPath": "outputMode.broadcastOutputMode.broadcastAction",
+      "probeId": "scan.outputMode__broadcastOutputMode__broadcastAction",
+      "title": "Broadcast Action",
+      "titleZh": "广播 · 动作",
+      "section": "Output Mode",
+      "displayType": "text",
+      "wedgeProperty": "WEDGE_INTENT_ACTION_NAME"
+    },
+    {
+      "oemPath": "outputMode.broadcastOutputMode.broadcastStringDataLabel",
+      "probeId": "scan.outputMode__broadcastOutputMode__broadcastStringDataLabel",
+      "title": "Broadcast String Data Label",
+      "titleZh": "广播 · 字符串标签",
+      "section": "Output Mode",
+      "displayType": "text",
+      "wedgeProperty": "INTENT_DATA_STRING_TAG"
+    },
+    {
+      "oemPath": "outputMode.broadcastOutputMode.broadcastByteDataLabel",
+      "probeId": "scan.outputMode__broadcastOutputMode__broadcastByteDataLabel",
+      "title": "Broadcast Byte Data Label",
+      "titleZh": "广播 · 字节标签",
+      "section": "Output Mode",
+      "displayType": "text",
+      "wedgeProperty": "INTENT_DECODE_DATA_TAG"
+    },
+    {
+      "oemPath": "outputMode.broadcastOutputMode.broadcastSound",
+      "probeId": "scan.outputMode__broadcastOutputMode__broadcastSound",
+      "title": "Sound",
+      "titleZh": "广播 · 提示音",
+      "section": "Output Mode",
+      "displayType": "toggle",
+      "wedgeProperty": "SEND_GOOD_READ_BEEP_ENABLE"
+    },
+    {
+      "oemPath": "outputMode.broadcastOutputMode.broadcastVibrate",
+      "probeId": "scan.outputMode__broadcastOutputMode__broadcastVibrate",
+      "title": "Vibrate",
+      "titleZh": "广播 · 振动",
+      "section": "Output Mode",
+      "displayType": "toggle",
+      "wedgeProperty": "SEND_GOOD_READ_VIBRATE_ENABLE"
+    },
+    {
+      "oemPath": "outputMode.broadcastOutputMode.pasteBoard",
+      "probeId": "scan.outputMode__broadcastOutputMode__pasteBoard",
+      "title": "Clipboard",
+      "titleZh": "广播 · 剪贴板",
+      "section": "Output Mode",
+      "displayType": "toggle",
+      "wedgeProperty": "OUT_CLIPBOARD_ENABLE"
+    },
+    {
+      "oemPath": "outputMode.broadcastOutputMode.inputTextBoxMode",
+      "probeId": "scan.outputMode__broadcastOutputMode__inputTextBoxMode",
+      "title": "Editor Text Mode",
+      "titleZh": "广播 · 文本框模式",
+      "section": "Output Mode",
+      "displayType": "toggle",
+      "wedgeProperty": "OUT_EDITORTEXT_MODE"
+    },
+    {
+      "oemPath": "outputMode.broadcastOutputMode.parseUrlAndOpen",
+      "probeId": "scan.outputMode__broadcastOutputMode__parseUrlAndOpen",
+      "title": "Parse URL and Open",
+      "titleZh": "广播 · 解析 URL 并打开",
+      "section": "Output Mode",
+      "displayType": "toggle",
+      "wedgeProperty": "CACHE_DATA_ENABLE"
+    },
+    {
+      "oemPath": "outputMode.tcpOutputMode.tcpNetworkOutput",
+      "probeId": "scan.outputMode__tcpOutputMode__tcpNetworkOutput",
+      "title": "TCP Network Output",
+      "titleZh": "TCP 网络输出",
+      "section": "Output Mode",
+      "displayType": "toggle",
+      "wedgeProperty": "IP_OUTPUT_WEDGE"
+    },
+    {
+      "oemPath": "readerParameters.chineseEncodingType",
+      "probeId": "scan.readerParameters__chineseEncodingType",
+      "title": "Coding Format",
+      "titleZh": "编码格式",
+      "section": "Reader parameters",
+      "displayType": "toggle",
+      "wedgeProperty": "CODING_FORMAT"
+    },
+    {
+      "oemPath": "readerParameters.customEncodingType",
+      "probeId": "scan.readerParameters__customEncodingType",
+      "title": "Extended Coding Format",
+      "titleZh": "扩展编码格式",
+      "section": "Reader parameters",
+      "displayType": "text",
+      "wedgeProperty": "CODING_FORMAT_NAME"
+    },
+    {
+      "oemPath": "readerParameters.minimumLengthOfOneDimensionalCode",
+      "probeId": "scan.readerParameters__minimumLengthOfOneDimensionalCode",
+      "title": "Limit 1D Min Length",
+      "titleZh": "限制一维码最小长度",
+      "section": "Reader parameters",
+      "displayType": "toggle",
+      "wedgeProperty": "VARIABLE_1D_MIN_LENGTH"
+    },
+    {
+      "oemPath": "readerParameters.minimumLengthOfOneDimensionalCodeValue",
+      "probeId": "scan.readerParameters__minimumLengthOfOneDimensionalCodeValue",
+      "title": "Minimum 1D Length Value",
+      "titleZh": "一维码最小长度值",
+      "section": "Reader parameters",
+      "displayType": "text",
+      "wedgeProperty": "VARIABLE_1D_MIN_LENGTH"
+    },
+    {
+      "oemPath": "readerParameters.beamTimer",
+      "probeId": "scan.readerParameters__beamTimer",
+      "title": "Beam Timer",
+      "titleZh": "光束计时",
+      "section": "Reader parameters",
+      "displayType": "text",
+      "wedgeProperty": "LASER_ON_TIME"
+    },
+    {
+      "oemPath": "readerParameters.multipleVerification",
+      "probeId": "scan.readerParameters__multipleVerification",
+      "title": "Linear Code Type Security Level",
+      "titleZh": "线性码安全级别",
+      "section": "Reader parameters",
+      "displayType": "toggle",
+      "wedgeProperty": "DEC_Multiple_Decode_MODE"
+    },
+    {
+      "oemPath": "readerParameters.oneDimensionalCodeCharacteristics.fuzzy1dProcessing",
+      "probeId": "scan.readerParameters__oneDimensionalCodeCharacteristics__fuzzy1dProcessing",
+      "title": "Fuzzy 1D Processing",
+      "titleZh": "模糊一维处理",
+      "section": "Reader parameters",
+      "displayType": "toggle",
+      "wedgeProperty": "FUZZY_1D_PROCESSING"
+    },
+    {
+      "oemPath": "readerParameters.oneDimensionalCodeCharacteristics.oneDimensionalInverseDecod",
+      "probeId": "scan.readerParameters__oneDimensionalCodeCharacteristics__oneDimensionalInverseDecod",
+      "title": "1D Inverse Decoder",
+      "titleZh": "一维反白解码",
+      "section": "Reader parameters",
+      "displayType": "toggle",
+      "wedgeProperty": "IMAGE_ONE_D_INVERSE"
+    },
+    {
+      "oemPath": "readerParameters.oneDimensionalCodeCharacteristics.oneDimensionalCodeBorderCheck",
+      "probeId": "scan.readerParameters__oneDimensionalCodeCharacteristics__oneDimensionalCodeBorderCheck",
+      "title": "Linear Boundary Check",
+      "titleZh": "一维码边界检查",
+      "section": "Reader parameters",
+      "displayType": "toggle",
+      "wedgeProperty": "LINEAR_CODE_TYPE_SECURITY_LEVEL"
+    },
+    {
+      "oemPath": "readerParameters.oneDimensionalCodeCharacteristics.decodingSingleImageTime",
+      "probeId": "scan.readerParameters__oneDimensionalCodeCharacteristics__decodingSingleImageTime",
+      "title": "Decoding Single Image Time",
+      "titleZh": "单张图像解码时间",
+      "section": "Reader parameters",
+      "displayType": "text",
+      "wedgeProperty": "DEC_EachImageAttempt_TIME"
+    },
+    {
+      "oemPath": "readerParameters.otherSettingsStep.lowPowerMode",
+      "probeId": "scan.readerParameters__otherSettingsStep__lowPowerMode",
+      "title": "Low Power Mode",
+      "titleZh": "低功耗模式",
+      "section": "Reader parameters",
+      "displayType": "toggle",
+      "wedgeProperty": "LOW_POWER_SLEEP_MODE"
+    },
+    {
+      "oemPath": "readerParameters.otherSettingsStep.lowContrastMode",
+      "probeId": "scan.readerParameters__otherSettingsStep__lowContrastMode",
+      "title": "Low Contrast Mode",
+      "titleZh": "低对比度模式",
+      "section": "Reader parameters",
+      "displayType": "toggle",
+      "wedgeProperty": "DEC_2D_LIGHTS_MODE"
+    },
+    {
+      "oemPath": "readerParameters.otherSettingsStep.imageContrastLevel",
+      "probeId": "scan.readerParameters__otherSettingsStep__imageContrastLevel",
+      "title": "Image Contrast Level",
+      "titleZh": "图像对比度等级",
+      "section": "Reader parameters",
+      "displayType": "text",
+      "wedgeProperty": "DEC_ES_IMAGE_GAMMA"
+    },
+    {
+      "oemPath": "readerParameters.otherSettingsStep.lowContrastImprovedAlgorithm",
+      "probeId": "scan.readerParameters__otherSettingsStep__lowContrastImprovedAlgorithm",
+      "title": "Low Contrast Improved Algorithm",
+      "titleZh": "低对比改进算法",
+      "section": "Reader parameters",
+      "displayType": "toggle",
+      "wedgeProperty": "DEC_USE_MLD"
+    },
+    {
+      "oemPath": "readerParameters.rgbSensorDecodingStep.imageSingleChannelRecognition",
+      "probeId": "scan.readerParameters__rgbSensorDecodingStep__imageSingleChannelRecognition",
+      "title": "Image Single-channel Recognition",
+      "titleZh": "图像单通道识别",
+      "section": "Reader parameters",
+      "displayType": "toggle",
+      "wedgeProperty": "DEC_2D_CENTERING_ENABLE"
+    },
+    {
+      "oemPath": "readerParameters.rgbSensorDecodingStep.imageEnhanceMode",
+      "probeId": "scan.readerParameters__rgbSensorDecodingStep__imageEnhanceMode",
+      "title": "Image Enhance Mode",
+      "titleZh": "图像增强模式",
+      "section": "Reader parameters",
+      "displayType": "toggle",
+      "wedgeProperty": "DEC_2D_LIGHTS_MODE"
+    },
+    {
+      "oemPath": "udiDataFormat.udiDataFormatSwitch",
+      "probeId": "scan.udiDataFormat__udiDataFormatSwitch",
+      "title": "UDI Data Formatting",
+      "titleZh": "UDI 数据格式化",
+      "section": "UDI Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "LABEL_SEPARATOR_ENABLE"
+    },
+    {
+      "oemPath": "udiDataFormat.tokenFormat",
+      "probeId": "scan.udiDataFormat__tokenFormat",
+      "title": "Token Format",
+      "titleZh": "令牌格式",
+      "section": "UDI Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "LABEL_MATCHER_PATTERN"
+    },
+    {
+      "oemPath": "udiDataFormat.tokenSeparator",
+      "probeId": "scan.udiDataFormat__tokenSeparator",
+      "title": "Token Separator",
+      "titleZh": "令牌分隔符",
+      "section": "UDI Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "LABEL_FORMAT_SEPARATOR_CHAR"
+    },
+    {
+      "oemPath": "udiDataFormat.udiDate",
+      "probeId": "scan.udiDataFormat__udiDate",
+      "title": "UDI Date",
+      "titleZh": "UDI 日期",
+      "section": "UDI Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "LABEL_MATCHER_TARGETREGEX"
+    },
+    {
+      "oemPath": "udiDataFormat.allowAllUdiIds",
+      "probeId": "scan.udiDataFormat__allowAllUdiIds",
+      "title": "Allow all UDI Label IDs",
+      "titleZh": "允许全部 UDI 标签 ID",
+      "section": "UDI Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "LABEL_MATCHER_REPLACEMENT"
+    },
+    {
+      "oemPath": "udiDataFormat.labelIds",
+      "probeId": "scan.udiDataFormat__labelIds",
+      "title": "Label IDs",
+      "titleZh": "标签 ID",
+      "section": "UDI Data Format",
+      "displayType": "text",
+      "wedgeProperty": null
+    },
+    {
+      "oemPath": "basicDataFormat.barcodeIdentifier",
+      "probeId": "scan.basicDataFormat__barcodeIdentifier",
+      "title": "Code ID Type",
+      "titleZh": "条码标识类型",
+      "section": "Basic Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "TRANSMIT_CODE_ID"
+    },
+    {
+      "oemPath": "basicDataFormat.applicationIdentifier",
+      "probeId": "scan.basicDataFormat__applicationIdentifier",
+      "title": "Application Identifier",
+      "titleZh": "应用标识符",
+      "section": "Basic Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "SPECIFIC_CODE_GS"
+    },
+    {
+      "oemPath": "basicDataFormat.applicationIDSeparator",
+      "probeId": "scan.basicDataFormat__applicationIDSeparator",
+      "title": "Application ID Separator",
+      "titleZh": "应用 ID 分隔符",
+      "section": "Basic Data Format",
+      "displayType": "text",
+      "wedgeProperty": "LABEL_FORMAT_SEPARATOR_CHAR"
+    },
+    {
+      "oemPath": "basicDataFormat.specialCharactersGsCodeSet",
+      "probeId": "scan.basicDataFormat__specialCharactersGsCodeSet",
+      "title": "Special Characters GS CodeSet",
+      "titleZh": "GS 特殊字符集",
+      "section": "Basic Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "SPECIFIC_CODE_GS"
+    },
+    {
+      "oemPath": "basicDataFormat.additionalFormatting",
+      "probeId": "scan.basicDataFormat__additionalFormatting",
+      "title": "Append Formatting",
+      "titleZh": "附加格式化",
+      "section": "Basic Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "SEND_LABEL_PREFIX_SUFFIX"
+    },
+    {
+      "oemPath": "basicDataFormat.prefix.prefixSpecialCharacters",
+      "probeId": "scan.basicDataFormat__prefix__prefixSpecialCharacters",
+      "title": "Prefix Special Characters",
+      "titleZh": "前缀 · 特殊字符",
+      "section": "Basic Data Format",
+      "displayType": "text",
+      "wedgeProperty": "LABEL_PREFIX"
+    },
+    {
+      "oemPath": "basicDataFormat.prefix.prefixCustomCharacters",
+      "probeId": "scan.basicDataFormat__prefix__prefixCustomCharacters",
+      "title": "Prefix Custom Characters",
+      "titleZh": "前缀 · 自定义字符",
+      "section": "Basic Data Format",
+      "displayType": "text",
+      "wedgeProperty": "LABEL_PREFIX"
+    },
+    {
+      "oemPath": "basicDataFormat.suffix.suffixSpecialCharacters",
+      "probeId": "scan.basicDataFormat__suffix__suffixSpecialCharacters",
+      "title": "Suffix Special Characters",
+      "titleZh": "后缀 · 特殊字符",
+      "section": "Basic Data Format",
+      "displayType": "text",
+      "wedgeProperty": "LABEL_SUFFIX"
+    },
+    {
+      "oemPath": "basicDataFormat.suffix.suffixCustomCharacters",
+      "probeId": "scan.basicDataFormat__suffix__suffixCustomCharacters",
+      "title": "Suffix Custom Characters",
+      "titleZh": "后缀 · 自定义字符",
+      "section": "Basic Data Format",
+      "displayType": "text",
+      "wedgeProperty": "LABEL_SUFFIX"
+    },
+    {
+      "oemPath": "basicDataFormat.format",
+      "probeId": "scan.basicDataFormat__format",
+      "title": "Formatting",
+      "titleZh": "格式化",
+      "section": "Basic Data Format",
+      "displayType": "text",
+      "wedgeProperty": "LABEL_MATCHER_PATTERN"
+    },
+    {
+      "oemPath": "basicDataFormat.replace.originalChar",
+      "probeId": "scan.basicDataFormat__replace__originalChar",
+      "title": "Replace Original Char",
+      "titleZh": "替换 · 原字符",
+      "section": "Basic Data Format",
+      "displayType": "text",
+      "wedgeProperty": "LABEL_MATCHER_TARGETREGEX"
+    },
+    {
+      "oemPath": "basicDataFormat.replace.replaceChar",
+      "probeId": "scan.basicDataFormat__replace__replaceChar",
+      "title": "Replace Char",
+      "titleZh": "替换 · 新字符",
+      "section": "Basic Data Format",
+      "displayType": "text",
+      "wedgeProperty": "LABEL_MATCHER_REPLACEMENT"
+    },
+    {
+      "oemPath": "basicDataFormat.removeNonPrintingControlCharacter",
+      "probeId": "scan.basicDataFormat__removeNonPrintingControlCharacter",
+      "title": "Remove Non-Printing Control Character",
+      "titleZh": "删除非打印控制字符",
+      "section": "Basic Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "REMOVE_NONPRINT_CHAR"
+    },
+    {
+      "oemPath": "basicDataFormat.convertCharacterCase",
+      "probeId": "scan.basicDataFormat__convertCharacterCase",
+      "title": "Convert Character Case",
+      "titleZh": "字符大小写转换",
+      "section": "Basic Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "CONVERT_CHARACTER_CASE"
+    },
+    {
+      "oemPath": "basicDataFormat.sendAsHex",
+      "probeId": "scan.basicDataFormat__sendAsHex",
+      "title": "Send as hex",
+      "titleZh": "十六进制发送",
+      "section": "Basic Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "OUTPUT_HEX_STRING_DATA"
+    },
+    {
+      "oemPath": "basicDataFormat.sendControlCharactersAsEvents",
+      "probeId": "scan.basicDataFormat__sendControlCharactersAsEvents",
+      "title": "Send Control Characters as Events",
+      "titleZh": "控制字符作为事件发送",
+      "section": "Basic Data Format",
+      "displayType": "toggle",
+      "wedgeProperty": "LABEL_APPEND_ENTER"
+    },
+    {
+      "oemPath": "barcodeSettings.code128",
+      "probeId": "scan.barcodeSettings__code128",
+      "title": "Code 128",
+      "titleZh": "Code 128",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "CODE128_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.code39",
+      "probeId": "scan.barcodeSettings__code39",
+      "title": "Code 39",
+      "titleZh": "Code 39",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "CODE39_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.EAN-13",
+      "probeId": "scan.barcodeSettings__EAN-13",
+      "title": "EAN-13",
+      "titleZh": "EAN-13",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "EAN13_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.EAN-8",
+      "probeId": "scan.barcodeSettings__EAN-8",
+      "title": "EAN-8",
+      "titleZh": "EAN-8",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "EAN8_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.interleaved2of5Step.interleaved2of5",
+      "probeId": "scan.barcodeSettings__interleaved2of5Step__interleaved2of5",
+      "title": "Interleaved 2 of 5",
+      "titleZh": "Interleaved 2 of 5",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "I25_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.interleaved2of5Step.interleaved2of5Length1",
+      "probeId": "scan.barcodeSettings__interleaved2of5Step__interleaved2of5Length1",
+      "title": "Interleaved 2 of 5 L1 Length",
+      "titleZh": "ITF · L1 长度",
+      "section": "Barcode settings",
+      "displayType": "text",
+      "wedgeProperty": "I25_LENGTH1"
+    },
+    {
+      "oemPath": "barcodeSettings.interleaved2of5Step.interleaved2of5Length2",
+      "probeId": "scan.barcodeSettings__interleaved2of5Step__interleaved2of5Length2",
+      "title": "Interleaved 2 of 5 L2 Length",
+      "titleZh": "ITF · L2 长度",
+      "section": "Barcode settings",
+      "displayType": "text",
+      "wedgeProperty": "I25_LENGTH2"
+    },
+    {
+      "oemPath": "barcodeSettings.interleaved2of5Step.interleaved2of5CheckDigit",
+      "probeId": "scan.barcodeSettings__interleaved2of5Step__interleaved2of5CheckDigit",
+      "title": "Interleaved 2 of 5 Check Digit",
+      "titleZh": "ITF · 校验位",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "I25_ENABLE_CHECK"
+    },
+    {
+      "oemPath": "barcodeSettings.interleaved2of5Step.interleaved2of5SendCheckDigit",
+      "probeId": "scan.barcodeSettings__interleaved2of5Step__interleaved2of5SendCheckDigit",
+      "title": "Interleaved 2 of 5 Send Check Digit",
+      "titleZh": "ITF · 发送校验位",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "I25_SEND_CHECK"
+    },
+    {
+      "oemPath": "barcodeSettings.interleaved2of5Step.interleaved2of5ReducedQuietZone",
+      "probeId": "scan.barcodeSettings__interleaved2of5Step__interleaved2of5ReducedQuietZone",
+      "title": "Interleaved 2 of 5 Reduced Quiet Zone",
+      "titleZh": "ITF · 缩减静区",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "I25_TO_EAN13"
+    },
+    {
+      "oemPath": "barcodeSettings.interleaved2of5Step.interleaved2of5SecurityLevel",
+      "probeId": "scan.barcodeSettings__interleaved2of5Step__interleaved2of5SecurityLevel",
+      "title": "Interleaved 2 of 5 Security Level",
+      "titleZh": "ITF · 安全级别",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "LINEAR_CODE_TYPE_SECURITY_LEVEL"
+    },
+    {
+      "oemPath": "barcodeSettings.interleaved2of5Step.interleaved2of5BoundaryCheck",
+      "probeId": "scan.barcodeSettings__interleaved2of5Step__interleaved2of5BoundaryCheck",
+      "title": "Interleaved 2 of 5 Boundary Check",
+      "titleZh": "ITF · 边界检查",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "LINEAR_CODE_TYPE_SECURITY_LEVEL"
+    },
+    {
+      "oemPath": "barcodeSettings.interleaved2of5Step.interleaved2of5ConvertToEan13",
+      "probeId": "scan.barcodeSettings__interleaved2of5Step__interleaved2of5ConvertToEan13",
+      "title": "Interleaved 2 of 5 Convert to EAN-13",
+      "titleZh": "ITF · 转 EAN-13",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "I25_TO_EAN13"
+    },
+    {
+      "oemPath": "barcodeSettings.gs1DataBarFamilyStep.GS1DataBarFamily",
+      "probeId": "scan.barcodeSettings__gs1DataBarFamilyStep__GS1DataBarFamily",
+      "title": "GS1 DataBar Family",
+      "titleZh": "GS1 DataBar 系列",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "GS1_14_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.gs1DataBarFamilyStep.gs1DataBarLimit",
+      "probeId": "scan.barcodeSettings__gs1DataBarFamilyStep__gs1DataBarLimit",
+      "title": "GS1 DataBar Limited",
+      "titleZh": "GS1 DataBar Limited",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "GS1_LIMIT_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.gs1DataBarFamilyStep.gs1DataBarExpanded",
+      "probeId": "scan.barcodeSettings__gs1DataBarFamilyStep__gs1DataBarExpanded",
+      "title": "GS1 DataBar Expanded",
+      "titleZh": "GS1 DataBar Expanded",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "GS1_EXP_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.gs1DataBarFamilyStep.gs1ExpandedLength1",
+      "probeId": "scan.barcodeSettings__gs1DataBarFamilyStep__gs1ExpandedLength1",
+      "title": "GS1 Expanded L1 Length",
+      "titleZh": "GS1 Expanded · L1 长度",
+      "section": "Barcode settings",
+      "displayType": "text",
+      "wedgeProperty": "GS1_EXP_LENGTH1"
+    },
+    {
+      "oemPath": "barcodeSettings.gs1DataBarFamilyStep.gs1ExpandedLength2",
+      "probeId": "scan.barcodeSettings__gs1DataBarFamilyStep__gs1ExpandedLength2",
+      "title": "GS1 Expanded L2 Length",
+      "titleZh": "GS1 Expanded · L2 长度",
+      "section": "Barcode settings",
+      "displayType": "text",
+      "wedgeProperty": "GS1_EXP_LENGTH2"
+    },
+    {
+      "oemPath": "barcodeSettings.UPC-A",
+      "probeId": "scan.barcodeSettings__UPC-A",
+      "title": "UPC-A",
+      "titleZh": "UPC-A",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "UPCA_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.UPC-E",
+      "probeId": "scan.barcodeSettings__UPC-E",
+      "title": "UPC-E",
+      "titleZh": "UPC-E",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "UPCE_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.UPC-E1",
+      "probeId": "scan.barcodeSettings__UPC-E1",
+      "title": "UPC-E1",
+      "titleZh": "UPC-E1",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "UPCE1_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.UPC/EANExtensions",
+      "probeId": "scan.barcodeSettings__UPC/EANExtensions",
+      "title": "UPC/EAN Extensions",
+      "titleZh": "UPC/EAN 扩展",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "EAN_EXT_ENABLE_2_5_DIGIT"
+    },
+    {
+      "oemPath": "barcodeSettings.codabar",
+      "probeId": "scan.barcodeSettings__codabar",
+      "title": "Codabar",
+      "titleZh": "Codabar",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "CODABAR_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.code11",
+      "probeId": "scan.barcodeSettings__code11",
+      "title": "Code 11",
+      "titleZh": "Code 11",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "CODE11_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.code93",
+      "probeId": "scan.barcodeSettings__code93",
+      "title": "Code 93",
+      "titleZh": "Code 93",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "CODE93_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.chinese25",
+      "probeId": "scan.barcodeSettings__chinese25",
+      "title": "Chinese 2 of 5",
+      "titleZh": "Chinese 2 of 5",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "C25_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.discrete2of5",
+      "probeId": "scan.barcodeSettings__discrete2of5",
+      "title": "Discrete 2 of 5",
+      "titleZh": "Discrete 2 of 5",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "D25_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.iata2of5",
+      "probeId": "scan.barcodeSettings__iata2of5",
+      "title": "IATA 2 of 5",
+      "titleZh": "IATA 2 of 5",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "IATA25_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2of5",
+      "probeId": "scan.barcodeSettings__matrix2of5",
+      "title": "Matrix 2 of 5",
+      "titleZh": "Matrix 2 of 5",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "M25_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.msi",
+      "probeId": "scan.barcodeSettings__msi",
+      "title": "MSI",
+      "titleZh": "MSI",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "MSI_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.telepen",
+      "probeId": "scan.barcodeSettings__telepen",
+      "title": "Telepen",
+      "titleZh": "Telepen",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "TELEPEN_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.stackedLinearSymbologiesStep.composite",
+      "probeId": "scan.barcodeSettings__stackedLinearSymbologiesStep__composite",
+      "title": "Composite",
+      "titleZh": "Composite",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "COMPOSITE_CC_AB_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.stackedLinearSymbologiesStep.PDF417",
+      "probeId": "scan.barcodeSettings__stackedLinearSymbologiesStep__PDF417",
+      "title": "PDF417",
+      "titleZh": "PDF417",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "PDF417_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.stackedLinearSymbologiesStep.microPDF417",
+      "probeId": "scan.barcodeSettings__stackedLinearSymbologiesStep__microPDF417",
+      "title": "MicroPDF417",
+      "titleZh": "MicroPDF417",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "MICROPDF417_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.datamatrix.datamatrixEnable",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__datamatrix__datamatrixEnable",
+      "title": "Data Matrix",
+      "titleZh": "Data Matrix 开关",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "DATAMATRIX_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.datamatrix.datamatrixInverse",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__datamatrix__datamatrixInverse",
+      "title": "Data Matrix Inverse",
+      "titleZh": "Data Matrix 反白",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "DATAMATRIX_INVERSE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.datamatrix.datamatrixSS",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__datamatrix__datamatrixSS",
+      "title": "Data Matrix SS",
+      "titleZh": "Data Matrix SS",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "DATAMATRIX_SYMBOL_SIZE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.QRCode.qrcodeEnable",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeEnable",
+      "title": "QR Code",
+      "titleZh": "QR Code 开关",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "QRCODE_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.QRCode.qrcodeInverse",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeInverse",
+      "title": "QR Code Inverse",
+      "titleZh": "QR Code 反白",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "QRCODE_INVERSE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.QRCode.qrcodeSS",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeSS",
+      "title": "QR Code SS",
+      "titleZh": "QR Code SS",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "QRCODE_SYMBOL_SIZE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.QRCode.qrcodeModules",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeModules",
+      "title": "QR Code Modules",
+      "titleZh": "QR Code 模块",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "QR_NON_SQUARE_MODULES"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.QRCode.qrcodeZones",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__QRCode__qrcodeZones",
+      "title": "QR Code Zones",
+      "titleZh": "QR Code 区域",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "QR_WITHOUT_QZ"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.microQRCode",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__microQRCode",
+      "title": "Micro QR Code",
+      "titleZh": "Micro QR Code",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "QRCODE_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.aztec",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__aztec",
+      "title": "Aztec",
+      "titleZh": "Aztec",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "AZTEC_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.dotCode",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__dotCode",
+      "title": "DotCode",
+      "titleZh": "DotCode",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "DOTCODE_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.gridMatrix",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__gridMatrix",
+      "title": "Grid Matrix",
+      "titleZh": "Grid Matrix",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "HANXIN_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.hanXin",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__hanXin",
+      "title": "Han Xin",
+      "titleZh": "Han Xin",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "HANXIN_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.matrix2dSymbologiesStep.maxiCode",
+      "probeId": "scan.barcodeSettings__matrix2dSymbologiesStep__maxiCode",
+      "title": "MaxiCode",
+      "titleZh": "MaxiCode",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "MAXICODE_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.othersSymbologyStep.postalCodes",
+      "probeId": "scan.barcodeSettings__othersSymbologyStep__postalCodes",
+      "title": "Postal Codes",
+      "titleZh": "邮政码",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "TRIOPTIC_ENABLE"
+    },
+    {
+      "oemPath": "barcodeSettings.othersSymbologyStep.DPMDecoding",
+      "probeId": "scan.barcodeSettings__othersSymbologyStep__DPMDecoding",
+      "title": "DPM Decoding",
+      "titleZh": "DPM 解码",
+      "section": "Barcode settings",
+      "displayType": "toggle",
+      "wedgeProperty": "DEC_2D_CENTERING_ENABLE"
+    },
+    {
+      "oemPath": "ocrScan.ocrDecodeMode",
+      "probeId": "scan.ocrScan__ocrDecodeMode",
+      "title": "OCR Decode Mode",
+      "titleZh": "OCR 解码模式",
+      "section": "OCR Scan",
+      "displayType": "enum",
+      "wedgeProperty": "DEC_OCR_MODE"
+    },
+    {
+      "oemPath": "ocrScan.ocrTemplate",
+      "probeId": "scan.ocrScan__ocrTemplate",
+      "title": "OCR Template",
+      "titleZh": "OCR 模板",
+      "section": "OCR Scan",
+      "displayType": "enum",
+      "wedgeProperty": "DEC_OCR_TEMPLATE"
+    },
+    {
+      "oemPath": "ocrScan.ocrFoundationTemplate.ocrTypefaceTemplate",
+      "probeId": "scan.ocrScan__ocrFoundationTemplate__ocrTypefaceTemplate",
+      "title": "OCR Typeface Template",
+      "titleZh": "OCR 字体模板",
+      "section": "OCR Scan",
+      "displayType": "toggle",
+      "wedgeProperty": null
+    },
+    {
+      "oemPath": "ocrScan.ocrFoundationTemplate.ocrCharacterType",
+      "probeId": "scan.ocrScan__ocrFoundationTemplate__ocrCharacterType",
+      "title": "OCR Character Type",
+      "titleZh": "OCR 字符类型",
+      "section": "OCR Scan",
+      "displayType": "toggle",
+      "wedgeProperty": null
+    },
+    {
+      "oemPath": "ocrScan.ocrFoundationTemplate.ocrBarcodeLength",
+      "probeId": "scan.ocrScan__ocrFoundationTemplate__ocrBarcodeLength",
+      "title": "OCR Barcode Length",
+      "titleZh": "OCR 条码长度",
+      "section": "OCR Scan",
+      "displayType": "enum",
+      "wedgeProperty": null
+    },
+    {
+      "oemPath": "ocrScan.ocrCustomTemplate",
+      "probeId": "scan.ocrScan__ocrCustomTemplate",
+      "title": "OCR Custom Template",
+      "titleZh": "OCR 自定义模板",
+      "section": "OCR Scan",
+      "displayType": "toggle",
+      "wedgeProperty": "DEC_OCR_USER_TEMPLATE"
+    },
+    {
+      "oemPath": "featureSet.interCharacterDelay",
+      "probeId": "scan.featureSet__interCharacterDelay",
+      "title": "Inter Character Delay",
+      "titleZh": "字符间延迟",
+      "section": "Feature Set",
+      "displayType": "text",
+      "wedgeProperty": "CHARACTER_DATA_DELAY"
+    },
+    {
+      "oemPath": "featureSet.enterKeyDelay",
+      "probeId": "scan.featureSet__enterKeyDelay",
+      "title": "Enter Key Delay",
+      "titleZh": "回车键延迟",
+      "section": "Feature Set",
+      "displayType": "text",
+      "wedgeProperty": "APPEND_ENTER_DELAY"
+    }
+  ]
+}

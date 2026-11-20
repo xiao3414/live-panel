@@ -97,6 +97,34 @@ public class UsdkIniReceiver extends BroadcastReceiver {
                 write(context, SecurityBridge.set(context, feature, value), reqId);
                 return;
             }
+            if ("scanDumpAll".equals(op)) {
+                write(context, ScanBridge.dumpAllProperties(context), reqId);
+                return;
+            }
+            if ("scanGetProperty".equals(op)) {
+                String property = intent.getStringExtra("property");
+                write(context, ScanBridge.getProperty(context, property), reqId);
+                return;
+            }
+            if ("scanSetProperty".equals(op)) {
+                String property = intent.getStringExtra("property");
+                String value = intent.getStringExtra("value");
+                write(context, ScanBridge.setProperty(context, property, value), reqId);
+                return;
+            }
+            if ("dockingDumpAll".equals(op)) {
+                write(context, DockingBridge.dumpAll(), reqId);
+                return;
+            }
+            if ("dockingGetField".equals(op)) {
+                String field = intent.getStringExtra("field");
+                write(context, DockingBridge.getField(field), reqId);
+                return;
+            }
+            if ("dockingApply".equals(op)) {
+                write(context, DockingBridge.apply(intent), reqId);
+                return;
+            }
 
             NetworkManagerEx nm = new NetworkManagerEx();
             DeviceManagerEx dmEx = new DeviceManagerEx();
